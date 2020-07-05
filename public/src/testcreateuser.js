@@ -3,18 +3,18 @@ var nameInput = document.getElementById('createNameInput')
 var emailInput = document.getElementById('createEmailInput')
 var passwordInput = document.getElementById('createPasswordInput')
 
-var testUser = {
-    name: nameInput.nodeValue,
-    email: emailInput.nodeValue,
-    password: passwordInput
-}
+
 
 createUserForm.addEventListener('submit', (e)=>{
     e.preventDefault()
+//    var userName= 
+//    var userEmail=
+//    var userPassword=
+   
     var testUser = {
-        name: nameInput.nodeValue,
-        email: emailInput.nodeValue,
-        password: passwordInput
+        name: nameInput.value,
+        email: emailInput.value,
+        password: passwordInput.value
     }
     console.log(testUser)
 })
