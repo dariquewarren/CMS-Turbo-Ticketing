@@ -20,10 +20,10 @@ app.engine( 'hbs', exphbs({extname:'.hbs' ,layoutsDir:
 viewsPath, partialsDir: partialsPath, defaultLayout: 'main'}));
 app.set('view engine','hbs')
 app.set('views', viewsPath)
-// express.static(publicDirectoryPath)
+express.static(publicDirectoryPath)
 
-// // SETUP STATIC DIRECTORY TO SERVE
-// app.use(express.static(publicDirectoryPath))
+// SETUP STATIC DIRECTORY TO SERVE
+app.use(express.static(publicDirectoryPath))
 
 
 
@@ -39,19 +39,19 @@ app.use(taskRouter)
 
 
 app.get('/',(req, res )=>{
-    res.render('main',{layout: 'main'})
+    res.render('index',{layout: 'index'})
 })
 
 app.get('/categories.html',(req, res )=>{
     // res.send('helloooooooooo')
     //  res.sendFile(viewsPath + '/categories.hbs' )
-     res.render('categories', {layout: 'categories'})
+     res.render('categories')
 })
 
 app.get('/details.html',(req, res )=>{
     // res.send('helloooooooooo')
     //  res.sendFile(viewsPath + '/main.hbs' )
-     res.render('details', {layout: 'details'})
+     res.render('main', {layout: 'details'})
 })
 
 app.get('/index.html',(req, res )=>{
