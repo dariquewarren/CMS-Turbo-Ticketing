@@ -49,7 +49,7 @@ res.status(200).send(user)
     
 })
 
-router.post('/users/login', async (req, res) => {
+router.get('/users/login', async (req, res) => {
     try {
         const user = await User.findByCredentials(req.body.email, req.body.password)
         const token = await user.generateAuthToken()
