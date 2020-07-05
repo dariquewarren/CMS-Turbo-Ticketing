@@ -30,11 +30,11 @@ GOAL: REFACTOR GET/TASKS
  */
 
 
-router.get('/tasks', auth, async (req,res)=>{
+router.get('/tasks', async (req,res)=>{
     
     try{
         
-const task = await Tasks.find({owner: req.user._id})
+const task = await Tasks.find({})
 if(!task){
 res.status(404).send()
         }
