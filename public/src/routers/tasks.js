@@ -9,7 +9,8 @@ router.post('/tasks', auth, async (req, res)=>{
     // const task = new Tasks(req.body)
    const task = new Tasks({
        ...req.body,
-       owner: req.user._id
+       owner: req.user._id,
+       ...Date("ddTHH:MM:ss")
     })
 
     try{

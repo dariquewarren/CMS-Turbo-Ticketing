@@ -5,19 +5,22 @@
       <div class="row">
         <div class="col-md-6">
           <h1>
-            <i class="fas fa-pencil-alt"></i> Posts</h1>
+            <i class="fas fa-pencil-alt"></i> tasks</h1>
         </div>
+        
       </div>
     </div>
   </header>
 
+
+{{!-- render tasks list --}}
   <!-- SEARCH -->
   <section id="search" class="py-4 mb-4 bg-light">
     <div class="container">
       <div class="row">
         <div class="col-md-6 ml-auto">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search Posts...">
+            <input type="text" class="form-control" placeholder="Search tasks...">
             <div class="input-group-append">
               <button class="btn btn-primary">Search</button>
             </div>
@@ -37,16 +40,59 @@
   
 </ul></div>
 
-  <!-- POSTS -->
-  <section id="posts">
+  <!-- tasks -->
+  <section id="tasks">
     <div class="container">
       <div class="row">
         <div class="col">
           <div class="card">
             <div class="card-header">
-              <h4>Latest Posts</h4>
+              <h4>Latest tasks</h4>
             </div>
-            <table class="table table-striped">
+<div class="card bg-warning">
+  <form id="categoryButton">
+    <button>BY CATEGORY</button>
+  </form>
+    
+    <form id="completeButton" class="card-body bg-success">
+      <button>COMPLETE</button>
+    </form>
+    <form id="incompleteButton" >
+      <button>NOT COMPLETE</button>
+    </form>
+    <form  id="createdButton">
+      <button>BY CREATED AT</button>
+    </form>
+    <form id="updatedButton">
+      <button>BY UPDATED AT</button>
+    </form>
+
+
+        </div>
+
+        <div id="tableDiv" class="bg-warning">
+
+ <table id="myTable" >
+   <tr>
+                  <th class="card-body">Category</th>
+                  <th class="card-body">description</th>
+                  <th class="card-body"> completed</th>
+                  <th class="card-body">Created At</th>
+                  <th class="card-body">Updated At</th>
+                </tr>
+   <tbody id="taskListBody" class="bg-success">
+
+   </tbody>
+              
+  
+</table>
+
+        </div>
+           
+<br>
+
+<button type="button" onclick="myFunction()">Try it</button>
+            {{!-- <table class="table table-striped">
               <thead class="thead-dark">
                 <tr>
                   <th>#</th>
@@ -70,68 +116,9 @@
                     </a>
                   </td>
                 </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Post Two</td>
-                  <td>Tech Gadgets</td>
-                  <td>May 11 2018</td>
-                  <td>BOdy goEs hERe</td>
-                  <td>
-                    <a href="details.html" class="btn btn-secondary">
-                      <i class="fas fa-angle-double-right"></i> Details
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Post Three</td>
-                  <td>Web Development</td>
-                  <td>May 13 2018</td>
-                  <td>BOdy goEs hERe</td>
-                  <td>
-                    <a href="details.html" class="btn btn-secondary">
-                      <i class="fas fa-angle-double-right"></i> Details
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>Post Four</td>
-                  <td>Business</td>
-                  <td>May 15 2018</td>
-                  <td>BOdy goEs hERe</td>
-                  <td>
-                    <a href="details.html" class="btn btn-secondary">
-                      <i class="fas fa-angle-double-right"></i> Details
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>Post Five</td>
-                  <td>Web Development</td>
-                  <td>May 17 2018</td>
-                  <td>BOdy goEs hERe</td>
-                  <td>
-                    <a href="details.html" class="btn btn-secondary">
-                      <i class="fas fa-angle-double-right"></i> Details
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td>Post Six</td>
-                  <td>Health & Wellness</td>
-                  <td>May 20 2018</td>
-                  <td>BOdy goEs hERe</td>
-                  <td>
-                    <a href="details.html" class="btn btn-secondary">
-                      <i class="fas fa-angle-double-right"></i> Details
-                    </a>
-                  </td>
-                </tr>
+                
               </tbody>
-            </table>
+            </table> --}}
 
             <!-- PAGINATION -->
             <nav class="ml-4">

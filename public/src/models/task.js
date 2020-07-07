@@ -24,6 +24,13 @@ const taskSchema = mongoose.Schema({
        default: false
        
        },
+       category: {
+           type: String,
+           required: true,
+           default: 'open'
+           
+           },
+
    owner: {
       type:  mongoose.Schema.Types.ObjectId,
       required: true,

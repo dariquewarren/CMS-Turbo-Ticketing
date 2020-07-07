@@ -1,31 +1,19 @@
 var loginForm = document.getElementById('testLoginForm')
-var emailInput = document.getElementById('emailInput')
-var password = document.getElementById('passwordInput')
 
-const messageOne = document.querySelector('#message-1')
-const messageTwo = document.querySelector('#message-2')
+
+var userEmail = document.getElementById('emailInput')
+var userpword = document.getElementById('passwordInput')
 
 loginForm.addEventListener('submit', (e)=>{
     e.preventDefault()
-   var userEmail = emailInput.value
- var userPassword = password.value
-// messageTwo.textContent = `..TRYING..TO..GET..WEATHER..`
+
+var email = emailInput.value
+var password = userpword.value
 
 
-
-
-fetch(`/users/login?${userEmail}?${userPassword}`).then((response)=> {
+fetch(`/users/login?email=${email}&password=${password}`).then((response)=> {
+    console.log(response)
     
-    
-    response.json().then((data)=>{
-       if(data.error) {
-       return    messageOne.textContent = `${data.error}`
-                      }
- console.log(data)
-//        messageOne.textContent = `${data.location}`
-//        messageTwo.textContent = `${data.forecast}`
-       
-        })
-    })  
-
+     
+})
 })
