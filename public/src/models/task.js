@@ -13,29 +13,28 @@ GOAL REFACTOR TASK MODEL TO ADD TIMESTAMPS
 */
 
 const taskSchema = mongoose.Schema({
-    description: {
-       type: String,
-       required: true,
-       trim: true
-    },
-   completed: {
-       type: Boolean,
-       required: true,
-       default: false
-       
-       },
-       category: {
-           type: String,
-           required: true,
-           default: 'open'
-           
-           },
-
-   owner: {
-      type:  mongoose.Schema.Types.ObjectId,
+   description: {
+      type: String,
+      required: false,
+      trim: true
+   },
+  completed: {
+      type: Boolean,
       required: true,
-      ref: 'User'
-   }
+      default: false
+      
+      },
+      category: {
+          type: String,
+          required: true,
+          default: 'open'
+          
+          },
+
+  owner: {
+     type:  mongoose.Schema.Types.ObjectId,
+     ref: 'User'
+  }
   
       
    },  {

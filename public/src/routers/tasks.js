@@ -5,13 +5,15 @@ const router = new express.Router()
 
 
 
-router.post('/tasks', auth, async (req, res)=>{
+router.post('/tasks', async (req, res)=>{
     // const task = new Tasks(req.body)
-   const task = new Tasks({
-       ...req.body,
-       owner: req.user._id,
-       ...Date("ddTHH:MM:ss")
-    })
+//    const task = new Tasks({
+//        ...req.body,
+//        owner: req.user._id
+//     })
+const task = new Tasks(
+    req.body
+ )
 
     try{
 await task.save()

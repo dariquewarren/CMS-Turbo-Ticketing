@@ -6,14 +6,22 @@ var userpword = document.getElementById('passwordInput')
 
 loginForm.addEventListener('submit', (e)=>{
     e.preventDefault()
+var data = {
+    email : emailInput.value,
+    password : userpword.value
+}
 
-var email = emailInput.value
-var password = userpword.value
 
 
-fetch(`/users/login?email=${email}&password=${password}`).then((response)=> {
-    console.log(response)
-    
-     
-})
+fetch(`/users/login`, {
+    method: 'POST', // or 'PUT'
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  }).then(response => response.json()).then(data => {
+    console.log('Success:', data);
+  }).catch((error) => {
+    console.error('Error:', error);
+  })
 })
