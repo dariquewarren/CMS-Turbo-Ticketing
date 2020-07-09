@@ -9,7 +9,17 @@ const express = require('express')
 require('./db/mongoose')
 const app = express()
 const port = process.env.PORT || 3000
-//DEFINE PATHS FOR EXPRESS CONFIG
+
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+
+app.use(cookieParser());
+app.use(session({
+    secret: 'keyboard cat',
+    resave: true,
+    saveUninitialized: true,
+    cookie: { secure: true }
+  }))//DEFINE PATHS FOR EXPRESS CONFIG
 
 const viewsPath = path.join(__dirname, '../templates/views')
 const partialsPath = path.join(__dirname, '../templates/partials')
@@ -40,10 +50,19 @@ app.use(taskRouter)
 
 
 
-
-app.get('/',(req, res )=>{
-    res.render('index',{layout: 'index'})
-})
+app.get('/', function(req, res){
+   
+    if(req.session.page_views){
+       req.session.page_views++;
+       res.send("You visited this page " + req.session.page_views + " times");
+    } else {
+       req.session.page_views = 1;
+       res.send("Welcome to this page for the first time!");
+    }
+ });
+// app.get('/',(req, res )=>{
+//     res.render('index',{layout: 'index'})
+// })
 
 app.get('/categories.html',(req, res )=>{
     // res.send('helloooooooooo')

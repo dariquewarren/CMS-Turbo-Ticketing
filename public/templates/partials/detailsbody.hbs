@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-md-6">
           <h1>
-            Post One</h1>
+            Update a task</h1>
         </div>
       </div>
     </div>
@@ -34,6 +34,23 @@
     </div>
   </section>
 
+
+<section id="search" class="py-4 mb-4 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 ml-auto">
+          <div class="input-group">
+            <form id="searchTaskForm">
+              <input type="text" id="searchTaskInput">
+              <button>Enter owner name to get id for task</button>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  
+
   <!-- DETAILS -->
   <section id="details">
     <div class="container">
@@ -41,24 +58,30 @@
         <div class="col">
           <div class="card">
             <div class="card-header">
-              <h4>Edit Post</h4>
+              <h4>Edit Task</h4>
+              <h6 id="taskID">Post ID</h6>
             </div>
             <div class="card-body">
               <div class="form-group">
                 <form class="card" id="createTaskForm">
-  <select class="card" name="selectCategoryButton" id="selectCategoryButton">
+  <select class="card-header" name="selectCategoryButton" id="selectCategoryButton">
   <option class="card" value="urgent">Urgent</option>
   <option class="card" value="semi-urgent">Semi-Urgent</option>
   <option class="card" value="short-term-goal">Short-Term Goal</option>
   <option class="card" value="long-term-goal">Long-Term Goal</option>
 </select>
+<label class="card-header" for="">OWNED BY</label>
+          <input class="card" type="text" id="ticketOwnerInput">
           <label class="card-header" for="">Completed</label>
           <input class="card" type="text" id="completedInput"> 
           <label class="card-header" for="">Description</label>
-          <input class="card" type="text" id="descriptionInput"> 
+          <input class="card" type="text" id="descriptionInput">
+          <label class="card-header" for="">Relevant Details</label>
+            <textarea name="detailsInput" id="detailsInput" cols="30" rows="10" class="card-header"></textarea>
           <br>
-         <button class="btn btn-primary">create task</button>
+         <button class="btn btn-primary">update task</button>
         </form>
+
               </div>
      </div>
           </div>
@@ -66,6 +89,19 @@
       </div>
     </div>
   </section>
+<table id="myTable" class="table table-striped bg-dark">
+   <tr class="bg-dark text-success">
+                  <th class="card-body">Category</th>
+                  <th class="card-body">description</th>
+                  <th class="card-body"> completed</th>
+                  <th class="card-body">Created At</th>
+                  <th class="card-body">Updated At</th>
+                </tr>
+   <tbody id="taskListBody">
 
+   </tbody>
+              
   
+</table>
+  <script src="src/testdetails.js"></script>
 </body>

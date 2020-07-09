@@ -6,6 +6,12 @@ const router = new express.Router()
 const hbs = require('express-handlebars')
 const app = express( )
 
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+
+app.use(cookieParser());
+app.use(session({secret: "Shh, its a secret!"}));
+
 
 
 app.engine( 'hbs', hbs( {
@@ -34,7 +40,7 @@ router.post('/users', async (req, res) => {
     }
 })
 
-router.get('/users', auth, async (req,res)=>{
+router.get('/users', async (req,res)=>{
     
     try{
         
@@ -54,6 +60,8 @@ router.post('/users/login', async (req, res) => {
         const user = await User.findByCredentials(req.body.email, req.body.password)
         const token = await user.generateAuthToken()
         res.send({ user, token })
+        req.session.user = user;
+        res.redirect('/index.html')
     } catch (e) {
         res.status(400).send()
     }

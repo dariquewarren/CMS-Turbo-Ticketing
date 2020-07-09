@@ -3,7 +3,27 @@
   <header id="main-header" class="py-2 bg-dark text-white">
     <div class="container bg-dark">
       <div class="row">
-        
+        <section id="actions" class="py-4 mb-4 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addPostModal">
+            <i class="fas fa-plus"></i> Add Tasks
+          </a>
+        </div>
+        <div class="col-md-3">
+          <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#addCategoryModal">
+            <i class="fas fa-plus"></i> Update Task
+          </a>
+        </div>
+        <div class="col-md-3">
+          <a href="#" class="btn btn-warning btn-block" data-toggle="modal" data-target="#addUserModal">
+            <i class="fas fa-plus"></i> Add User
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
         <div class="col-md-6">
           <h1>
             <h1 class="text-success">Sort Tasks By</h1>
@@ -28,7 +48,7 @@
     <form id="updatedButton" class="card-header bg-dark text-white">
       <button class="card-header bg-dark text-success">Recently updated</button>
     </form>
-    <form id="testForm" class="card-header bg-dark text-white">
+    <form id="allTicketsForm" class="card-header bg-dark text-white">
   <button class="card-header bg-dark text-success"> All Tickets</button>
 </form>
         </div>
@@ -40,7 +60,12 @@
     </div>
   </header>
 
-
+<div class="card">
+  <p id="taskIDOutput" class=" card-body bg-dark text-success">Copy this ID and use it to Edit this Task</p>
+  <p id="taskOwnerOutput" class="card-body bg-danger text-primary">TASK OWNER</p>
+  <p id="taskDescriptionOutput" class="card-body bg-dark text-primary">TASK DESCRIPTION</p>
+  <p id="taskDetailsOutput" class="card-header bg-danger text-warning text-center">ADDITIONAL TASK DETAILS</p>
+</div>
 
 
   <!-- tasks -->
@@ -68,33 +93,116 @@
               
   
 </table>
-<div class="bg-danger text-dark"> <h4>Create New Task Below</h4> </div>
+
         </div>
            
 
-
-
+  <summary><h4>Create New Task Below</h4></summary>
            {{!-- render tasks list --}}
-<form class="card" id="createTaskForm">
-  <select class="card-header" name="selectCategoryButton" id="selectCategoryButton">
+<form class="card" id="createTask">
+  <select class="card" name="selectCategoryButton" id="selectCategoryButton">
   <option class="card" value="urgent">Urgent</option>
   <option class="card" value="semi-urgent">Semi-Urgent</option>
   <option class="card" value="short-term-goal">Short-Term Goal</option>
   <option class="card" value="long-term-goal">Long-Term Goal</option>
 </select>
-          <label class="card-header" for="">Completed</label>
+<label class="card" for="">OWNED BY</label>
+          <input class="card" type="text" id="ticketOwnerInput">
+          <label class="card" for="">Completed</label>
           <input class="card" type="text" id="completedInput"> 
-          <label class="card-header" for="">Description</label>
-          <input class="card" type="text" id="descriptionInput"> 
+          <label class="card" for="">Description</label>
+          <input class="card" type="text" id="descriptionInput">
+          <label class="card-header" for="">Relevant Details</label>
+            <textarea name="detailsInput" id="detailsInput" cols="30" rows="10" class="card-header"></textarea>
           <br>
          <button class="btn btn-primary">create task</button>
         </form>
+
+
+ 
           </div>
         </div>
       </div>
     </div>
   </section>
+<!-- MODALS -->
 
+  <!-- ADD POST MODAL -->
+  <div class="modal fade" id="addPostModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title">Add Task</h5>
+          <form id="createTaskForm">
+          <input type="text" id="categoryInput">
+          <input type="button" value="Create" id="createTaskButton">
+        </form>
+        </div>
+        
+          {{!-- <form id="createTaskForm">
+            
+              <label for="title">Category</label>
+              <input type="text" class="form-control" id="categoryInput">
+               <label for="category">(type true or false) Completed</label>
+              <input type="text" class="form-control" id="completedInput"> 
+              <label for="body">Description</label>
+              <textarea name="editor1" class="form-control" id="descriptionInput"></textarea>
+          <button class="btn btn-primary">Save Changes</button>
+          
+            
+            
+           
+          </form> --}}
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD CATEGORY MODAL -->
+  <div class="modal fade" id="addCategoryModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title">Update Task</h5>
+          <button class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" class="form-control">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-success" data-dismiss="modal">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD USER MODAL -->
+  <div class="modal fade" id="addUserModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-warning text-white">
+          <h5 class="modal-title">Delete Task</h5>
+          <button class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="" id="deleteForm">
+            <input type="text" class="form-control" id="deleteIDInput">ID of Task. Please
+            <br>
+            
+<br>
+           
+            <button class="btn btn-warning">Create User</button>
+          </form>
   
  
 </body>
