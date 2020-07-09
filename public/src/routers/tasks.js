@@ -70,7 +70,7 @@ res.send(task)
 
 router.patch('/tasks/:id', auth, async (req, res)=>{
 const updates = Object.keys(req.body)
-const allowedUpdates = ['description', 'completed']
+const allowedUpdates = ['description', 'completed', 'category']
 const isValid = updates.every((update)=>{
     return allowedUpdates.includes(update)
 })
