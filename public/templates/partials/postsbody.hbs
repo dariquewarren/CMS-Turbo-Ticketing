@@ -1,0 +1,100 @@
+<body>
+      <!-- HEADER -->
+  <header id="main-header" class="py-2 bg-dark text-white">
+    <div class="container bg-dark">
+      <div class="row">
+        
+        <div class="col-md-6">
+          <h1>
+            <h1 class="text-success">Sort Tasks By</h1>
+        </div>
+        <div class="row">
+          
+          <select class="card-header bg-dark text-success"  name="categoryButton" id="categoryButton">
+  <option class="text-danger" value="urgent">Urgent</option>
+  <option class="text-warning" value="semi-urgent">Semi-Urgent</option>
+  <option class="text-info" value="short-term-goal">Short-Term Goal</option>
+  <option class="text-primary" value="long-term-goal">Long-Term Goal</option>
+</select> 
+<form id="completeButton" class="card-header bg-dark text-white">
+      <button class="card-header bg-dark text-success">COMPLETE</button>
+    </form>
+    <form id="incompleteButton" class="card-header bg-dark text-white">
+      <button class="card-header bg-dark text-success">NOT COMPLETE</button>
+    </form>
+    <form  id="createdButton" class="card-header bg-dark text-white">
+      <button class="card-header bg-dark text-success">Recently Created</button>
+    </form>
+    <form id="updatedButton" class="card-header bg-dark text-white">
+      <button class="card-header bg-dark text-success">Recently updated</button>
+    </form>
+    <form id="testForm" class="card-header bg-dark text-white">
+  <button class="card-header bg-dark text-success"> All Tickets</button>
+</form>
+        </div>
+ 
+  </div>
+      </div>
+      
+
+    </div>
+  </header>
+
+
+
+
+  <!-- tasks -->
+  <section id="tasks" class="py-4 mb-4 bg-light ">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            
+
+
+        <div id="tableDiv" class="bg-dark text-success">
+
+ <table id="myTable" class="table table-striped bg-dark">
+   <tr class="bg-dark text-success">
+                  <th class="card-body">Category</th>
+                  <th class="card-body">description</th>
+                  <th class="card-body"> completed</th>
+                  <th class="card-body">Created At</th>
+                  <th class="card-body">Updated At</th>
+                </tr>
+   <tbody id="taskListBody">
+
+   </tbody>
+              
+  
+</table>
+<div class="bg-danger text-dark"> <h4>Create New Task Below</h4> </div>
+        </div>
+           
+
+
+
+           {{!-- render tasks list --}}
+<form class="card" id="createTaskForm">
+  <select class="card-header" name="selectCategoryButton" id="selectCategoryButton">
+  <option class="card" value="urgent">Urgent</option>
+  <option class="card" value="semi-urgent">Semi-Urgent</option>
+  <option class="card" value="short-term-goal">Short-Term Goal</option>
+  <option class="card" value="long-term-goal">Long-Term Goal</option>
+</select>
+          <label class="card-header" for="">Completed</label>
+          <input class="card" type="text" id="completedInput"> 
+          <label class="card-header" for="">Description</label>
+          <input class="card" type="text" id="descriptionInput"> 
+          <br>
+         <button class="btn btn-primary">create task</button>
+        </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+ 
+</body>

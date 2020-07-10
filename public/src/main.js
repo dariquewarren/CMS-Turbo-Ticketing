@@ -10,9 +10,9 @@ require('./db/mongoose')
 const app = express()
 const port = process.env.PORT || 3000
 //DEFINE PATHS FOR EXPRESS CONFIG
-const publicDirectoryPath = path.join(__dirname, '../public')
-const viewsPath = path.join(publicDirectoryPath, '../views/layouts')
-const partialsPath = path.join(publicDirectoryPath, '../views/partials')
+
+const viewsPath = path.join(__dirname, '../templates/views')
+const partialsPath = path.join(__dirname, '../templates/partials')
 
 // SETS UP HANDLEBARS ENGINE AND VIEWS LOCATION
 
@@ -20,10 +20,10 @@ app.engine( 'hbs', exphbs({extname:'.hbs' ,layoutsDir:
 viewsPath, partialsDir: partialsPath, defaultLayout: 'main'}));
 app.set('view engine','hbs')
 app.set('views', viewsPath)
-// express.static(publicDirectoryPath)
+express.static(__dirname)
 
-// // SETUP STATIC DIRECTORY TO SERVE
-// app.use(express.static(publicDirectoryPath))
+// SETUP STATIC DIRECTORY TO SERVE
+app.use(express.static('public'))
 
 
 
@@ -38,20 +38,23 @@ app.use(taskRouter)
 
 
 
+
+
+
 app.get('/',(req, res )=>{
-    res.render('main',{layout: 'main'})
+    res.render('index',{layout: 'index'})
 })
 
 app.get('/categories.html',(req, res )=>{
     // res.send('helloooooooooo')
     //  res.sendFile(viewsPath + '/categories.hbs' )
-     res.render('categories', {layout: 'categories'})
+     res.render('categories')
 })
 
 app.get('/details.html',(req, res )=>{
     // res.send('helloooooooooo')
     //  res.sendFile(viewsPath + '/main.hbs' )
-     res.render('details', {layout: 'details'})
+     res.render('main', {layout: 'details'})
 })
 
 app.get('/index.html',(req, res )=>{

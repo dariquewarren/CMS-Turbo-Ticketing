@@ -5,12 +5,15 @@ const router = new express.Router()
 
 
 
-router.post('/tasks', auth, async (req, res)=>{
+router.post('/tasks', async (req, res)=>{
     // const task = new Tasks(req.body)
-   const task = new Tasks({
-       ...req.body,
-       owner: req.user._id
-    })
+//    const task = new Tasks({
+//        ...req.body,
+//        owner: req.user._id
+//     })
+const task = new Tasks(
+    req.body
+ )
 
     try{
 await task.save()
@@ -30,11 +33,11 @@ GOAL: REFACTOR GET/TASKS
  */
 
 
-router.get('/tasks', auth, async (req,res)=>{
+router.get('/tasks', async (req,res)=>{
     
     try{
         
-const task = await Tasks.find({owner: req.user._id})
+const task = await Tasks.find({})
 if(!task){
 res.status(404).send()
         }
