@@ -1,10 +1,10 @@
-var taskIDInput = document.getElementById('taskIDInput')
-var selectCategoryButton =document.getElementById('selectCategoryButton')
-var ticketOwnerInput = document.getElementById('ticketOwnerInput')
-var completedInput = document.getElementById('completedInput')
-var descriptionInput = document.getElementById('descriptionInput')
-var detailsInput = document.getElementById('detailsInput')
-var createTaskForm = document.getElementById('createTask')
+var taskIDDiv = document.getElementById('taskIDDiv')
+var categoryDiv =document.getElementById('categoryDiv')
+var ownerDiv = document.getElementById('ownerDiv')
+var completedDiv = document.getElementById('completedDiv')
+var descriptionDiv = document.getElementById('descriptionDiv')
+var detailsDiv = document.getElementById('detailsDiv')
+
 // var messageOne = document.getElementById('testParagraph')
 // var testDiv = document.getElementById('testDiv')
 // var testList = document.getElementById('testList')
@@ -68,12 +68,12 @@ var everyTask = ()=>{
                         console.log(data)
                         
 
-                        taskIDInput.innerHTML =`${data._id}`
-                        ticketOwnerInput.textContent = `${data.ticketOwner}`
-                        completedInput.innerHTML = `${data.completed}`
-                        descriptionInput.innerHTML = `${data.description}`
-                        detailsInput.innerHTML = `${data.details}`
-                        selectCategoryButton.focus()
+                        taskIDDiv.innerHTML =`${data._id}`
+                        ownerDiv.textContent = `${data.ticketOwner}`
+                        completedDiv.innerHTML = `${data.completed}`
+                        descriptionDiv.innerHTML = `${data.description}`
+                        detailsDiv.innerHTML = `${data.details}`
+                        
   
 //   taskIDOutput.innerHTML =`${data._id}`
 //   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
@@ -163,12 +163,13 @@ alert('delete succesful.Refresh to confirm')       })
                         console.log(data)
                         
 
-                        taskIDInput.innerHTML =`${data._id}`
-                        ticketOwnerInput.textContent = `${data.ticketOwner}`
-                        completedInput.innerHTML = `${data.completed}`
-                        descriptionInput.innerHTML = `${data.description}`
-                        detailsInput.innerHTML = `${data.details}`
-                        selectCategoryButton.focus()
+                        
+                        taskIDDiv.innerHTML =`${data._id}`
+                        ownerDiv.textContent = `${data.ticketOwner}`
+                        completedDiv.innerHTML = `${data.completed}`
+                        descriptionDiv.innerHTML = `${data.description}`
+                        detailsDiv.innerHTML = `${data.details}`
+                        categoryDiv.innerHTML = `${data.category}`
   
 //   taskIDOutput.innerHTML =`${data._id}`
 //   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
@@ -263,13 +264,13 @@ alert('delete succesful.Refresh to confirm')       })
                       response.json().then((data)=>{
                           console.log(data)
                           
-                          taskIDInput.innerHTML =`${data._id}`
-                        ticketOwnerInput.textContent = `${data.ticketOwner}`
-                        completedInput.innerHTML = `${data.completed}`
-                        descriptionInput.innerHTML = `${data.description}`
-                        detailsInput.innerHTML = `${data.details}`
-                        selectCategoryButton.focus()
-  
+                        taskIDDiv.innerHTML =`${data._id}`
+                        ownerDiv.textContent = `${data.ticketOwner}`
+                        completedDiv.innerHTML = `${data.completed}`
+                        descriptionDiv.innerHTML = `${data.description}`
+                        detailsDiv.innerHTML = `${data.details}`
+                        categoryDiv.innerHTML = `${data.category}`
+                        
 //   taskIDOutput.innerHTML =`${data._id}`
 //   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
 //   taskDescriptionOutput.innerHTML = `${data.description}`
@@ -361,13 +362,13 @@ var byUpdatedAt = () =>{
                           console.log(data)
                           
   
-                          taskIDInput.innerHTML =`${data._id}`
-                        ticketOwnerInput.textContent = `${data.ticketOwner}`
-                        completedInput.innerHTML = `${data.completed}`
-                        descriptionInput.innerHTML = `${data.description}`
-                        detailsInput.innerHTML = `${data.details}`
-                        selectCategoryButton.focus()
-  
+                          taskIDDiv.innerHTML =`${data._id}`
+                          ownerDiv.textContent = `${data.ticketOwner}`
+                          completedDiv.innerHTML = `${data.completed}`
+                          descriptionDiv.innerHTML = `${data.description}`
+                          detailsDiv.innerHTML = `${data.details}`
+                          categoryDiv.innerHTML = `${data.category}`
+                          
 //   taskIDOutput.innerHTML =`${data._id}`
 //   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
 //   taskDescriptionOutput.innerHTML = `${data.description}`
@@ -454,12 +455,13 @@ alert('delete succesful.Refresh to confirm')       })
                           console.log(data)
                           
   
-                          taskIDInput.innerHTML =`${data._id}`
-                          ticketOwnerInput.textContent = `${data.ticketOwner}`
-                          completedInput.innerHTML = `${data.completed}`
-                          descriptionInput.innerHTML = `${data.description}`
-                          detailsInput.innerHTML = `${data.details}`
-                          selectCategoryButton.focus()
+                          
+                        taskIDDiv.innerHTML =`${data._id}`
+                        ownerDiv.textContent = `${data.ticketOwner}`
+                        completedDiv.innerHTML = `${data.completed}`
+                        descriptionDiv.innerHTML = `${data.description}`
+                        detailsDiv.innerHTML = `${data.details}`
+                        categoryDiv.innerHTML = `${data.category}`
     
   //   taskIDOutput.innerHTML =`${data._id}`
   //   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
@@ -546,12 +548,13 @@ var incompleteTasksOnly = () =>{
                           console.log(data)
                           
   
-                          taskIDInput.innerHTML =`${data._id}`
-                          ticketOwnerInput.textContent = `${data.ticketOwner}`
-                          completedInput.innerHTML = `${data.completed}`
-                          descriptionInput.innerHTML = `${data.description}`
-                          detailsInput.innerHTML = `${data.details}`
-                          selectCategoryButton.focus()
+                          taskIDDiv.innerHTML =`${data._id}`
+                          ownerDiv.textContent = `${data.ticketOwner}`
+                          completedDiv.innerHTML = `${data.completed}`
+                          descriptionDiv.innerHTML = `${data.description}`
+                          detailsDiv.innerHTML = `${data.details}`
+                          categoryDiv.innerHTML = `${data.category}`
+                          
     
   //   taskIDOutput.innerHTML =`${data._id}`
   //   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
@@ -614,30 +617,7 @@ console.log('lolololo')
 getAllTasks()
 })
 
-createTaskForm.addEventListener('submit', (e)=>{
-    e.preventDefault()
-
-    var ddw = {
-ticketOwner: ticketOwnerInput.value,
-category: selectCategoryButton.value,
-description: descriptionInput.value,
-completed: completedInput.value,
-details: detailsInput.value
-    }
-    
-    fetch(`/tasks`,{
-        method: 'POST', // or 'PUT'
-        headers: {
-          'Content-Type': 'application/json',
-          },
-        body: JSON.stringify(ddw),
-      }).then(response => response.json()).then(data => {
-        console.log('Success:', data);
-      }).catch((error) => {
-        console.error('Error:', error);
-      })
-      
- })
 
 
+getAllTasks()
 //   delete button

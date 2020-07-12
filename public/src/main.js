@@ -50,17 +50,11 @@ app.use(taskRouter)
 
 
 
-app.get('/', function(req, res){
-   
-    if(req.session.page_views){
-       req.session.page_views++;
-       res.send("You visited this page " + req.session.page_views + " times");
-    } else {
-       req.session.page_views = 1;
-       res.send("Welcome to this page for the first time!");
-    }
- });
-// app.get('/',(req, res )=>{
+app.get('/',(req, res )=>{
+    // res.send('helloooooooooo')
+    //  res.sendFile(viewsPath + '/main.hbs' )
+     res.render('index', {layout: 'index'})
+})// app.get('/',(req, res )=>{
 //     res.render('index',{layout: 'index'})
 // })
 
