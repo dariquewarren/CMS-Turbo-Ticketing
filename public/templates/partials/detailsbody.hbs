@@ -1,96 +1,101 @@
 <body>
     <!-- HEADER -->
-  <header id="main-header" class="py-2 bg-primary text-white">
+  <header id="main-header" class="py-2 bg-primary text-white text-right">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
           <h1>
-            Update a task</h1>
+        GET TASK BY:</h1>
         </div>
       </div>
     </div>
-  </header>
+  
 
   <!-- ACTIONS -->
-  <section id="actions" class="py-4 mb-4 bg-light">
+  <section id="actions" class="py-4 mb-4 bg-dark text-right">
     <div class="container">
       <div class="row">
-        <div class="col-md-3">
-          <a href="index.html" class="btn btn-light btn-block">
-            <i class="fas fa-arrow-left"></i> Back To Dashboard
-          </a>
-        </div>
-        <div class="col-md-3">
-          <a href="index.html" class="btn btn-success btn-block">
-            <i class="fas fa-check"></i> Save Changes
-          </a>
-        </div>
-        <div class="col-md-3">
-          <a href="index.html" class="btn btn-danger btn-block">
-            <i class="fas fa-trash"></i> Delete Post
-          </a>
-        </div>
+        
+<form id="completeButton" class="card-header bg-dark text-white">
+      <button class="card-header bg-dark text-success">COMPLETE</button>
+    </form>
+    <form id="incompleteButton" class="card-header bg-dark text-white">
+      <button class="card-header bg-dark text-success">NOT COMPLETE</button>
+    </form>
+    <form  id="createdButton" class="card-header bg-dark text-white">
+    </form>
+    <form id="updatedButton" class="card-header bg-dark text-white">
+      <button class="card-header bg-dark text-success"> 
+        Recently updated</button>
+    </form>
+    <form id="allTicketsButton" class="card-header bg-dark text-white">
+  <button class="card-header bg-dark text-success"> All Tickets</button>
+</form>
+
       </div>
     </div>
-  </section>
+  </header> 
 
 
-<section id="search" class="py-4 mb-4 bg-light">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 ml-auto">
-          <div class="input-group">
-            <form id="searchTaskForm">
-              <input type="text" id="searchTaskInput">
-              <button>Enter owner name to get id for task</button>
-            </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>  
 
-  <!-- DETAILS -->
-  <section id="details">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="card">
+<details class="text-center bg-danger">
+    <summary> <h1>UPDATE SELECTED TASK</h1> <h6 id="taskIDOutput">Selected Ticket ID</h6>Click Here To Update Selected TIcket</summary>
+    
             <div class="card-header">
               <h4>Edit Task</h4>
-              <h6 id="taskID">Post ID</h6>
+              
             </div>
-            <div class="card-body">
-              <div class="form-group">
+           
                 <form class="card" id="createTaskForm">
+                  
+   <details>
+<summary>Task ID</summary>
+  <textarea name="taskIDOutput2" id="taskIDOutput2" cols="30" rows="2" class="card-header"></textarea>
+        
+          </details>
+
+
   <select class="card-header" name="selectCategoryButton" id="selectCategoryButton">
   <option class="card" value="urgent">Urgent</option>
   <option class="card" value="semi-urgent">Semi-Urgent</option>
   <option class="card" value="short-term-goal">Short-Term Goal</option>
   <option class="card" value="long-term-goal">Long-Term Goal</option>
 </select>
-<label class="card-header" for="">OWNED BY</label>
-          <input class="card" type="text" id="ticketOwnerInput">
-          <label class="card-header" for="">Completed</label>
-          <input class="card" type="text" id="completedInput"> 
-          <label class="card-header" for="">Description</label>
-          <input class="card" type="text" id="descriptionInput">
-          <label class="card-header" for="">Relevant Details</label>
-            <textarea name="detailsInput" id="detailsInput" cols="30" rows="10" class="card-header"></textarea>
-          <br>
-         <button class="btn btn-primary">update task</button>
+          
+          <details>
+<summary>Edit Owner</summary>
+  <textarea name="ticketOwnerInput" id="ticketOwnerInput" cols="30" rows="2" class="card-header"></textarea>
+        
+          </details>
+          <details>
+<summary>Edit Completed</summary>
+  <textarea name="completedInput" id="completedInput" cols="30" rows="2" class="card-header"></textarea>
+        
+          </details>
+          <details>
+<summary>Edit Description</summary>
+  <textarea name="descriptionInput" id="descriptionInput" cols="30" rows="2" class="card-header"></textarea>
+        
+          </details>
+          
+          <details class="card-body">
+<summary class="btn">Relevant Details</summary>
+            <textarea name="detailsInput" id="detailsInput" cols="30" rows="2" class="card-header"></textarea>
+        
+
+          </details>
+            <br>
+         <button class="btn btn-primary" id="updateTaskButton">update task</button>
         </form>
 
-              </div>
-     </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-<table id="myTable" class="table table-striped bg-dark">
-   <tr class="bg-dark text-success">
+            
+  
+  </details>
+
+
+        {{!-- table --}}
+       <table id="myTable" class="table table-striped bg-dark">
+   <tr class="bg-dark text-warning">
                   <th class="card-body">Category</th>
                   <th class="card-body">description</th>
                   <th class="card-body"> completed</th>
@@ -100,8 +105,22 @@
    <tbody id="taskListBody">
 
    </tbody>
-              
+   </table>
+    
+
+   
+   
+  </section>
+
+
   
-</table>
+
+
+
+  
+ 
+  <!-- DETAILS -->
+  
+
   <script src="src/testdetails.js"></script>
 </body>

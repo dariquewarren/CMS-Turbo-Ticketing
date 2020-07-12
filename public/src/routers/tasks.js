@@ -85,7 +85,7 @@ res.send(task)
 
 router.patch('/tasks/:id', async (req, res)=>{
 const updates = Object.keys(req.body)
-const allowedUpdates = ['details','description', 'ownedBy' ,'completed', 'category']
+const allowedUpdates = ['details','description', 'ticketOwner' ,'completed', 'category']
 
 
 
@@ -97,7 +97,7 @@ const isValid = updates.every((update)=>{
 
  }
     try{
-   const task = await Tasks.findById({_id:req.params.id}) 
+   const task = await Tasks.findByIdAndUpdate({_id:req.params.id}, req.body, {new:true}) 
 
 if(!task){
  return   res.status(404).send('NO TASK FOUND')
@@ -117,7 +117,7 @@ res.send(task)
 
 router.delete('/tasks/:id', async (req, res)=>{
     try{
-const task = await Tasks.findOneAndDelete({_id: req.params.id, owner: req.user._id})
+const task = await Tasks.findOneAndDelete({_id: req.params.id})
 if(!task){
   return  res.status(404).send()
 }
