@@ -445,20 +445,22 @@ var deleteForm = document.getElementById('deleteForm')
 
 
 var deleteTask = ()=>{
-    var ddw = {
-        id : taskIDInput.value
-    }
-  
-    fetch(`tasks/${ddw.id}`,{
-        method: 'delete'}).then((response)=>{
-        response.json().then((data)=>{
-            console.log(data)
-            return data
-        })
-    })
+    
 }
 
 deleteForm.addEventListener('submit', (e)=>{
     e.preventDefault()
-    deleteTask()
+    
+    
+    fetch(`tasks/${taskIDInput.value}`,{
+        method: 'DELETE', // or 'PUT'
+        headers: {
+          'Content-Type': 'application/json',
+          }
+     
+      }).then((response)=>{
+        response.json().then((data)=>{
+            console.log(data)
+        })
+    })
 })
