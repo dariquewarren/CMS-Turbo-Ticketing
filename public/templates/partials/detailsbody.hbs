@@ -3,9 +3,73 @@
   <header id="main-header" class="py-2 bg-dark text-success text-center">
 <div id="openDetails" class="card-header"></div>
 
-      <!-- ACTIONS -->
+<section id="actions" class="py-4 mb-4 bg-dark">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <a href="#" class="btn btn-secondary text-dark btn-block" data-toggle="modal" data-target="#addPostModal">
+            <i class="fas fa-plus"></i> UPDATE A TICKET
+          </a>
+        </div>
+  </section>
   
-    SORT TICKETS BY:
+  <!-- MODALS -->
+
+  <!-- ADD POST MODAL -->
+  <div class="modal fade" id="addPostModal">
+    
+      <div class="text-center bg-dark">
+
+  <h4 class="text-success">UPDATE A TICKET</h4>
+      <div class="card bg-primary">
+<form class="card" id="createTaskForm">
+<div id="taskIDOutput"></div>
+        
+  <select class="card" name="selectCategoryButton" id="selectCategoryButton">
+    <option value="category">/////SELECT CATEGORY\\\\\</option>
+  <option class="card" value="urgent">Urgent</option>
+  <option class="card" value="semi-urgent">Semi-Urgent</option>
+  <option class="card" value="short-term-goal">Short-Term Goal</option>
+  <option class="card" value="long-term-goal">Long-Term Goal</option>
+</select>
+
+              
+  <select name="ticketOwnerInput" id="ticketOwnerInput" class="card-header">
+    <option value="owner">/////SELECT OWNER\\\\\</option>
+    <option value="ddw">ddw</option>
+     <option value="damien">damien</option>
+     <option value="intern">intern</option>
+     <option value="manager">manager</option>
+      
+  </select>
+  
+  <select name="completedInput" id="completedInput" class="card-header">
+    <option value="completed">/////COMPLETION STATUS\\\\\</option>
+    <option value="true">true</option>
+     <option value="false">false</option>
+      
+  </select>
+        <textarea name="descriptionInput" id="descriptionInput" placeholder="DESCRIPTION GOES HERE" cols="30" rows="2" class="card-header"></textarea>
+
+            <textarea name="detailsInput" id="detailsInput" placeholder="DETAILS GO HERE" cols="30" rows="2" class="card-header"></textarea>
+        
+
+          
+         <button class="btn btn-dark text-warning" >UPDATE TICKET</button>
+        
+         
+        </form>
+ 
+           </div>
+ 
+    </div>
+    <span class="modal-dialog modal-lg">
+      <button class="card-header bg-danger text-dark" data-toggle="modal" data-target="#addPostModal">
+        CLOSE</button>
+         </span>
+  </div>
+  <h5 class="bg-dark">SORT TICKETS BY</h5>
+  
        <div class="row">
        <form id="completeButton" class="card-header bg-dark text-white">
       <button class="card-header bg-dark text-success">COMPLETE</button>
@@ -51,68 +115,6 @@
 
       </div>
      </header> 
-
-<details class="text-center bg-dark">
-    <summary class="text-success"> Click Here To Update Ticket Details<h6 class="text-success" id="taskIDOutput"></h6></summary>
-    
-            <div class="card-header">
-              <h4>Edit Task</h4>
-              
-            </div>
-           
-                <form class="card" id="createTaskForm">
-                  
-   <details>
-<summary>Task ID</summary>
-  <textarea name="taskIDOutput2" id="taskIDOutput2" cols="30" rows="2" class="card-header"></textarea>
-        
-          </details>
-
-
-  <select class="card-header" name="selectCategoryButton" id="selectCategoryButton">
-  <option class="card" value="urgent">Urgent</option>
-  <option class="card" value="semi-urgent">Semi-Urgent</option>
-  <option class="card" value="short-term-goal">Short-Term Goal</option>
-  <option class="card" value="long-term-goal">Long-Term Goal</option>
-</select>
-                    <details>
-<summary>Edit Owner</summary>
-  <select name="ticketOwnerInput" id="ticketOwnerInput" class="card-header">
-    <option value="true">ddw</option>
-     <option value="false">damien</option>
-     <option value="true">Intern</option>
-     <option value="false">Manager</option>
-      
-  </select>
-  </details>
-          <details>
-<summary>Edit Completed</summary>
-  <select name="completedInput" id="completedInput" class="card-header">
-    <option value="true">true</option>
-     <option value="false">false</option>
-      
-  </select>
-        
-          </details>
-          <details>
-<summary>Edit Description</summary>
-  <textarea name="descriptionInput" id="descriptionInput" cols="30" rows="2" class="card-header"></textarea>
-        
-          </details>
-          
-          <details class="card-body">
-<summary class="btn">Relevant Details</summary>
-            <textarea name="detailsInput" id="detailsInput" cols="30" rows="2" class="card-header"></textarea>
-        
-
-          </details>
-            <br>
-         <button class="btn btn-primary" id="updateTaskButton">update task</button>
-        </form>
-
-            
-  
-  </details>
 
 
 

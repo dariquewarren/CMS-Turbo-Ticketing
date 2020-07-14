@@ -140,11 +140,7 @@ var everyTask = ()=>{
                         listItem.innerHtml = `ID: ${data.id}<<>>OWNER: ${data.ticketOwner}<<<br>>>DESCRIPTION: ${data.description}<<>>DETAILS: ${data.details}`
                         openListDiv.append(list)
 
-                        taskIDInput.innerHTML =`${data._id}`
-                        ticketOwnerInput.textContent = `${data.ticketOwner}`
-                        completedInput.innerHTML = `${data.completed}`
-                        descriptionInput.innerHTML = `${data.description}`
-                        detailsInput.innerHTML = `${data.details}`
+                     
                         focusOnCreate.focus()
   
 
@@ -235,19 +231,7 @@ alert('delete succesful.Refresh to confirm')       })
                         
                         openListDiv.innerHTML = `ID: ${data._id}OWNER: ${data.ticketOwner}DESCRIPTION: ${data.description}DETAILS: ${data.details}`
                         
-
-                        taskIDInput.innerHTML =`${data._id}`
-                        ticketOwnerInput.textContent = `${data.ticketOwner}`
-                        completedInput.innerHTML = `${data.completed}`
-                        descriptionInput.innerHTML = `${data.description}`
-                        detailsInput.innerHTML = `${data.details}`
                         focusOnCreate.focus()
-  
-//   taskIDOutput.innerHTML =`${data._id}`
-//   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
-//   taskDescriptionOutput.innerHTML = `${data.description}`
-//   taskDetailsOutput.innerHTML = `${data.details}`
-//   taskIDOutput.focus()
 
                     })
                 })
@@ -340,18 +324,7 @@ alert('delete succesful.Refresh to confirm')       })
                           
                         openListDiv.innerHTML = `ID: ${data._id}OWNER: ${data.ticketOwner}DESCRIPTION: ${data.description}DETAILS: ${data.details}`
                         
-                          
-                          taskIDInput.innerHTML =`${data._id}`
-                        ticketOwnerInput.textContent = `${data.ticketOwner}`
-                        completedInput.innerHTML = `${data.completed}`
-                        descriptionInput.innerHTML = `${data.description}`
-                        detailsInput.innerHTML = `${data.details}`
                         focusOnCreate.focus()
-//   taskIDOutput.innerHTML =`${data._id}`
-//   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
-//   taskDescriptionOutput.innerHTML = `${data.description}`
-//   taskDetailsOutput.innerHTML = `${data.details}`
-//   taskIDOutput.focus()
   
                       })
                   })
@@ -444,18 +417,8 @@ var byUpdatedAt = () =>{
                         openListDiv.innerHTML = `ID: ${data._id}OWNER: ${data.ticketOwner}DESCRIPTION: ${data.description}DETAILS: ${data.details}`
                         
   
-                          taskIDInput.innerHTML =`${data._id}`
-                        ticketOwnerInput.textContent = `${data.ticketOwner}`
-                        completedInput.innerHTML = `${data.completed}`
-                        descriptionInput.innerHTML = `${data.description}`
-                        detailsInput.innerHTML = `${data.details}`
+                         
                         focusOnCreate.focus()
-//   taskIDOutput.innerHTML =`${data._id}`
-//   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
-//   taskDescriptionOutput.innerHTML = `${data.description}`
-//   taskDetailsOutput.innerHTML = `${data.details}`
-//   taskIDOutput.focus()
-  
                       })
                   })
                   })
@@ -544,18 +507,9 @@ alert('delete succesful.Refresh to confirm')       })
                         openListDiv.innerHTML = `ID: ${data._id}OWNER: ${data.ticketOwner}DESCRIPTION: ${data.description}DETAILS: ${data.details}`
                         
 
-                          taskIDInput.innerHTML =`${data._id}`
-                          ticketOwnerInput.textContent = `${data.ticketOwner}`
-                          completedInput.innerHTML = `${data.completed}`
-                          descriptionInput.innerHTML = `${data.description}`
-                          detailsInput.innerHTML = `${data.details}`
+                          
                           focusOnCreate.focus()
     
-  //   taskIDOutput.innerHTML =`${data._id}`
-  //   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
-  //   taskDescriptionOutput.innerHTML = `${data.description}`
-  //   taskDetailsOutput.innerHTML = `${data.details}`
-  //   taskIDOutput.focus()
   
                       })
                   })
@@ -644,20 +598,9 @@ var incompleteTasksOnly = () =>{
                           
                         openListDiv.innerHTML = `ID: ${data._id}OWNER: ${data.ticketOwner}DESCRIPTION: ${data.description}DETAILS: ${data.details}`
                         
-                          
-  
-                          taskIDInput.innerHTML =`${data._id}`
-                          ticketOwnerInput.textContent = `${data.ticketOwner}`
-                          completedInput.innerHTML = `${data.completed}`
-                          descriptionInput.innerHTML = `${data.description}`
-                          detailsInput.innerHTML = `${data.details}`
                           focusOnCreate.focus()
     
-  //   taskIDOutput.innerHTML =`${data._id}`
-  //   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
-  //   taskDescriptionOutput.innerHTML = `${data.description}`
-  //   taskDetailsOutput.innerHTML = `${data.details}`
-  //   taskIDOutput.focus()
+
                       })
                   })
                   })

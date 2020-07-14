@@ -80,6 +80,7 @@ var descriptionInput = document.getElementById('descriptionInput')
 var detailsInput = document.getElementById('detailsInput')
 var ticketOwnerInput = document.getElementById('ticketOwnerInput')
 var updateTaskButton = document.getElementById('updateTaskButton')
+var taskIDOutput = document.getElementById('taskIDOutput')
 
 
 
@@ -130,7 +131,7 @@ var byCreatedAt = () =>{
 
                 var idButton = document.createElement('button')
 
-                idButton.innerText = 'TICKET DETAILS'
+                idButton.innerText = 'Get Task Details'
                 idButton.setAttribute('type', 'button')
                 idButton.setAttribute('class', 'card bg-success text-white')
   
@@ -149,9 +150,6 @@ var byCreatedAt = () =>{
                         
   
   taskIDOutput.innerHTML =`${data._id}`
-  taskIDOutput2.innerHTML =`${data._id}`
-  ticketOwnerInput.textContent = `${data.ticketOwner}`
-  completedInput.innerHTML = `${data.completed}`
   descriptionInput.innerHTML = `${data.description}`
   detailsInput.innerHTML = `${data.details}`
   focusOnCreate.focus()
@@ -248,13 +246,11 @@ alert('delete succesful.Refresh to confirm')       })
   
                           openListDiv.innerHTML = `ID: ${data._id}OWNER: ${data.ticketOwner}DESCRIPTION: ${data.description}DETAILS: ${data.details}`
   
-  taskIDOutput.innerHTML =`${data._id}`
-  taskIDOutput2.innerHTML =`${data._id}`
-  ticketOwnerInput.textContent = `${data.ticketOwner}`
-  completedInput.innerHTML = `${data.completed}`
-  descriptionInput.innerHTML = `${data.description}`
-  detailsInput.innerHTML = `${data.details}`
-  focusOnCreate.focus()
+                          taskIDOutput.innerHTML =`${data._id}`
+                          descriptionInput.innerHTML = `${data.description}`
+                          detailsInput.innerHTML = `${data.details}`
+                          focusOnCreate.focus()
+                          
   
                       })
                   })
@@ -343,10 +339,8 @@ var completeTasksOnly = () =>{
   
                           openListDiv.innerHTML = `ID: ${data._id}OWNER: ${data.ticketOwner}DESCRIPTION: ${data.description}DETAILS: ${data.details}`
                         
+                         
                           taskIDOutput.innerHTML =`${data._id}`
-                          taskIDOutput2.innerHTML =`${data._id}`
-                          ticketOwnerInput.textContent = `${data.ticketOwner}`
-                          completedInput.innerHTML = `${data.completed}`
                           descriptionInput.innerHTML = `${data.description}`
                           detailsInput.innerHTML = `${data.details}`
                           focusOnCreate.focus()
@@ -434,13 +428,11 @@ var incompleteTasksOnly = () =>{
   
                         openListDiv.innerHTML = `ID: ${data._id}OWNER: ${data.ticketOwner}DESCRIPTION: ${data.description}DETAILS: ${data.details}`
                         
-                          taskIDOutput.innerHTML =`${data._id}`
-                          taskIDOutput2.innerHTML =`${data._id}`
-                          ticketOwnerInput.textContent = `${data.ticketOwner}`
-                          completedInput.innerHTML = `${data.completed}`
-                          descriptionInput.innerHTML = `${data.description}`
-                          detailsInput.innerHTML = `${data.details}`
-                          focusOnCreate.focus()
+                        taskIDOutput.innerHTML =`${data._id}`
+                        descriptionInput.innerHTML = `${data.description}`
+                        detailsInput.innerHTML = `${data.details}`
+                        focusOnCreate.focus()
+                        
                           
                       })
                   })
@@ -526,13 +518,11 @@ alert('delete succesful.Refresh to confirm')       })
   
                         openListDiv.innerHTML = `ID: ${data._id}OWNER: ${data.ticketOwner}DESCRIPTION: ${data.description}DETAILS: ${data.details}`
                         
-                        taskIDOutput.innerHTML =`${data._id}`
-                        taskIDOutput2.innerHTML =`${data._id}`
-                        ticketOwnerInput.textContent = `${data.ticketOwner}`
-                        completedInput.innerHTML = `${data.completed}`
-                        descriptionInput.innerHTML = `${data.description}`
-                        detailsInput.innerHTML = `${data.details}`
-                        focusOnCreate.focus()
+taskIDOutput.innerHTML =`${data._id}`
+descriptionInput.innerHTML = `${data.description}`
+detailsInput.innerHTML = `${data.details}`
+focusOnCreate.focus()
+  
                         
                     })
                 })
@@ -601,7 +591,7 @@ router.patch('/tasks/:id')
 
 ['details','description', 'ownedBy' ,'completed', 'category']
 */
-var taskID = taskIDOutput2.value
+
 var taskUpdate = {
     category: selectCategoryButton.value,
     completed: completedInput.value,
@@ -610,9 +600,9 @@ var taskUpdate = {
     details: detailsInput.value
 }
 console.log(taskUpdate)
-console.log(taskID)
 
-fetch(`/tasks/${taskID}`, {
+
+fetch(`/tasks/${taskIDOutput.innerHTML}`, {
     method: 'PATCH', // or 'PUT'
     headers: {
       'Content-Type': 'application/json',
