@@ -38,6 +38,7 @@ var everyTask = ()=>{
 
               deleteButton.innerText = 'DELETE TICKET'
               deleteButton.setAttribute('type', 'button')
+              deleteButton.setAttribute('class','card bg-danger text-warning')
               deleteButton.addEventListener('click', (e)=>{
                   e.preventDefault()
                   fetch(`tasks/${element._id}`,{
@@ -54,7 +55,7 @@ var everyTask = ()=>{
               })
 
               var idButton = document.createElement('button')
-              idButton.innerText = 'Get Task Details'
+              idButton.innerText = 'TICKET DETAILS'
               idButton.setAttribute('type', 'button')
 
               idButton.addEventListener('click', (e)=>{
@@ -68,11 +69,10 @@ var everyTask = ()=>{
                         console.log(data)
                         
 
-                        taskIDDiv.innerHTML =`${data._id}`
-                        ownerDiv.textContent = `${data.ticketOwner}`
-                        completedDiv.innerHTML = `${data.completed}`
-                        descriptionDiv.innerHTML = `${data.description}`
-                        detailsDiv.innerHTML = `${data.details}`
+                        taskIDDiv.innerHTML =`TICKET ID: ${data._id}`
+                        ownerDiv.textContent = `OWNER: ${data.ticketOwner}`
+                        descriptionDiv.innerHTML = `DESCRIPTION: ${data.description}`
+                        detailsDiv.innerHTML = `TICKET DETAILS: ${data.details}`
                         
   
 //   taskIDOutput.innerHTML =`${data._id}`
@@ -132,6 +132,7 @@ var getAllTasks = ()=>{
 
               deleteButton.innerText = 'DELETE TICKET'
               deleteButton.setAttribute('type', 'button')
+              deleteButton.setAttribute('class', 'card bg-danger text-warning')
               deleteButton.addEventListener('click', (e)=>{
                   e.preventDefault()
                   fetch(`tasks/${element._id}`,{
@@ -149,8 +150,9 @@ alert('delete succesful.Refresh to confirm')       })
               })
 
               var idButton = document.createElement('button')
-              idButton.innerText = 'Get Task Details'
+              idButton.innerText = 'TICKET DETAILS'
               idButton.setAttribute('type', 'button')
+              idButton.setAttribute('class', 'card bg-success text-white')
 
               idButton.addEventListener('click', (e)=>{
                   e.preventDefault()
@@ -164,12 +166,12 @@ alert('delete succesful.Refresh to confirm')       })
                         
 
                         
-                        taskIDDiv.innerHTML =`${data._id}`
-                        ownerDiv.textContent = `${data.ticketOwner}`
-                        completedDiv.innerHTML = `${data.completed}`
-                        descriptionDiv.innerHTML = `${data.description}`
-                        detailsDiv.innerHTML = `${data.details}`
-                        categoryDiv.innerHTML = `${data.category}`
+                        taskIDDiv.innerHTML =`TICKET ID: ${data._id}`
+                        ownerDiv.textContent = `OWNER: ${data.ticketOwner}`
+                        
+                        descriptionDiv.innerHTML = `DESCRIPTION: ${data.description}`
+                        detailsDiv.innerHTML = `TICKET DETAILS: ${data.details}`
+                       
   
 //   taskIDOutput.innerHTML =`${data._id}`
 //   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
@@ -217,7 +219,7 @@ var byCreatedAt = () =>{
          if(data.error){
                 alert(data.error)
             }
-            const tasks = data.sort((a, b) => a.createdAt - b.createdAt)
+            const tasks = data.sort((a, b) => b.createdAt - a.createdAt)
             console.log(tasks)
             var trueTasks = []
             tasks.forEach((e)=>{
@@ -233,6 +235,7 @@ var byCreatedAt = () =>{
 
               deleteButton.innerText = 'DELETE TICKET'
               deleteButton.setAttribute('type', 'button')
+              deleteButton.setAttribute('class', 'card bg-danger text-warning')
               deleteButton.addEventListener('click', (e)=>{
                   e.preventDefault()
                   fetch(`tasks/${element._id}`,{
@@ -251,8 +254,9 @@ alert('delete succesful.Refresh to confirm')       })
                 
                 var idButton = document.createElement('button')
 
-                idButton.innerText = 'Get Task Details'
+                idButton.innerText = 'TICKET DETAILS'
                 idButton.setAttribute('type', 'button')
+                idButton.setAttribute('class', 'card bg-success text-white')
   
                 idButton.addEventListener('click', (e)=>{
                     e.preventDefault()
@@ -264,14 +268,11 @@ alert('delete succesful.Refresh to confirm')       })
                       response.json().then((data)=>{
                           console.log(data)
                           
-                        taskIDDiv.innerHTML =`${data._id}`
-                        ownerDiv.textContent = `${data.ticketOwner}`
-                        completedDiv.innerHTML = `${data.completed}`
-                        descriptionDiv.innerHTML = `${data.description}`
-                        detailsDiv.innerHTML = `${data.details}`
-                        categoryDiv.innerHTML = `${data.category}`
-                        
-//   taskIDOutput.innerHTML =`${data._id}`
+                          taskIDDiv.innerHTML =`TICKET ID: ${data._id}`
+                          ownerDiv.textContent = `OWNER: ${data.ticketOwner}`
+                          descriptionDiv.innerHTML = `DESCRIPTION: ${data.description}`
+                          detailsDiv.innerHTML = `TICKET DETAILS: ${data.details}`
+                         rHTML =`${data._id}`
 //   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
 //   taskDescriptionOutput.innerHTML = `${data.description}`
 //   taskDetailsOutput.innerHTML = `${data.details}`
@@ -292,6 +293,7 @@ alert('delete succesful.Refresh to confirm')       })
                 var cell5 = row.insertCell(4)
                 var cell6 = row.insertCell(5)
                 var cell7 = row.insertCell(6)
+                var cell8 = row.insertCell(7)
                 cell1.innerHTML = `${element.category}`;
                 cell2.innerHTML = `${element.description}`
                 cell3.innerHTML= `${element.completed}`
@@ -299,6 +301,7 @@ alert('delete succesful.Refresh to confirm')       })
                 cell5.innerHTML= `${element.updatedAt}`
                 cell6.innerHTML= `${element.ticketOwner}`
                 cell7.appendChild(idButton)
+                cell8.appendChild(deleteButton)
            });
 
 
@@ -316,7 +319,7 @@ var byUpdatedAt = () =>{
                 alert(data.error)
             }
 
-            const tasks = data.sort((a, b) => a.updatedAt - b.updatedAt)
+            const tasks = data.sort((a, b) => b.updatedAt - a.updatedAt)
             console.log(tasks)
             var trueTasks = []
             tasks.forEach((e)=>{
@@ -333,6 +336,7 @@ var byUpdatedAt = () =>{
 
                 deleteButton.innerText = 'DELETE TICKET'
                 deleteButton.setAttribute('type', 'button')
+                deleteButton.setAttribute('class', 'card bg-danger text-warning')
                 deleteButton.addEventListener('click', (e)=>{
                     e.preventDefault()
                     fetch(`tasks/${element._id}`,{
@@ -351,8 +355,9 @@ var byUpdatedAt = () =>{
 
                 var idButton = document.createElement('button')
 
-                idButton.innerText = 'Get Task Details'
+                idButton.innerText = 'TICKET DETAILS'
                 idButton.setAttribute('type', 'button')
+                idButton.setAttribute('class', 'card bg-success text-white')
   
                 idButton.addEventListener('click', (e)=>{
                     e.preventDefault()
@@ -362,13 +367,11 @@ var byUpdatedAt = () =>{
                           console.log(data)
                           
   
-                          taskIDDiv.innerHTML =`${data._id}`
-                          ownerDiv.textContent = `${data.ticketOwner}`
-                          completedDiv.innerHTML = `${data.completed}`
-                          descriptionDiv.innerHTML = `${data.description}`
-                          detailsDiv.innerHTML = `${data.details}`
-                          categoryDiv.innerHTML = `${data.category}`
-                          
+                          taskIDDiv.innerHTML =`TICKET ID: ${data._id}`
+                          ownerDiv.textContent = `OWNER: ${data.ticketOwner}`
+                          descriptionDiv.innerHTML = `DESCRIPTION: ${data.description}`
+                          detailsDiv.innerHTML = `TICKET DETAILS: ${data.details}`
+                           
 //   taskIDOutput.innerHTML =`${data._id}`
 //   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
 //   taskDescriptionOutput.innerHTML = `${data.description}`
@@ -391,6 +394,7 @@ var byUpdatedAt = () =>{
                 var cell5 = row.insertCell(4)
                 var cell6 = row.insertCell(5)
                 var cell7 = row.insertCell(6)
+                var cell8 = row.insertCell(7)
                 cell1.innerHTML = `${element.category}`;
                 cell2.innerHTML = `${element.description}`
                 cell3.innerHTML= `${element.completed}`
@@ -398,6 +402,7 @@ var byUpdatedAt = () =>{
                 cell5.innerHTML= `${element.updatedAt}`
                 cell6.innerHTML= `${element.ticketOwner}`
                 cell7.appendChild(idButton)
+                cell8.appendChild(deleteButton)
            });
         })
     })
@@ -426,6 +431,7 @@ var completeTasksOnly = () =>{
 
               deleteButton.innerText = 'DELETE TICKET'
               deleteButton.setAttribute('type', 'button')
+              deleteButton.setAttribute('class', 'card bg-danger text-warning')
               deleteButton.addEventListener('click', (e)=>{
                   e.preventDefault()
                   fetch(`tasks/${element._id}`,{
@@ -444,8 +450,9 @@ alert('delete succesful.Refresh to confirm')       })
 
                 var idButton = document.createElement('button')
 
-                idButton.innerText = 'Get Task Details'
+                idButton.innerText = 'TICKET DETAILS'
                 idButton.setAttribute('type', 'button')
+                idButton.setAttribute('class', 'card bg-success text-white')
   
                 idButton.addEventListener('click', (e)=>{
                     e.preventDefault()
@@ -456,13 +463,11 @@ alert('delete succesful.Refresh to confirm')       })
                           
   
                           
-                        taskIDDiv.innerHTML =`${data._id}`
-                        ownerDiv.textContent = `${data.ticketOwner}`
-                        completedDiv.innerHTML = `${data.completed}`
-                        descriptionDiv.innerHTML = `${data.description}`
-                        detailsDiv.innerHTML = `${data.details}`
-                        categoryDiv.innerHTML = `${data.category}`
-    
+                          taskIDDiv.innerHTML =`TICKET ID: ${data._id}`
+                          ownerDiv.textContent = `OWNER: ${data.ticketOwner}`
+                          descriptionDiv.innerHTML = `DESCRIPTION: ${data.description}`
+                          detailsDiv.innerHTML = `TICKET DETAILS: ${data.details}`
+                         
   //   taskIDOutput.innerHTML =`${data._id}`
   //   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
   //   taskDescriptionOutput.innerHTML = `${data.description}`
@@ -484,6 +489,7 @@ alert('delete succesful.Refresh to confirm')       })
                 var cell5 = row.insertCell(4)
                 var cell6 = row.insertCell(5)
                 var cell7 = row.insertCell(6)
+                var cell8 = row.insertCell(7)
                 cell1.innerHTML = `${element.category}`;
                 cell2.innerHTML = `${element.description}`
                 cell3.innerHTML= `${element.completed}`
@@ -491,6 +497,7 @@ alert('delete succesful.Refresh to confirm')       })
                 cell5.innerHTML= `${element.updatedAt}`
                 cell6.innerHTML= `${element.ticketOwner}`
                 cell7.appendChild(idButton)
+                cell8.appendChild(deleteButton)
              });
         })
     })
@@ -521,6 +528,7 @@ var incompleteTasksOnly = () =>{
 
                 deleteButton.innerText = 'DELETE TICKET'
                 deleteButton.setAttribute('type', 'button')
+                deleteButton.setAttribute('class', 'card bg-danger text-warning')
                 deleteButton.addEventListener('click', (e)=>{
                     e.preventDefault()
                     fetch(`tasks/${element._id}`,{
@@ -537,8 +545,9 @@ var incompleteTasksOnly = () =>{
                   
                 })
 
-                idButton.innerText = 'Get Task Details'
+                idButton.innerText = 'TICKET DETAILS'
                 idButton.setAttribute('type', 'button')
+                idButton.setAttribute('class', 'card bg-success text-white')
   
                 idButton.addEventListener('click', (e)=>{
                     e.preventDefault()
@@ -548,13 +557,12 @@ var incompleteTasksOnly = () =>{
                           console.log(data)
                           
   
-                          taskIDDiv.innerHTML =`${data._id}`
-                          ownerDiv.textContent = `${data.ticketOwner}`
-                          completedDiv.innerHTML = `${data.completed}`
-                          descriptionDiv.innerHTML = `${data.description}`
-                          detailsDiv.innerHTML = `${data.details}`
-                          categoryDiv.innerHTML = `${data.category}`
+                          taskIDDiv.innerHTML =`TICKET ID: ${data._id}`
+                          ownerDiv.textContent = `OWNER: ${data.ticketOwner}`
                           
+                          descriptionDiv.innerHTML = `DESCRIPTION: ${data.description}`
+                          detailsDiv.innerHTML = `TICKET DETAILS: ${data.details}`
+                            
     
   //   taskIDOutput.innerHTML =`${data._id}`
   //   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
@@ -576,6 +584,7 @@ var incompleteTasksOnly = () =>{
                var cell5 = row.insertCell(4)
                var cell6 = row.insertCell(5)
                  var cell7 = row.insertCell(6)
+                 var cell8 = row.insertCell(7)
                 cell1.innerHTML = `${element.category}`;
                 cell2.innerHTML = `${element.description}`
                 cell3.innerHTML= `${element.completed}`
@@ -583,6 +592,7 @@ var incompleteTasksOnly = () =>{
                 cell5.innerHTML= `${element.updatedAt}`
                 cell6.innerHTML= `${element.ticketOwner}`
                 cell7.appendChild(idButton)
+                cell8.appendChild(deleteButton)
                 });
         })
     })

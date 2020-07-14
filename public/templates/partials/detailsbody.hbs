@@ -1,45 +1,59 @@
 <body>
     <!-- HEADER -->
-  <header id="main-header" class="py-2 bg-primary text-white text-right">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h1>
-        GET TASK BY:</h1>
-        </div>
-      </div>
-    </div>
-  
+  <header id="main-header" class="py-2 bg-dark text-success text-center">
+<div id="openDetails" class="card-header"></div>
 
-  <!-- ACTIONS -->
-  <section id="actions" class="py-4 mb-4 bg-dark text-right">
-    <div class="container">
-      <div class="row">
-        
-<form id="completeButton" class="card-header bg-dark text-white">
+      <!-- ACTIONS -->
+  
+    SORT TICKETS BY:
+       <div class="row">
+       <form id="completeButton" class="card-header bg-dark text-white">
       <button class="card-header bg-dark text-success">COMPLETE</button>
     </form>
     <form id="incompleteButton" class="card-header bg-dark text-white">
       <button class="card-header bg-dark text-success">NOT COMPLETE</button>
     </form>
-    <form  id="createdButton" class="card-header bg-dark text-white">
+    
+
+<form  id="createdButton" class="card-header bg-dark text-white">
+      <button class="card-header bg-dark text-success">Recently updated</button>
     </form>
     <form id="updatedButton" class="card-header bg-dark text-white">
-      <button class="card-header bg-dark text-success"> 
-        Recently updated</button>
+      <button class="card-header bg-dark text-success">Recently updated</button>
     </form>
+    
+    
     <form id="allTicketsButton" class="card-header bg-dark text-white">
   <button class="card-header bg-dark text-success"> All Tickets</button>
 </form>
+  <form action="" class="bg-dark w-50 p-3 " id="openTicketForm">
+   <select name="searchOwner" id="searchOwner" class="card-header bg-success">
+    <option value="ddw">ddw</option>
+     <option value="damien">damien</option>
+     <option value="Intern">Intern</option>
+     <option value="Manager">Manager</option>
+      
+  </select>
+  
+  <button>Open Tickets By Owner</button>
+</form>
+<form action="" class="bg-dark w-50 p-3 " id="closedTicketForm">
+   <select name="searchOwner2" id="searchOwner2" class="card-header bg-success">
+    <option value="ddw">ddw</option>
+     <option value="damien">damien</option>
+     <option value="Intern">Intern</option>
+     <option value="Manager">Manager</option>
+      
+  </select>
+
+  <button>Closed Tickets By Owner</button>
+</form>   
 
       </div>
-    </div>
-  </header> 
+     </header> 
 
-
-
-<details class="text-center bg-danger">
-    <summary> <h1>UPDATE SELECTED TASK</h1> <h6 id="taskIDOutput">Selected Ticket ID</h6>Click Here To Update Selected TIcket</summary>
+<details class="text-center bg-dark">
+    <summary class="text-success"> Click Here To Update Ticket Details<h6 class="text-success" id="taskIDOutput"></h6></summary>
     
             <div class="card-header">
               <h4>Edit Task</h4>
@@ -61,15 +75,23 @@
   <option class="card" value="short-term-goal">Short-Term Goal</option>
   <option class="card" value="long-term-goal">Long-Term Goal</option>
 </select>
-          
-          <details>
+                    <details>
 <summary>Edit Owner</summary>
-  <textarea name="ticketOwnerInput" id="ticketOwnerInput" cols="30" rows="2" class="card-header"></textarea>
-        
-          </details>
+  <select name="ticketOwnerInput" id="ticketOwnerInput" class="card-header">
+    <option value="true">ddw</option>
+     <option value="false">damien</option>
+     <option value="true">Intern</option>
+     <option value="false">Manager</option>
+      
+  </select>
+  </details>
           <details>
 <summary>Edit Completed</summary>
-  <textarea name="completedInput" id="completedInput" cols="30" rows="2" class="card-header"></textarea>
+  <select name="completedInput" id="completedInput" class="card-header">
+    <option value="true">true</option>
+     <option value="false">false</option>
+      
+  </select>
         
           </details>
           <details>
@@ -93,9 +115,11 @@
   </details>
 
 
+
         {{!-- table --}}
+        <div id="tableDiv" class="bg-dark text-success">
        <table id="myTable" class="table table-striped bg-dark">
-   <tr class="bg-dark text-warning">
+   <tr class="bg-dark text-success">
                   <th class="card-body">Category</th>
                   <th class="card-body">description</th>
                   <th class="card-body"> completed</th>
@@ -106,7 +130,7 @@
 
    </tbody>
    </table>
-    
+    </div>
 
    
    

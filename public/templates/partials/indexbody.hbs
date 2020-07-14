@@ -1,14 +1,18 @@
 <body>
     <!-- HEADER -->
-  <header id="main-header" class="row py-2 bg-dark text-white">
-    
-    <div class="max-height: 10% card-body text-warning">CLICK DETAILS BUTTON TO VIEW TICKET</div>
-  <div class="max-height: card-body 10% text-warning" id="taskIDDiv">TICKET ID</div>
-          <div class="max-height: 10% card-body text-primary" id="categoryDiv">CATEGORY</div>
+  <header id="main-header" class=" py-2 bg-dark text-white text-center">
+    <div>
+      <div class="max-height: 10% card-body text-warning">CLICK DETAILS BUTTON TO VIEW TICKET</div>
+    </div>
+    <div class="row">
+<div class="max-height: card-body 10% text-success" id="taskIDDiv">TICKET ID</div>
+        
           <div class="max-height: 10% card-body text-primary" id="ownerDiv">OWNER</div>
-          <div class="max-height: 10% card-body text-primary" id="completedDiv">COMPLETED</div>
+         
           <div class="max-height: 10% card-body text-primary" id="descriptionDiv">DESCRIPTION</div>
           <div class="max-height: 10% card-body text-primary" id="detailsDiv">DETAILS</div>
+  
+    </div>
   
 
   </header>
@@ -51,10 +55,11 @@
  <table id="myTable" class="table table-striped bg-dark">
    <tr class="bg-dark text-success">
                   <th class="card-body">Category</th>
-                  <th class="card-body">description</th>
-                  <th class="card-body"> completed</th>
+                  <th class="card-body">Description</th>
+                  <th class="card-body">Completed</th>
                   <th class="card-body">Created At</th>
                   <th class="card-body">Updated At</th>
+                  <th class="card-body">OWNER</th>
                 </tr>
    <tbody id="taskListBody">
 
