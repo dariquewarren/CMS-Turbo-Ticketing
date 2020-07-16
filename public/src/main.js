@@ -8,18 +8,9 @@ const exphbs = require('express-handlebars')
 const express = require('express')
 require('./db/mongoose')
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.port || 3000
 
-var cookieParser = require('cookie-parser');
-var session = require('express-session');
-
-app.use(cookieParser());
-app.use(session({
-    secret: 'keyboard cat',
-    resave: true,
-    saveUninitialized: true,
-    cookie: { secure: true }
-  }))//DEFINE PATHS FOR EXPRESS CONFIG
+//DEFINE PATHS FOR EXPRESS CONFIG
 
 const viewsPath = path.join(__dirname, '../templates/views')
 const partialsPath = path.join(__dirname, '../templates/partials')
