@@ -32,13 +32,14 @@ var ddw = {
             var list = document.createElement('ol')
             var listItem = document.createElement('li')
             listItem.setAttribute('class','card bg-dark text-warning')
-            listItem.innerHTML = `OPEN TICKET FOR----${element.ticketOwner}----${element.details}--------`
+            listItem.innerHTML = `OPEN TICKET FOR----${element.ticketOwner}<br> DETAILS: ${element.details} DESCRIPTION ${element.description}`
             list.appendChild(listItem)
             openListDiv.appendChild(list) 
         })
       }).catch((error) => {
         console.error('Error:', error);
       })
+      focusOnCreate.focus()
 })
 
 closedTicketForm.addEventListener('submit', (e)=>{
@@ -62,13 +63,14 @@ var ddw = {
             var listItem = document.createElement('li')
             listItem.setAttribute('class','card bg-dark text-primary')
 
-            listItem.innerHTML = `CLOSED TICKET FOR----${element.ticketOwner}----${element.details}--------`
+            listItem.innerHTML = `CLOSED TICKET FOR----${element.ticketOwner}<br> DETAILS: ${element.details} DESCRIPTION ${element.description}`
             list.appendChild(listItem)
             openListDiv.appendChild(list) 
         })
       }).catch((error) => {
         console.error('Error:', error);
       })
+      focusOnCreate.focus()
 })
 
 
@@ -131,10 +133,9 @@ var byCreatedAt = () =>{
 
                 var idButton = document.createElement('button')
 
-                idButton.innerText = 'Get Task Details'
+                idButton.innerText = 'TICKET DETAILS'
                 idButton.setAttribute('type', 'button')
                 idButton.setAttribute('class', 'card bg-success text-white')
-  
                 idButton.addEventListener('click', (e)=>{
                     e.preventDefault()
   
@@ -146,7 +147,7 @@ var byCreatedAt = () =>{
                           console.log(data)
                           
   
-                          openListDiv.innerHTML = `ID: ${data._id}OWNER: ${data.ticketOwner}DESCRIPTION: ${data.description}DETAILS: ${data.details}`
+                          openListDiv.innerHTML = `ID: ${data._id} <br>CREATED BY: ${data.ticketOwner} <br> TITLE: ${data.details}<br> DESCRIPTION: ${data.description}`
                         
   
   taskIDOutput.innerHTML =`${data._id}`
@@ -160,25 +161,26 @@ var byCreatedAt = () =>{
 
                 table.classList.add('table','table-striped')
                 var row = table.insertRow(0);
-                row.classList.add('card-body')
+                row.classList.add('card-header')
+    
                 var cell1 = row.insertCell(0);
-                cell1.classList.add('card')
-                var cell2 = row.insertCell(1);
+                cell1.setAttribute('class', 'card-body')
+                var cell2 = row.insertCell(1)
+                cell2.setAttribute('class', 'card-body')
                 var cell3 = row.insertCell(2)
+                cell3.setAttribute('class', 'card-body')
                 var cell4 = row.insertCell(3);
+                cell4.setAttribute('class', 'card-body')
                 var cell5 = row.insertCell(4)
+                cell5.setAttribute('class', 'card-body')
                 var cell6 = row.insertCell(5)
-                var cell7 = row.insertCell(6)
-                var cell8 = row.insertCell(7)
-                cell1.innerHTML = `${element.category}`;
-                cell2.innerHTML = `${element.description}`
-                cell3.innerHTML= `${element.completed}`
-                cell4.innerHTML = `${element.createdAt}`
-                cell5.innerHTML= `${element.updatedAt}`
-                cell6.innerHTML= `${element.ticketOwner}`
-                cell7.appendChild(idButton)
-                cell8.appendChild(deleteButton)
-           });
+                cell6.setAttribute('class', 'card-body')
+                cell1.innerHTML= `${element.ticketOwner}`
+                cell2.innerHTML = `${element.category}`;
+                cell3.innerHTML = `${element.details}`
+                cell4.innerHTML= `${element.completed}`
+                cell5.appendChild(idButton)
+                cell6.appendChild(deleteButton)           });
 
 
 
@@ -241,11 +243,9 @@ alert('delete succesful.Refresh to confirm')       })
                    console.log(id)
                   fetch(`/tasks/${id}`).then((response)=>{
                       response.json().then((data)=>{
-                          console.log(data)
-                          
-  
-                          openListDiv.innerHTML = `ID: ${data._id}OWNER: ${data.ticketOwner}DESCRIPTION: ${data.description}DETAILS: ${data.details}`
-  
+                          console.log(data)                           
+                        openListDiv.innerHTML = `ID: ${data._id} <br>CREATED BY: ${data.ticketOwner} <br> TITLE: ${data.details}<br> DESCRIPTION: ${data.description}`
+                        
                           taskIDOutput.innerHTML =`${data._id}`
                           descriptionInput.innerHTML = `${data.description}`
                           detailsInput.innerHTML = `${data.details}`
@@ -258,24 +258,26 @@ alert('delete succesful.Refresh to confirm')       })
 
                 table.classList.add('table','table-striped')
                 var row = table.insertRow(0);
-                row.classList.add('card-body')
+                row.classList.add('card-header')
+    
                 var cell1 = row.insertCell(0);
-                cell1.classList.add('card')
-                var cell2 = row.insertCell(1);
+                cell1.setAttribute('class', 'card-body')
+                var cell2 = row.insertCell(1)
+                cell2.setAttribute('class', 'card-body')
                 var cell3 = row.insertCell(2)
+                cell3.setAttribute('class', 'card-body')
                 var cell4 = row.insertCell(3);
+                cell4.setAttribute('class', 'card-body')
                 var cell5 = row.insertCell(4)
+                cell5.setAttribute('class', 'card-body')
                 var cell6 = row.insertCell(5)
-                var cell7 = row.insertCell(6)
-                var cell8 = row.insertCell(7)
-                cell1.innerHTML = `${element.category}`;
-                cell2.innerHTML = `${element.description}`
-                cell3.innerHTML= `${element.completed}`
-                cell4.innerHTML = `${element.createdAt}`
-                cell5.innerHTML= `${element.updatedAt}`
-                cell6.innerHTML= `${element.ticketOwner}`
-                cell7.appendChild(idButton)
-                cell8.appendChild(deleteButton)
+                cell6.setAttribute('class', 'card-body')
+                cell1.innerHTML= `${element.ticketOwner}`
+                cell2.innerHTML = `${element.category}`;
+                cell3.innerHTML = `${element.details}`
+                cell4.innerHTML= `${element.completed}`
+                cell5.appendChild(idButton)
+                cell6.appendChild(deleteButton)
            });
 
 
@@ -335,11 +337,8 @@ var completeTasksOnly = () =>{
                   fetch(`/tasks/${id}`).then((response)=>{
                       response.json().then((data)=>{
                           console.log(data)
-                          
-  
-                          openListDiv.innerHTML = `ID: ${data._id}OWNER: ${data.ticketOwner}DESCRIPTION: ${data.description}DETAILS: ${data.details}`
+                          openListDiv.innerHTML = `ID: ${data._id} <br>CREATED BY: ${data.ticketOwner} <br> TITLE: ${data.details}<br> DESCRIPTION: ${data.description}`
                         
-                         
                           taskIDOutput.innerHTML =`${data._id}`
                           descriptionInput.innerHTML = `${data.description}`
                           detailsInput.innerHTML = `${data.details}`
@@ -351,25 +350,27 @@ var completeTasksOnly = () =>{
 
                 table.classList.add('table','table-striped')
                 var row = table.insertRow(0);
-                row.classList.add('card-body')
+                row.classList.add('card-header')
+    
                 var cell1 = row.insertCell(0);
-                cell1.classList.add('card')
-                var cell2 = row.insertCell(1);
+                cell1.setAttribute('class', 'card-body')
+                var cell2 = row.insertCell(1)
+                cell2.setAttribute('class', 'card-body')
                 var cell3 = row.insertCell(2)
+                cell3.setAttribute('class', 'card-body')
                 var cell4 = row.insertCell(3);
+                cell4.setAttribute('class', 'card-body')
                 var cell5 = row.insertCell(4)
+                cell5.setAttribute('class', 'card-body')
                 var cell6 = row.insertCell(5)
-                var cell7 = row.insertCell(6)
-                var cell8 = row.insertCell(7)
-                cell1.innerHTML = `${element.category}`;
-                cell2.innerHTML = `${element.description}`
-                cell3.innerHTML= `${element.completed}`
-                cell4.innerHTML = `${element.createdAt}`
-                cell5.innerHTML= `${element.updatedAt}`
-                cell6.innerHTML= `${element.ticketOwner}`
-                cell7.appendChild(idButton)
-                cell8.appendChild(deleteButton)
-             });
+                cell6.setAttribute('class', 'card-body')
+                cell1.innerHTML= `${element.ticketOwner}`
+                cell2.innerHTML = `${element.category}`;
+                cell3.innerHTML = `${element.details}`
+                cell4.innerHTML= `${element.completed}`
+                cell5.appendChild(idButton)
+                cell6.appendChild(deleteButton)
+           });
         })
     })
 }
@@ -423,10 +424,7 @@ var incompleteTasksOnly = () =>{
                     var id = element._id
                   fetch(`/tasks/${id}`).then((response)=>{
                       response.json().then((data)=>{
-                          
-                          
-  
-                        openListDiv.innerHTML = `ID: ${data._id}OWNER: ${data.ticketOwner}DESCRIPTION: ${data.description}DETAILS: ${data.details}`
+                        openListDiv.innerHTML = `ID: ${data._id} <br>CREATED BY: ${data.ticketOwner} <br> TITLE: ${data.details}<br> DESCRIPTION: ${data.description}`
                         
                         taskIDOutput.innerHTML =`${data._id}`
                         descriptionInput.innerHTML = `${data.description}`
@@ -440,25 +438,27 @@ var incompleteTasksOnly = () =>{
 
                table.classList.add('table','table-striped')
                var row = table.insertRow(0);
-               row.classList.add('card-body')
+               row.classList.add('card-header')
+   
                var cell1 = row.insertCell(0);
-               cell1.classList.add('card')
-               var cell2 = row.insertCell(1);
+               cell1.setAttribute('class', 'card-body')
+               var cell2 = row.insertCell(1)
+               cell2.setAttribute('class', 'card-body')
                var cell3 = row.insertCell(2)
+               cell3.setAttribute('class', 'card-body')
                var cell4 = row.insertCell(3);
+               cell4.setAttribute('class', 'card-body')
                var cell5 = row.insertCell(4)
+               cell5.setAttribute('class', 'card-body')
                var cell6 = row.insertCell(5)
-                 var cell7 = row.insertCell(6)
-                 var cell8 = row.insertCell(7)
-                cell1.innerHTML = `${element.category}`;
-                cell2.innerHTML = `${element.description}`
-                cell3.innerHTML= `${element.completed}`
-                cell4.innerHTML = `${element.createdAt}`
-                cell5.innerHTML= `${element.updatedAt}`
-                cell6.innerHTML= `${element.ticketOwner}`
-                cell7.appendChild(idButton)
-                cell8.appendChild(deleteButton)
-                });
+               cell6.setAttribute('class', 'card-body')
+               cell1.innerHTML= `${element.ticketOwner}`
+               cell2.innerHTML = `${element.category}`;
+               cell3.innerHTML = `${element.details}`
+               cell4.innerHTML= `${element.completed}`
+               cell5.appendChild(idButton)
+               cell6.appendChild(deleteButton)
+               });
         })
     })
 }
@@ -515,9 +515,8 @@ alert('delete succesful.Refresh to confirm')       })
                     response.json().then((data)=>{
                         console.log(data)
                         
-  
-                        openListDiv.innerHTML = `ID: ${data._id}OWNER: ${data.ticketOwner}DESCRIPTION: ${data.description}DETAILS: ${data.details}`
-                        
+                        openListDiv.innerHTML = `ID: ${data._id} <br>CREATED BY: ${data.ticketOwner} <br> TITLE: ${data.details}<br> DESCRIPTION: ${data.description}`
+                                             
 taskIDOutput.innerHTML =`${data._id}`
 descriptionInput.innerHTML = `${data.description}`
 detailsInput.innerHTML = `${data.details}`
@@ -530,26 +529,27 @@ focusOnCreate.focus()
 
             table.classList.add('table','table-striped')
             var row = table.insertRow(0);
-            row.classList.add('card-body')
+            row.classList.add('card-header')
+
             var cell1 = row.insertCell(0);
-            cell1.classList.add('card')
-            var cell2 = row.insertCell(1);
+            cell1.setAttribute('class', 'card-body')
+            var cell2 = row.insertCell(1)
+            cell2.setAttribute('class', 'card-body')
             var cell3 = row.insertCell(2)
+            cell3.setAttribute('class', 'card-body')
             var cell4 = row.insertCell(3);
+            cell4.setAttribute('class', 'card-body')
             var cell5 = row.insertCell(4)
+            cell5.setAttribute('class', 'card-body')
             var cell6 = row.insertCell(5)
-            var cell7 = row.insertCell(6)
-            var cell8 = row.insertCell(7)
-            cell1.innerHTML = `${element.category}`;
-            cell2.innerHTML = `${element.description}`
-            cell3.innerHTML= `${element.completed}`
-            cell4.innerHTML = `${element.createdAt}`
-            cell5.innerHTML= `${element.updatedAt}`
-            cell6.innerHTML= `${element.ticketOwner}`
-            cell7.appendChild(idButton)
-            cell8.appendChild(deleteButton)
-                
-          });
+            cell6.setAttribute('class', 'card-body')
+            cell1.innerHTML= `${element.ticketOwner}`
+            cell2.innerHTML = `${element.category}`;
+            cell3.innerHTML = `${element.details}`
+            cell4.innerHTML= `${element.completed}`
+            cell5.appendChild(idButton)
+            cell6.appendChild(deleteButton)
+       });
           
     })
     })
