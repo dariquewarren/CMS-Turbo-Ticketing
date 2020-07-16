@@ -51,7 +51,8 @@ var everyTask = ()=>{
                     response.json().then((data)=>{
                         console.log(data)
                     })
-                })
+                    window.location.assign('/index.html')
+                 })
               })
 
               var idButton = document.createElement('button')
@@ -87,25 +88,26 @@ var everyTask = ()=>{
 
             table.classList.add('table','table-striped')
             var row = table.insertRow(0);
-            row.classList.add('card-body')
-            var cell1 = row.insertCell(0);
-            cell1.classList.add('card')
-            var cell2 = row.insertCell(1);
-            var cell3 = row.insertCell(2)
-            var cell4 = row.insertCell(3);
-            var cell5 = row.insertCell(4)
-            var cell6 = row.insertCell(5)
-            var cell7 = row.insertCell(6)
-            var cell8 = row.insertCell(7)
-            cell1.innerHTML = `${element.category}`;
-            cell2.innerHTML = `${element.description}`
-            cell3.innerHTML= `${element.completed}`
-            cell4.innerHTML = `${element.createdAt}`
-            cell5.innerHTML= `${element.updatedAt}`
-            cell6.innerHTML= `${element.ticketOwner}`
-            cell7.appendChild(idButton)
-            cell8.appendChild(deleteButton)
-                
+                row.classList.add('card-header')
+    
+                var cell1 = row.insertCell(0);
+                cell1.setAttribute('class', 'card-body')
+                var cell2 = row.insertCell(1)
+                cell2.setAttribute('class', 'card-body')
+                var cell3 = row.insertCell(2)
+                cell3.setAttribute('class', 'card-body')
+                var cell4 = row.insertCell(3);
+                cell4.setAttribute('class', 'card-body')
+                var cell5 = row.insertCell(4)
+                cell5.setAttribute('class', 'card-body')
+                var cell6 = row.insertCell(5)
+                cell6.setAttribute('class', 'card-body')
+                cell1.innerHTML= `${element.ticketOwner}`
+                cell2.innerHTML = `${element.category}`;
+                cell3.innerHTML = `${element.details}`
+                cell4.innerHTML= `${element.completed}`
+                cell5.appendChild(idButton)
+                cell6.appendChild(deleteButton)
           });
           
     })
@@ -145,7 +147,8 @@ var getAllTasks = ()=>{
                     response.json().then((data)=>{
                         console.log(data)
                     })
-alert('delete succesful.Refresh to confirm')       })
+                    window.location.assign('/index.html')
+                      })
                 
               })
 
@@ -168,7 +171,6 @@ alert('delete succesful.Refresh to confirm')       })
                         
                         taskIDDiv.innerHTML =`TICKET ID: ${data._id}`
                         ownerDiv.textContent = `OWNER: ${data.ticketOwner}`
-                        
                         descriptionDiv.innerHTML = `DESCRIPTION: ${data.description}`
                         detailsDiv.innerHTML = `TICKET DETAILS: ${data.details}`
                        
@@ -185,25 +187,26 @@ alert('delete succesful.Refresh to confirm')       })
 
             table.classList.add('table','table-striped')
             var row = table.insertRow(0);
-            row.classList.add('card-body')
+            row.classList.add('card-header')
+
             var cell1 = row.insertCell(0);
-            cell1.classList.add('card')
-            var cell2 = row.insertCell(1);
+            cell1.setAttribute('class', 'card-body')
+            var cell2 = row.insertCell(1)
+            cell2.setAttribute('class', 'card-body')
             var cell3 = row.insertCell(2)
+            cell3.setAttribute('class', 'card-body')
             var cell4 = row.insertCell(3);
+            cell4.setAttribute('class', 'card-body')
             var cell5 = row.insertCell(4)
+            cell5.setAttribute('class', 'card-body')
             var cell6 = row.insertCell(5)
-            var cell7 = row.insertCell(6)
-            var cell8 = row.insertCell(7)
-            cell1.innerHTML = `${element.category}`;
-            cell2.innerHTML = `${element.description}`
-            cell3.innerHTML= `${element.completed}`
-            cell4.innerHTML = `${element.createdAt}`
-            cell5.innerHTML= `${element.updatedAt}`
-            cell6.innerHTML= `${element.ticketOwner}`
-            cell7.appendChild(idButton)
-            cell8.appendChild(deleteButton)
-                
+            cell6.setAttribute('class', 'card-body')
+            cell1.innerHTML= `${element.ticketOwner}`
+            cell2.innerHTML = `${element.category}`;
+            cell3.innerHTML = `${element.details}`
+            cell4.innerHTML= `${element.completed}`
+            cell5.appendChild(idButton)
+            cell6.appendChild(deleteButton)    
           });
           
     })
@@ -248,7 +251,8 @@ var byCreatedAt = () =>{
                     response.json().then((data)=>{
                         console.log(data)
                     })
-alert('delete succesful.Refresh to confirm')       })
+                    window.location.assign('/index.html')   
+                 })
                 
               })
                 
@@ -284,25 +288,26 @@ alert('delete succesful.Refresh to confirm')       })
 
                 table.classList.add('table','table-striped')
                 var row = table.insertRow(0);
-                row.classList.add('card-body')
+                row.classList.add('card-header')
+    
                 var cell1 = row.insertCell(0);
-                cell1.classList.add('card')
-                var cell2 = row.insertCell(1);
+                cell1.setAttribute('class', 'card-body')
+                var cell2 = row.insertCell(1)
+                cell2.setAttribute('class', 'card-body')
                 var cell3 = row.insertCell(2)
+                cell3.setAttribute('class', 'card-body')
                 var cell4 = row.insertCell(3);
+                cell4.setAttribute('class', 'card-body')
                 var cell5 = row.insertCell(4)
+                cell5.setAttribute('class', 'card-body')
                 var cell6 = row.insertCell(5)
-                var cell7 = row.insertCell(6)
-                var cell8 = row.insertCell(7)
-                cell1.innerHTML = `${element.category}`;
-                cell2.innerHTML = `${element.description}`
-                cell3.innerHTML= `${element.completed}`
-                cell4.innerHTML = `${element.createdAt}`
-                cell5.innerHTML= `${element.updatedAt}`
-                cell6.innerHTML= `${element.ticketOwner}`
-                cell7.appendChild(idButton)
-                cell8.appendChild(deleteButton)
-           });
+                cell6.setAttribute('class', 'card-body')
+                cell1.innerHTML= `${element.ticketOwner}`
+                cell2.innerHTML = `${element.category}`;
+                cell3.innerHTML = `${element.details}`
+                cell4.innerHTML= `${element.completed}`
+                cell5.appendChild(idButton)
+                cell6.appendChild(deleteButton) });
 
 
 
@@ -349,7 +354,8 @@ var byUpdatedAt = () =>{
                       response.json().then((data)=>{
                           console.log(data)
                       })
-  alert('delete succesful.Refresh to confirm')       })
+                      window.location.assign('/index.html')
+                    })
                   
                 })
 
@@ -385,30 +391,29 @@ var byUpdatedAt = () =>{
 
                 table.classList.add('table','table-striped')
                 var row = table.insertRow(0);
-                row.classList.add('card-body')
+                row.classList.add('card-header')
+    
                 var cell1 = row.insertCell(0);
-                cell1.classList.add('card')
-                var cell2 = row.insertCell(1);
+                cell1.setAttribute('class', 'card-body')
+                var cell2 = row.insertCell(1)
+                cell2.setAttribute('class', 'card-body')
                 var cell3 = row.insertCell(2)
+                cell3.setAttribute('class', 'card-body')
                 var cell4 = row.insertCell(3);
+                cell4.setAttribute('class', 'card-body')
                 var cell5 = row.insertCell(4)
+                cell5.setAttribute('class', 'card-body')
                 var cell6 = row.insertCell(5)
-                var cell7 = row.insertCell(6)
-                var cell8 = row.insertCell(7)
-                cell1.innerHTML = `${element.category}`;
-                cell2.innerHTML = `${element.description}`
-                cell3.innerHTML= `${element.completed}`
-                cell4.innerHTML = `${element.createdAt}`
-                cell5.innerHTML= `${element.updatedAt}`
-                cell6.innerHTML= `${element.ticketOwner}`
-                cell7.appendChild(idButton)
-                cell8.appendChild(deleteButton)
-           });
+                cell6.setAttribute('class', 'card-body')
+                cell1.innerHTML= `${element.ticketOwner}`
+                cell2.innerHTML = `${element.category}`;
+                cell3.innerHTML = `${element.details}`
+                cell4.innerHTML= `${element.completed}`
+                cell5.appendChild(idButton)
+                cell6.appendChild(deleteButton)  });
         })
     })
 }
-
-
 
 var completeTasksOnly = () =>{
     fetch('/tasks').then((response)=>{
@@ -444,7 +449,8 @@ var completeTasksOnly = () =>{
                     response.json().then((data)=>{
                         console.log(data)
                     })
-alert('delete succesful.Refresh to confirm')       })
+                    window.location.assign('/index.html')
+                })
                 
               })  
 
@@ -480,24 +486,26 @@ alert('delete succesful.Refresh to confirm')       })
 
                 table.classList.add('table','table-striped')
                 var row = table.insertRow(0);
-                row.classList.add('card-body')
+                row.classList.add('card-header')
+    
                 var cell1 = row.insertCell(0);
-                cell1.classList.add('card')
-                var cell2 = row.insertCell(1);
+                cell1.setAttribute('class', 'card-body')
+                var cell2 = row.insertCell(1)
+                cell2.setAttribute('class', 'card-body')
                 var cell3 = row.insertCell(2)
+                cell3.setAttribute('class', 'card-body')
                 var cell4 = row.insertCell(3);
+                cell4.setAttribute('class', 'card-body')
                 var cell5 = row.insertCell(4)
+                cell5.setAttribute('class', 'card-body')
                 var cell6 = row.insertCell(5)
-                var cell7 = row.insertCell(6)
-                var cell8 = row.insertCell(7)
-                cell1.innerHTML = `${element.category}`;
-                cell2.innerHTML = `${element.description}`
-                cell3.innerHTML= `${element.completed}`
-                cell4.innerHTML = `${element.createdAt}`
-                cell5.innerHTML= `${element.updatedAt}`
-                cell6.innerHTML= `${element.ticketOwner}`
-                cell7.appendChild(idButton)
-                cell8.appendChild(deleteButton)
+                cell6.setAttribute('class', 'card-body')
+                cell1.innerHTML= `${element.ticketOwner}`
+                cell2.innerHTML = `${element.category}`;
+                cell3.innerHTML = `${element.details}`
+                cell4.innerHTML= `${element.completed}`
+                cell5.appendChild(idButton)
+                cell6.appendChild(deleteButton)
              });
         })
     })
@@ -541,7 +549,7 @@ var incompleteTasksOnly = () =>{
                       response.json().then((data)=>{
                           console.log(data)
                       })
-  alert('delete succesful.Refresh to confirm')       })
+                      window.location.assign('/index.html')     })
                   
                 })
 
@@ -575,24 +583,27 @@ var incompleteTasksOnly = () =>{
 
                table.classList.add('table','table-striped')
                var row = table.insertRow(0);
-               row.classList.add('card-body')
+               row.classList.add('card-header')
+   
                var cell1 = row.insertCell(0);
-               cell1.classList.add('card')
-               var cell2 = row.insertCell(1);
+               cell1.setAttribute('class', 'card-body')
+               var cell2 = row.insertCell(1)
+               cell2.setAttribute('class', 'card-body')
                var cell3 = row.insertCell(2)
+               cell3.setAttribute('class', 'card-body')
                var cell4 = row.insertCell(3);
+               cell4.setAttribute('class', 'card-body')
                var cell5 = row.insertCell(4)
+               cell5.setAttribute('class', 'card-body')
                var cell6 = row.insertCell(5)
-                 var cell7 = row.insertCell(6)
-                 var cell8 = row.insertCell(7)
-                cell1.innerHTML = `${element.category}`;
-                cell2.innerHTML = `${element.description}`
-                cell3.innerHTML= `${element.completed}`
-                cell4.innerHTML = `${element.createdAt}`
-                cell5.innerHTML= `${element.updatedAt}`
-                cell6.innerHTML= `${element.ticketOwner}`
-                cell7.appendChild(idButton)
-                cell8.appendChild(deleteButton)
+               cell6.setAttribute('class', 'card-body')
+               cell1.innerHTML= `${element.ticketOwner}`
+               cell2.innerHTML = `${element.category}`;
+               cell3.innerHTML = `${element.details}`
+               cell4.innerHTML= `${element.completed}`
+               cell5.appendChild(idButton)
+               cell6.appendChild(deleteButton)
+          
                 });
         })
     })

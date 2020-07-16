@@ -127,7 +127,8 @@ var byCreatedAt = () =>{
                       response.json().then((data)=>{
                           console.log(data)
                       })
-  alert('delete succesful.Refresh to confirm')       })
+                      window.location.assign('/details.html') 
+                         })
                   
                 }) 
 
@@ -226,7 +227,9 @@ var byUpdatedAt = () =>{
                     response.json().then((data)=>{
                         console.log(data)
                     })
-alert('delete succesful.Refresh to confirm')       })
+
+                    window.location.assign('/details.html') 
+                })
                 
               }) 
                 var idButton = document.createElement('button')
@@ -322,7 +325,8 @@ var completeTasksOnly = () =>{
                       response.json().then((data)=>{
                           console.log(data)
                       })
-  alert('delete succesful.Refresh to confirm')       })
+                      window.location.assign('/details.html') 
+                    })
                   
                 }) 
                 var idButton = document.createElement('button')
@@ -410,7 +414,8 @@ var incompleteTasksOnly = () =>{
                       response.json().then((data)=>{
                           console.log(data)
                       })
-  alert('delete succesful.Refresh to confirm')       })
+                      window.location.assign('/details.html') 
+                    })
                   
                 }) 
                 var idButton = document.createElement('button')
@@ -494,7 +499,8 @@ var getAllTasks = ()=>{
                   response.json().then((data)=>{
                       console.log(data)
                   })
-alert('delete succesful.Refresh to confirm')       })
+                  window.location.assign('/details.html') 
+                })
               
             }) 
               
