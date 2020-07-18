@@ -580,29 +580,25 @@ var incompleteTasksOnly = () =>{
                       })
                   })
                   })
+var row = table.insertRow(0);
+            row.classList.add('card-header')
 
-               table.classList.add('table','table-striped')
-               var row = table.insertRow(0);
-               row.classList.add('card-header')
-   
-               var cell1 = row.insertCell(0);
-               cell1.setAttribute('class', 'card-body')
-               var cell2 = row.insertCell(1)
-               cell2.setAttribute('class', 'card-body')
-               var cell3 = row.insertCell(2)
-               cell3.setAttribute('class', 'card-body')
-               var cell4 = row.insertCell(3);
-               cell4.setAttribute('class', 'card-body')
-               var cell5 = row.insertCell(4)
-               cell5.setAttribute('class', 'card-body')
-               var cell6 = row.insertCell(5)
-               cell6.setAttribute('class', 'card-body')
-               cell1.innerHTML= `${element.ticketOwner}`
-               cell2.innerHTML = `${element.category}`;
-               cell3.innerHTML = `${element.details}`
-               cell4.innerHTML= `${element.completed}`
-               cell5.appendChild(idButton)
-               cell6.appendChild(deleteButton)
+            var cell1 = row.insertCell(0);
+            cell1.setAttribute('class', 'card-body')
+            var cell2 = row.insertCell(1)
+            cell2.setAttribute('class', 'card-body')
+            var cell3 = row.insertCell(2)
+            cell3.setAttribute('class', 'card-body')
+            var cell4 = row.insertCell(3);
+            cell4.setAttribute('class', 'card-body')
+            var cell5 = row.insertCell(4)
+            cell5.setAttribute('class', 'card-body')
+       
+            cell1.innerHTML= `${element.title}`
+            cell2.innerHTML = `${element.details}`;
+            cell3.innerHTML = `${element.completed}`
+            cell4.appendChild(idButton)
+            cell5.appendChild(deleteButton)
           
                 });
         })
