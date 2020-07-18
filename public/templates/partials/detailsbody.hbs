@@ -22,44 +22,7 @@
 
   <h4 class="text-success">UPDATE A TICKET</h4>
       <div class="card bg-primary">
-<form class="card" id="createTaskForm">
-<div id="taskIDOutput"></div>
-        
-  <select class="card" name="selectCategoryButton" id="selectCategoryButton">
-    <option value="category">/////SELECT CATEGORY\\\\\</option>
-  <option class="card" value="urgent">Urgent</option>
-  <option class="card" value="semi-urgent">Semi-Urgent</option>
-  <option class="card" value="short-term-goal">Short-Term Goal</option>
-  <option class="card" value="long-term-goal">Long-Term Goal</option>
-</select>
 
-              
-  <select name="ticketOwnerInput" id="ticketOwnerInput" class="card-header">
-    <option value="owner">/////SELECT OWNER\\\\\</option>
-    <option value="ddw">ddw</option>
-     <option value="damien">damien</option>
-     <option value="intern">intern</option>
-     <option value="manager">manager</option>
-      
-  </select>
-  
-  <select name="completedInput" id="completedInput" class="card-header">
-    <option value="completed">/////COMPLETION STATUS\\\\\</option>
-    <option value="true">true</option>
-     <option value="false">false</option>
-      
-  </select>
-        <textarea name="descriptionInput" id="descriptionInput" placeholder="DESCRIPTION GOES HERE" cols="30" rows="2" class="card-header"></textarea>
-
-            <textarea name="detailsInput" id="detailsInput" placeholder="DETAILS GO HERE" cols="30" rows="2" class="card-header"></textarea>
-        
-
-          
-         <button class="btn btn-dark text-warning" >UPDATE TICKET</button>
-        
-         
-        </form>
- 
            </div>
  
     </div>
@@ -133,7 +96,22 @@
    </table>
     </div>
 
-   
+   <form class="card" id="createTaskForm">
+
+  <textarea name="taskIDOutput" id="taskIDOutput" placeholder="TASK ID" cols="30" rows="2" class="card-header"></textarea>
+        <textarea name="descriptionInput" id="descriptionInput" placeholder="DESCRIPTION GOES HERE" cols="30" rows="2" class="card-header"></textarea>
+
+            <textarea name="detailsInput" id="detailsInput" placeholder="DETAILS GO HERE" cols="30" rows="2" class="card-header"></textarea>
+        
+<textarea name="completedInput" id="completedInput" placeholder="TYPE TRUE OR FALSE" cols="30" rows="2" class="card-header"></textarea>
+        
+          
+         <button class="btn btn-dark text-warning" >UPDATE TICKET</button>
+        
+         
+        </form>
+ 
+
    
   </section>
 

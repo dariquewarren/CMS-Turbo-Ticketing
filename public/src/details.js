@@ -597,19 +597,19 @@ router.patch('/tasks/:id')
 
 ['details','description', 'ownedBy' ,'completed', 'category']
 */
-var id = taskIDOutput.value
+var id = taskIDOutput.innerHTML
 console.log(id)
 var taskUpdate = {
-    category: selectCategoryButton.value,
+    
     completed: completedInput.value,
     description: descriptionInput.value,
-    ticketOwner: ticketOwnerInput.value,
+    
     details: detailsInput.value
 }
 console.log(taskUpdate)
 
 
-fetch(`/tasks/${taskIDOutput.value}`, {
+fetch(`/tasks/${id}`, {
     method: 'PATCH', // or 'PUT'
     headers: {
       'Content-Type': 'application/json',

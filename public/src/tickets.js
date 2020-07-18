@@ -22,72 +22,8 @@ var focusOnCreate = document.getElementById('focusOnCreate')
 var openListDiv = document.getElementById("openDetails");
 
 
-var openTicketForm = document.getElementById('openTicketForm')
-var closedTicketForm = document.getElementById('closedTicketForm')
-var ownerInput = document.getElementById('searchOwner')
-var ownerInput2 = document.getElementById('searchOwner2')
 
 
-openTicketForm.addEventListener('submit', (e)=>{
-    e.preventDefault()
-    console.table(typeof ownerInput.value)
-var ddw = {
-    ticketOwner: ownerInput.value,
-    completed: false
-}
-openListDiv.innerHTML = ``
-fetch('/tasks/owner',{
-    method: 'POST', // or 'PUT' 
-    headers: {
-      'Content-Type': 'application/json',
-      },
-    body: JSON.stringify(ddw)
-  }).then(response => response.json()).then(data => {
-    console.log('Success:', data);
-    
-var i = 0
-for (i;i<data.length;i++){
-    var paragraph = document.createElement('p')
-    paragraph.setAttribute('class', 'card-header bg-dark text-warning')
-        paragraph.innerHTML = `OPEN TICKET FOR----${data[i].ticketOwner}<br> TITLE: ${data[i].details} <br>DESCRIPTION ${data[i].description}`
-        openListDiv.appendChild(paragraph)
-}
-    
-  }).catch((error) => {
-    console.error('Error:', error);
-  })
-
-})
-
-closedTicketForm.addEventListener('submit', (e)=>{
-    e.preventDefault()
-    console.table(typeof ownerInput.value)
-var ddw = {
-    ticketOwner: ownerInput2.value,
-    completed: true
-}
-    openListDiv.innerHTML = ``
-    fetch('/tasks/owner',{
-        method: 'POST', // or 'PUT' 
-        headers: {
-          'Content-Type': 'application/json',
-          },
-        body: JSON.stringify(ddw)
-      }).then(response => response.json()).then(data => {
-        console.log('Success:', data);
-        var i = 0
-for (i;i<data.length;i++){
-    var paragraph = document.createElement('p')
-    paragraph.setAttribute('class', 'card-header bg-dark text-warning')
-        paragraph.innerHTML = `CLOSED TICKET FOR----${data[i].ticketOwner}<br> TITLE: ${data[i].details} <br>DESCRIPTION ${data[i].description}`
-        openListDiv.appendChild(paragraph)
-}
-    
-        
-      }).catch((error) => {
-        console.error('Error:', error);
-      })
-})
 // buttons
 var everyTask = ()=>{
     fetch(`/tasks`).then((response)=> {
