@@ -1,87 +1,18 @@
 var table = document.getElementById("taskListBody");
 
-var openListDiv = document.getElementById("openDetails");
 
 
 
 var taskIDHeader = document.getElementById('taskID')
 
-var openTicketForm = document.getElementById('openTicketForm')
-var closedTicketForm = document.getElementById('closedTicketForm')
-var ownerInput = document.getElementById('searchOwner')
-var ownerInput2 = document.getElementById('searchOwner2')
-
-
-openTicketForm.addEventListener('submit', (e)=>{
-    e.preventDefault()
-    console.table(typeof ownerInput.value)
-var ddw = {
-    ticketOwner: ownerInput.value
-}
-    
-    fetch('/tasks/owner',{
-        method: 'POST', // or 'PUT'
-        headers: {
-          'Content-Type': 'application/json',
-          },
-        body: JSON.stringify(ddw),
-      }).then(response => response.json()).then(data => {
-        console.log('Success:', data);
-        openListDiv.innerHTML= ``
-        data.forEach((element)=>{
-            var list = document.createElement('ol')
-            var listItem = document.createElement('li')
-            listItem.setAttribute('class','card bg-dark text-warning')
-            listItem.innerHTML = `OPEN TICKET FOR----${element.ticketOwner}<br> DETAILS: ${element.details} DESCRIPTION ${element.description}`
-            list.appendChild(listItem)
-            openListDiv.appendChild(list) 
-        })
-      }).catch((error) => {
-        console.error('Error:', error);
-      })
-      focusOnCreate.focus()
-})
-
-closedTicketForm.addEventListener('submit', (e)=>{
-    e.preventDefault()
-    console.table(typeof ownerInput.value)
-var ddw = {
-    ticketOwner: ownerInput2.value
-}
-    
-    fetch('/tasks/owner',{
-        method: 'POST', // or 'PUT'
-        headers: {
-          'Content-Type': 'application/json',
-          },
-        body: JSON.stringify(ddw),
-      }).then(response => response.json()).then(data => {
-        console.log('Success:', data);
-    openListDiv.innerHTML= ``
-        data.forEach((element)=>{
-            var list = document.createElement('ol')
-            var listItem = document.createElement('li')
-            listItem.setAttribute('class','card bg-dark text-primary')
-
-            listItem.innerHTML = `CLOSED TICKET FOR----${element.ticketOwner}<br> DETAILS: ${element.details} DESCRIPTION ${element.description}`
-            list.appendChild(listItem)
-            openListDiv.appendChild(list) 
-        })
-      }).catch((error) => {
-        console.error('Error:', error);
-      })
-      focusOnCreate.focus()
-})
 
 
 
 var createTaskForm = document.getElementById('createTaskForm')
-var selectCategoryButton =document.getElementById('selectCategoryButton')
+
 var completedInput = document.getElementById('completedInput')
-var descriptionInput = document.getElementById('descriptionInput')
 var detailsInput = document.getElementById('detailsInput')
-var ticketOwnerInput = document.getElementById('ticketOwnerInput')
-var updateTaskButton = document.getElementById('updateTaskButton')
+var titleInput = document.getElementById('titleInput')
 var taskIDOutput = document.getElementById('taskIDOutput')
 
 
@@ -145,17 +76,13 @@ var byCreatedAt = () =>{
                    console.log(id)
                   fetch(`/tasks/${id}`).then((response)=>{
                       response.json().then((data)=>{
-                          console.log(data)
-                          
-  
-                          openListDiv.innerHTML = `ID: ${data._id} <br>CREATED BY: ${data.ticketOwner} <br> TITLE: ${data.details}<br> DESCRIPTION: ${data.description}`
+                        console.log(data)
                         
-  
-  taskIDOutput.innerHTML =`${data._id}`
-  descriptionInput.innerHTML = `${data.description}`
-  detailsInput.innerHTML = `${data.details}`
-  focusOnCreate.focus()
-  
+                                        
+                        taskIDOutput.innerHTML =`${data._id}`
+                        detailsInput.innerHTML = `${data.details}`
+                        titleInput.innerHTML = `${data.title}`
+                        detailsInput.focus()
                       })
                   })
                   })
@@ -246,13 +173,13 @@ var byUpdatedAt = () =>{
                    console.log(id)
                   fetch(`/tasks/${id}`).then((response)=>{
                       response.json().then((data)=>{
-                          console.log(data)                           
-                        openListDiv.innerHTML = `ID: ${data._id} <br>CREATED BY: ${data.ticketOwner} <br> TITLE: ${data.details}<br> DESCRIPTION: ${data.description}`
+                        console.log(data)
                         
-                          taskIDOutput.innerHTML =`${data._id}`
-                          descriptionInput.innerHTML = `${data.description}`
-                          detailsInput.innerHTML = `${data.details}`
-                          focusOnCreate.focus()
+                                        
+                        taskIDOutput.innerHTML =`${data._id}`
+                        detailsInput.innerHTML = `${data.details}`
+                        titleInput.innerHTML = `${data.title}`
+                        detailsInput.focus()
                           
   
                       })
@@ -340,13 +267,13 @@ var completeTasksOnly = () =>{
                     var id = element._id
                   fetch(`/tasks/${id}`).then((response)=>{
                       response.json().then((data)=>{
-                          console.log(data)
-                          openListDiv.innerHTML = `ID: ${data._id} <br>CREATED BY: ${data.ticketOwner} <br> TITLE: ${data.details}<br> DESCRIPTION: ${data.description}`
+                        console.log(data)
                         
-                          taskIDOutput.innerHTML =`${data._id}`
-                          descriptionInput.innerHTML = `${data.description}`
-                          detailsInput.innerHTML = `${data.details}`
-                          focusOnCreate.focus()
+                                        
+                        taskIDOutput.innerHTML =`${data._id}`
+                        detailsInput.innerHTML = `${data.details}`
+                        titleInput.innerHTML = `${data.title}`
+                        detailsInput.focus()
                           
                       })
                   })
@@ -429,13 +356,13 @@ var incompleteTasksOnly = () =>{
                     var id = element._id
                   fetch(`/tasks/${id}`).then((response)=>{
                       response.json().then((data)=>{
-                        openListDiv.innerHTML = `ID: ${data._id} <br>CREATED BY: ${data.ticketOwner} <br> TITLE: ${data.details}<br> DESCRIPTION: ${data.description}`
+                        console.log(data)
                         
+                                        
                         taskIDOutput.innerHTML =`${data._id}`
-                        descriptionInput.innerHTML = `${data.description}`
                         detailsInput.innerHTML = `${data.details}`
-                        focusOnCreate.focus()
-                        
+                        titleInput.innerHTML = `${data.title}`
+                        detailsInput.focus()
                           
                       })
                   })
@@ -506,7 +433,7 @@ var getAllTasks = ()=>{
               
               var idButton = document.createElement('button')
 
-              idButton.innerText = 'TICKET DETAILS'
+              idButton.innerText = 'Click To Update'
               idButton.setAttribute('type', 'button')
               
               idButton.setAttribute('class', 'card bg-success text-white')
@@ -521,12 +448,11 @@ var getAllTasks = ()=>{
                     response.json().then((data)=>{
                         console.log(data)
                         
-                        openListDiv.innerHTML = `ID: ${data._id} <br>CREATED BY: ${data.ticketOwner} <br> TITLE: ${data.details}<br> DESCRIPTION: ${data.description}`
-                                             
-taskIDOutput.innerHTML =`${data._id}`
-descriptionInput.innerHTML = `${data.description}`
-detailsInput.innerHTML = `${data.details}`
-focusOnCreate.focus()
+                                        
+                        taskIDOutput.innerHTML =`${data._id}`
+                        detailsInput.innerHTML = `${data.details}`
+                        titleInput.innerHTML = `${data.title}`
+                        detailsInput.focus()
   
                         
                     })
@@ -547,14 +473,12 @@ focusOnCreate.focus()
             cell4.setAttribute('class', 'card-body')
             var cell5 = row.insertCell(4)
             cell5.setAttribute('class', 'card-body')
-            var cell6 = row.insertCell(5)
-            cell6.setAttribute('class', 'card-body')
-            cell1.innerHTML= `${element.ticketOwner}`
-            cell2.innerHTML = `${element.category}`;
-            cell3.innerHTML = `${element.details}`
-            cell4.innerHTML= `${element.completed}`
-            cell5.appendChild(idButton)
-            cell6.appendChild(deleteButton)
+       
+            cell1.innerHTML= `${element.title}`
+            cell2.innerHTML = `${element.details}`;
+            cell3.innerHTML = `${element.completed}`
+            cell4.appendChild(idButton)
+            cell5.appendChild(deleteButton)
        });
           
     })
@@ -602,9 +526,9 @@ console.log(id)
 var taskUpdate = {
     
     completed: completedInput.value,
-    description: descriptionInput.value,
+    details: detailsInput.value,
     
-    details: detailsInput.value
+    title: titleInput.value
 }
 console.log(taskUpdate)
 
