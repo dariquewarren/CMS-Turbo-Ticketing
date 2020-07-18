@@ -665,6 +665,7 @@ completed: completedInput.value,
 details: detailsInput.value
     }
     
+
     fetch(`/tasks`,{
         method: 'POST', // or 'PUT'
         headers: {
@@ -672,7 +673,8 @@ details: detailsInput.value
           },
         body: JSON.stringify(ddw),
       }).then(response => response.json()).then(data => {
-        console.log('Success:', data);
+    console.log(document.cookie) 
+       console.log('Success:', data);
       }).catch((error) => {
         console.error('Error:', error);
       })
