@@ -1,4 +1,4 @@
-\const path = require('path')
+const path = require('path')
 const express = require('express')
 const User = require('../models/user')
 const auth = require('../middleware/auth')
@@ -61,8 +61,8 @@ router.post('/users/login', async (req, res) => {
         const user = await User.findByCredentials(req.body.email, req.body.password)
         const token = await user.generateAuthToken()
         res.cookie('auth_token', token)
-        req.session.user = user;
-        res.redirect('/index.html')
+        res.send(user)
+        res.render('/index.html')
     } catch (e) {
         res.status(400).send()
     }

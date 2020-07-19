@@ -31,8 +31,30 @@ console.log(ddw)
         body: JSON.stringify(ddw)
       }).then(response => response.json()).then(data => {
         console.log('Success:', data);
-        
+        // alert(`${data.email} Thank you for signing in`)
       }).catch((error) => {
         console.error('Error:', error);
       })
+      if(!document.cookie){
+return alert('incorrect credentials')
+      }
+      window.location.assign('/index.html')
+})
+
+var logoutForm = document.getElementById('logoutForm')
+
+logoutForm.addEventListener('submit', (e)=>{
+  e.preventDefault()
+  // fetch('/users/logoutall').then(response => response.json()).then(data => {
+  //   console.log('Success:', data);
+    
+  // }).catch((error) => {
+  //   console.error('Error:', error);
+  // })
+console.log(document.cookie)
+document.cookie = "auth_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+console.log(document.cookie)
+alert(`YOU HAVE LOGGED OUT. COME BACK SOON`)
+
+
 })
