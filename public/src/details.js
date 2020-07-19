@@ -1,12 +1,6 @@
 var table = document.getElementById("taskListBody");
 
-
-
-
 var taskIDHeader = document.getElementById('taskID')
-
-
-
 
 var createTaskForm = document.getElementById('createTaskForm')
 
@@ -86,29 +80,26 @@ var byCreatedAt = () =>{
                       })
                   })
                   })
-
-                table.classList.add('table','table-striped')
-                var row = table.insertRow(0);
-                row.classList.add('card-header')
-    
-                var cell1 = row.insertCell(0);
-                cell1.setAttribute('class', 'card-body')
-                var cell2 = row.insertCell(1)
-                cell2.setAttribute('class', 'card-body')
-                var cell3 = row.insertCell(2)
-                cell3.setAttribute('class', 'card-body')
-                var cell4 = row.insertCell(3);
-                cell4.setAttribute('class', 'card-body')
-                var cell5 = row.insertCell(4)
-                cell5.setAttribute('class', 'card-body')
-                var cell6 = row.insertCell(5)
-                cell6.setAttribute('class', 'card-body')
-                cell1.innerHTML= `${element.ticketOwner}`
-                cell2.innerHTML = `${element.category}`;
-                cell3.innerHTML = `${element.details}`
-                cell4.innerHTML= `${element.completed}`
-                cell5.appendChild(idButton)
-                cell6.appendChild(deleteButton)           });
+                  table.innerHTML = ``
+                  table.classList.add('table','table-striped')
+                  var row = table.insertRow(0);
+                  row.classList.add('card-header')
+      
+                  var cell1 = row.insertCell(0);
+                  cell1.setAttribute('class', 'card-body text-dark')
+                  var cell2 = row.insertCell(1)
+                  cell2.setAttribute('class', 'card-body bg-secondary text-dark')
+                  var cell3 = row.insertCell(2)
+                  cell3.setAttribute('class', 'card-body')
+                  var cell4 = row.insertCell(3);
+                  cell4.setAttribute('class', 'card-body bg-secondary')
+                  
+             
+                  cell1.innerHTML= `${element.title}`
+                  cell2.innerHTML = `${element.details}`;
+                  cell3.appendChild(idButton)
+                  cell4.appendChild(deleteButton) 
+                     });
 
 
 
@@ -185,29 +176,25 @@ var byUpdatedAt = () =>{
                       })
                   })
                   })
-
-                table.classList.add('table','table-striped')
-                var row = table.insertRow(0);
-                row.classList.add('card-header')
-    
-                var cell1 = row.insertCell(0);
-                cell1.setAttribute('class', 'card-body')
-                var cell2 = row.insertCell(1)
-                cell2.setAttribute('class', 'card-body')
-                var cell3 = row.insertCell(2)
-                cell3.setAttribute('class', 'card-body')
-                var cell4 = row.insertCell(3);
-                cell4.setAttribute('class', 'card-body')
-                var cell5 = row.insertCell(4)
-                cell5.setAttribute('class', 'card-body')
-                var cell6 = row.insertCell(5)
-                cell6.setAttribute('class', 'card-body')
-                cell1.innerHTML= `${element.ticketOwner}`
-                cell2.innerHTML = `${element.category}`;
-                cell3.innerHTML = `${element.details}`
-                cell4.innerHTML= `${element.completed}`
-                cell5.appendChild(idButton)
-                cell6.appendChild(deleteButton)
+                  table.innerHTML = ``
+                  table.classList.add('table','table-striped')
+                  var row = table.insertRow(0);
+                  row.classList.add('card-header')
+      
+                  var cell1 = row.insertCell(0);
+                  cell1.setAttribute('class', 'card-body text-dark')
+                  var cell2 = row.insertCell(1)
+                  cell2.setAttribute('class', 'card-body bg-secondary text-dark')
+                  var cell3 = row.insertCell(2)
+                  cell3.setAttribute('class', 'card-body')
+                  var cell4 = row.insertCell(3);
+                  cell4.setAttribute('class', 'card-body bg-secondary')
+                  
+             
+                  cell1.innerHTML= `${element.title}`
+                  cell2.innerHTML = `${element.details}`;
+                  cell3.appendChild(idButton)
+                  cell4.appendChild(deleteButton)
            });
 
 
@@ -278,29 +265,25 @@ var completeTasksOnly = () =>{
                       })
                   })
                   })
-
-                table.classList.add('table','table-striped')
-                var row = table.insertRow(0);
-                row.classList.add('card-header')
-    
-                var cell1 = row.insertCell(0);
-                cell1.setAttribute('class', 'card-body')
-                var cell2 = row.insertCell(1)
-                cell2.setAttribute('class', 'card-body')
-                var cell3 = row.insertCell(2)
-                cell3.setAttribute('class', 'card-body')
-                var cell4 = row.insertCell(3);
-                cell4.setAttribute('class', 'card-body')
-                var cell5 = row.insertCell(4)
-                cell5.setAttribute('class', 'card-body')
-                var cell6 = row.insertCell(5)
-                cell6.setAttribute('class', 'card-body')
-                cell1.innerHTML= `${element.ticketOwner}`
-                cell2.innerHTML = `${element.category}`;
-                cell3.innerHTML = `${element.details}`
-                cell4.innerHTML= `${element.completed}`
-                cell5.appendChild(idButton)
-                cell6.appendChild(deleteButton)
+                  table.innerHTML = ``
+                  table.classList.add('table','table-striped')
+                  var row = table.insertRow(0);
+                  row.classList.add('card-header')
+      
+                  var cell1 = row.insertCell(0);
+                  cell1.setAttribute('class', 'card-body text-dark')
+                  var cell2 = row.insertCell(1)
+                  cell2.setAttribute('class', 'card-body bg-secondary text-dark')
+                  var cell3 = row.insertCell(2)
+                  cell3.setAttribute('class', 'card-body')
+                  var cell4 = row.insertCell(3);
+                  cell4.setAttribute('class', 'card-body bg-secondary')
+                  
+             
+                  cell1.innerHTML= `${element.title}`
+                  cell2.innerHTML = `${element.details}`;
+                  cell3.appendChild(idButton)
+                  cell4.appendChild(deleteButton)
            });
         })
     })
@@ -367,29 +350,25 @@ var incompleteTasksOnly = () =>{
                       })
                   })
                   })
-
-               table.classList.add('table','table-striped')
-               var row = table.insertRow(0);
-               row.classList.add('card-header')
-   
-               var cell1 = row.insertCell(0);
-               cell1.setAttribute('class', 'card-body')
-               var cell2 = row.insertCell(1)
-               cell2.setAttribute('class', 'card-body')
-               var cell3 = row.insertCell(2)
-               cell3.setAttribute('class', 'card-body')
-               var cell4 = row.insertCell(3);
-               cell4.setAttribute('class', 'card-body')
-               var cell5 = row.insertCell(4)
-               cell5.setAttribute('class', 'card-body')
-               var cell6 = row.insertCell(5)
-               cell6.setAttribute('class', 'card-body')
-               cell1.innerHTML= `${element.ticketOwner}`
-               cell2.innerHTML = `${element.category}`;
-               cell3.innerHTML = `${element.details}`
-               cell4.innerHTML= `${element.completed}`
-               cell5.appendChild(idButton)
-               cell6.appendChild(deleteButton)
+                  table.innerHTML = ``
+                  table.classList.add('table','table-striped')
+                  var row = table.insertRow(0);
+                  row.classList.add('card-header')
+      
+                  var cell1 = row.insertCell(0);
+                  cell1.setAttribute('class', 'card-body text-dark')
+                  var cell2 = row.insertCell(1)
+                  cell2.setAttribute('class', 'card-body bg-secondary text-dark')
+                  var cell3 = row.insertCell(2)
+                  cell3.setAttribute('class', 'card-body')
+                  var cell4 = row.insertCell(3);
+                  cell4.setAttribute('class', 'card-body bg-secondary')
+                  
+             
+                  cell1.innerHTML= `${element.title}`
+                  cell2.innerHTML = `${element.details}`;
+                  cell3.appendChild(idButton)
+                  cell4.appendChild(deleteButton)
                });
         })
     })
@@ -411,7 +390,7 @@ var getAllTasks = ()=>{
             var deleteButton = document.createElement('button')
               
 
-            deleteButton.innerText = 'DELETE TICKET'
+            deleteButton.innerText = 'DELETE'
             deleteButton.setAttribute('type', 'button')
             deleteButton.setAttribute('class', 'card bg-danger text-warning')
             deleteButton.addEventListener('click', (e)=>{
@@ -433,7 +412,7 @@ var getAllTasks = ()=>{
               
               var idButton = document.createElement('button')
 
-              idButton.innerText = 'Click To Update'
+              idButton.innerText = 'Update'
               idButton.setAttribute('type', 'button')
               
               idButton.setAttribute('class', 'card bg-success text-white')
@@ -458,27 +437,25 @@ var getAllTasks = ()=>{
                     })
                 })
                 })
-
+table.innerHTML = ``
             table.classList.add('table','table-striped')
             var row = table.insertRow(0);
             row.classList.add('card-header')
 
             var cell1 = row.insertCell(0);
-            cell1.setAttribute('class', 'card-body')
+            cell1.setAttribute('class', 'card-body text-dark')
             var cell2 = row.insertCell(1)
-            cell2.setAttribute('class', 'card-body')
+            cell2.setAttribute('class', 'card-body bg-secondary text-dark')
             var cell3 = row.insertCell(2)
             cell3.setAttribute('class', 'card-body')
             var cell4 = row.insertCell(3);
-            cell4.setAttribute('class', 'card-body')
-            var cell5 = row.insertCell(4)
-            cell5.setAttribute('class', 'card-body')
+            cell4.setAttribute('class', 'card-body bg-secondary')
+            
        
             cell1.innerHTML= `${element.title}`
             cell2.innerHTML = `${element.details}`;
-            cell3.innerHTML = `${element.completed}`
-            cell4.appendChild(idButton)
-            cell5.appendChild(deleteButton)
+            cell3.appendChild(idButton)
+            cell4.appendChild(deleteButton)
        });
           
     })
