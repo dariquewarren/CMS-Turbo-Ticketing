@@ -58,3 +58,12 @@ alert(`YOU HAVE LOGGED OUT. COME BACK SOON`)
 
 
 })
+
+
+var redirectForm = document.getElementById('redirectForm')
+
+redirectForm.addEventListener('submit', (e)=>{
+  e.preventDefault()
+  var id = 12345
+window.location.assign(`/index.html/${id}`)
+})

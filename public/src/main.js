@@ -40,10 +40,16 @@ app.get('/',(req, res )=>{
     // res.send('helloooooooooo')
     //  res.sendFile(viewsPath + '/main.hbs' )
      res.render('index', {layout: 'index'})
-})// app.get('/',(req, res )=>{
-//     res.render('index',{layout: 'index'})
-// })
+})
 
+
+
+app.get('/tickets',(req, res )=>{
+    // res.send('helloooooooooo')
+    //  res.sendFile(viewsPath + '/main.hbs' )
+     res.render('tickets',{layout: 'tickets'})
+    
+})
 
 
 app.get('/register.html',(req, res )=>{
