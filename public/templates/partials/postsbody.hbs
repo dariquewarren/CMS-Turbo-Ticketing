@@ -1,21 +1,16 @@
-<body>
+<body class="text-center">
+    <div id="openDetails" class="card-header text-success text-center bg-dark"></div>
       <!-- HEADER -->
   <header id="main-header" class="py-2 bg-dark text-white">
-    <div class="container bg-dark">
-      <div class="row">
-        
-        <div class="col-md-6">
-          <h1>
-            <h1 class="text-success">Sort Tasks By</h1>
-        </div>
+    
+
+
+
+
+SORT TICKETS BY:
         <div class="row">
           
-          <select class="card-header bg-dark text-success"  name="categoryButton" id="categoryButton">
-  <option class="text-danger" value="urgent">Urgent</option>
-  <option class="text-warning" value="semi-urgent">Semi-Urgent</option>
-  <option class="text-info" value="short-term-goal">Short-Term Goal</option>
-  <option class="text-primary" value="long-term-goal">Long-Term Goal</option>
-</select> 
+       
 <form id="completeButton" class="card-header bg-dark text-white">
       <button class="card-header bg-dark text-success">COMPLETE</button>
     </form>
@@ -28,39 +23,122 @@
     <form id="updatedButton" class="card-header bg-dark text-white">
       <button class="card-header bg-dark text-success">Recently updated</button>
     </form>
-    <form id="testForm" class="card-header bg-dark text-white">
+    <form id="allTicketsButton" class="card-header bg-dark text-white">
   <button class="card-header bg-dark text-success"> All Tickets</button>
 </form>
-        </div>
- 
-  </div>
-      </div>
+  <form action="" class="bg-dark w-50 p-3 " id="openTicketForm">
+   <select name="searchOwner" id="searchOwner" class="card-header bg-success">
+    <option value="ddw">ddw</option>
+     <option value="damien">damien</option>
+     <option value="Intern">Intern</option>
+     <option value="Manager">Manager</option>
       
+  </select>
+  
+  <button>Open Tickets By Owner</button>
+</form>
+<form action="" class="bg-dark w-50 p-3 " id="closedTicketForm">
+   <select name="searchOwner2" id="searchOwner2" class="card-header bg-success">
+    <option value="ddw">ddw</option>
+     <option value="damien">damien</option>
+     <option value="Intern">Intern</option>
+     <option value="Manager">Manager</option>
+      
+  </select>
 
-    </div>
+  <button>Closed Tickets By Owner</button>
+</form>   
+        
+  </div>
+  
   </header>
 
+{{!-- <div class="card">
+  <p id="taskIDOutput" class=" card-body bg-dark text-success">Copy this ID and use it to Edit this Task</p>
+  <p id="taskOwnerOutput" class="card-body bg-danger text-primary">TASK OWNER</p>
+  <p id="taskDescriptionOutput" class="card-body bg-dark text-primary">TASK DESCRIPTION</p>
+  <p id="taskDetailsOutput" class="card-header bg-danger text-warning text-center">ADDITIONAL TASK DETAILS</p>
+</div> --}}
 
+  <div class="text-center bg-dark">
+<details class="card-header bg-dark">
+<summary class="text-success">Click To Create Task</summary>
+  <h4 class="text-white">Create New Task Below</h4>
+      <div class="card bg-danger">
+<form class="card" id="createTask">
+<details>
+<summary>View Id</summary>
+  <textarea name="taskIDInput" id="taskIDInput" cols="30" rows="2" class="card-header"></textarea>
+        
+          </details>
+  <select class="card" name="selectCategoryButton" id="selectCategoryButton">
+  <option class="card" value="urgent">Urgent</option>
+  <option class="card" value="semi-urgent">Semi-Urgent</option>
+  <option class="card" value="short-term-goal">Short-Term Goal</option>
+  <option class="card" value="long-term-goal">Long-Term Goal</option>
+</select>
 
+                  <details>
+<summary>Edit Owner</summary>
+  <select name="ticketOwnerInput" id="ticketOwnerInput" class="card-header">
+    <option value="true">ddw</option>
+     <option value="false">damien</option>
+     <option value="true">Intern</option>
+     <option value="false">Manager</option>
+      
+  </select>
+  </details>
+         <details>
+<summary>Edit Completed</summary>
+  <select name="completedInput" id="completedInput" class="card-header">
+    <option value="true">true</option>
+     <option value="false">false</option>
+      
+  </select>
+        
+          </details>
+          <details>
+<summary>Edit Description</summary>
+  <textarea name="descriptionInput" id="descriptionInput" cols="30" rows="2" class="card-header"></textarea>
+        
+          </details>
+          
+          <details class="card-body">
+<summary class="btn">Relevant Details</summary>
+            <textarea name="detailsInput" id="detailsInput" cols="30" rows="2" class="card-header"></textarea>
+        
+
+          </details><br>
+         <button class="btn btn-primary">create task</button>
+        
+         
+        </form>
+ 
+      </div>     {{!-- render tasks list --}}
+ </details>
+
+  </div>
+
+ 
 
   <!-- tasks -->
   <section id="tasks" class="py-4 mb-4 bg-light ">
-    <div class="container">
-      <div class="row">
-        <div class="col">
+   
+        
           <div class="card">
             
 
 
-        <div id="tableDiv" class="bg-dark text-success">
+        
 
  <table id="myTable" class="table table-striped bg-dark">
    <tr class="bg-dark text-success">
-                  <th class="card-body">Category</th>
-                  <th class="card-body">description</th>
-                  <th class="card-body"> completed</th>
+                 <th class="card-body">Category</th>
+                  <th class="card-body">Description</th>
+                  <th class="card-body">Completed</th>
                   <th class="card-body">Created At</th>
                   <th class="card-body">Updated At</th>
+                  <th class="card-body">OWNER</th>
                 </tr>
    <tbody id="taskListBody">
 
@@ -68,33 +146,13 @@
               
   
 </table>
-<div class="bg-danger text-dark"> <h4>Create New Task Below</h4> </div>
-        </div>
+
+        
            
-
-
-
-           {{!-- render tasks list --}}
-<form class="card" id="createTaskForm">
-  <select class="card-header" name="selectCategoryButton" id="selectCategoryButton">
-  <option class="card" value="urgent">Urgent</option>
-  <option class="card" value="semi-urgent">Semi-Urgent</option>
-  <option class="card" value="short-term-goal">Short-Term Goal</option>
-  <option class="card" value="long-term-goal">Long-Term Goal</option>
-</select>
-          <label class="card-header" for="">Completed</label>
-          <input class="card" type="text" id="completedInput"> 
-          <label class="card-header" for="">Description</label>
-          <input class="card" type="text" id="descriptionInput"> 
-          <br>
-         <button class="btn btn-primary">create task</button>
-        </form>
-          </div>
-        </div>
-      </div>
-    </div>
+         </div>
+      
+      
   </section>
 
-  
  
 </body>

@@ -1,89 +1,150 @@
 <body>
     <!-- HEADER -->
-  <header id="main-header" class="py-2 bg-primary text-white">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h1>
-            Post One</h1>
-        </div>
-      </div>
-    </div>
-  </header>
+  <header id="main-header" class="py-2 bg-dark text-success text-center">
+<div id="openDetails" class="card-header"></div>
 
-  <!-- ACTIONS -->
-  <section id="actions" class="py-4 mb-4 bg-light">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <a href="index.html" class="btn btn-light btn-block">
-            <i class="fas fa-arrow-left"></i> Back To Dashboard
-          </a>
-        </div>
-        <div class="col-md-3">
-          <a href="index.html" class="btn btn-success btn-block">
-            <i class="fas fa-check"></i> Save Changes
-          </a>
-        </div>
-        <div class="col-md-3">
-          <a href="index.html" class="btn btn-danger btn-block">
-            <i class="fas fa-trash"></i> Delete Post
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+      <!-- ACTIONS -->
+  
+    SORT TICKETS BY:
+       <div class="row">
+       <form id="completeButton" class="card-header bg-dark text-white">
+      <button class="card-header bg-dark text-success">COMPLETE</button>
+    </form>
+    <form id="incompleteButton" class="card-header bg-dark text-white">
+      <button class="card-header bg-dark text-success">NOT COMPLETE</button>
+    </form>
+    
 
-  <!-- DETAILS -->
-  <section id="details">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="card">
+<form  id="createdButton" class="card-header bg-dark text-white">
+      <button class="card-header bg-dark text-success">Recently updated</button>
+    </form>
+    <form id="updatedButton" class="card-header bg-dark text-white">
+      <button class="card-header bg-dark text-success">Recently updated</button>
+    </form>
+    
+    
+    <form id="allTicketsButton" class="card-header bg-dark text-white">
+  <button class="card-header bg-dark text-success"> All Tickets</button>
+</form>
+  <form action="" class="bg-dark w-50 p-3 " id="openTicketForm">
+   <select name="searchOwner" id="searchOwner" class="card-header bg-success">
+    <option value="ddw">ddw</option>
+     <option value="damien">damien</option>
+     <option value="Intern">Intern</option>
+     <option value="Manager">Manager</option>
+      
+  </select>
+  
+  <button>Open Tickets By Owner</button>
+</form>
+<form action="" class="bg-dark w-50 p-3 " id="closedTicketForm">
+   <select name="searchOwner2" id="searchOwner2" class="card-header bg-success">
+    <option value="ddw">ddw</option>
+     <option value="damien">damien</option>
+     <option value="Intern">Intern</option>
+     <option value="Manager">Manager</option>
+      
+  </select>
+
+  <button>Closed Tickets By Owner</button>
+</form>   
+
+      </div>
+     </header> 
+
+<details class="text-center bg-dark">
+    <summary class="text-success"> Click Here To Update Ticket Details<h6 class="text-success" id="taskIDOutput"></h6></summary>
+    
             <div class="card-header">
-              <h4>Edit Post</h4>
+              <h4>Edit Task</h4>
+              
             </div>
-            <div class="card-body">
-              <form>
-                <div class="form-group">
-                  <label for="title">Title</label>
-                  <input type="text" class="form-control" value="Post One">
-                </div>
-                <div class="form-group">
-                  <label for="category">Category</label>
-                  <select class="form-control">
-                    <option value="" selected>Web Development</option>
-                    <option value="">Tech Gadgets</option>
-                    <option value="">Business</option>
-                    <option value="">Health & Wellness</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="image">Upload Image</label>
-                  <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="image">
-                    <label for="image" class="custom-file-label">Choose File</label>
-                  </div>
-                  <small class="form-text text-muted">Max Size 3mb</small>
-                </div>
-                <div class="form-group">
-                  <label for="body">Create Body</label>
-                  <textarea name="editor1" class="form-control">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat culpa nam cumque voluptatum. Possimus recusandae porro architecto officiis illo dignissimos ratione aut officia reprehenderit! Iure cum numquam fugit doloremque quis ullam illo odit, odio voluptates non quisquam laboriosam consectetur quasi perspiciatis! Sapiente minus aperiam nobis molestias autem ut praesentium laudantium?</textarea>
-                </div>
-                <div class="form-group">
-                  <label for="body">Save</label>
-                   <button class="btn btn-warning" data-dismiss="modal">Save Changes</button>                 
-                   </div>
+           
+                <form class="card" id="createTaskForm">
+                  
+   <details>
+<summary>Task ID</summary>
+  <textarea name="taskIDOutput2" id="taskIDOutput2" cols="30" rows="2" class="card-header"></textarea>
+        
+          </details>
+
+
+  <select class="card-header" name="selectCategoryButton" id="selectCategoryButton">
+  <option class="card" value="urgent">Urgent</option>
+  <option class="card" value="semi-urgent">Semi-Urgent</option>
+  <option class="card" value="short-term-goal">Short-Term Goal</option>
+  <option class="card" value="long-term-goal">Long-Term Goal</option>
+</select>
+                    <details>
+<summary>Edit Owner</summary>
+  <select name="ticketOwnerInput" id="ticketOwnerInput" class="card-header">
+    <option value="true">ddw</option>
+     <option value="false">damien</option>
+     <option value="true">Intern</option>
+     <option value="false">Manager</option>
+      
+  </select>
+  </details>
+          <details>
+<summary>Edit Completed</summary>
+  <select name="completedInput" id="completedInput" class="card-header">
+    <option value="true">true</option>
+     <option value="false">false</option>
+      
+  </select>
+        
+          </details>
+          <details>
+<summary>Edit Description</summary>
+  <textarea name="descriptionInput" id="descriptionInput" cols="30" rows="2" class="card-header"></textarea>
+        
+          </details>
+          
+          <details class="card-body">
+<summary class="btn">Relevant Details</summary>
+            <textarea name="detailsInput" id="detailsInput" cols="30" rows="2" class="card-header"></textarea>
+        
+
+          </details>
+            <br>
+         <button class="btn btn-primary" id="updateTaskButton">update task</button>
+        </form>
+
+            
+  
+  </details>
 
 
 
-                </form>
-            </div>
-          </div>
-        </div>
-      </div>
+        {{!-- table --}}
+        <div id="tableDiv" class="bg-dark text-success">
+       <table id="myTable" class="table table-striped bg-dark">
+   <tr class="bg-dark text-success">
+                  <th class="card-body">Category</th>
+                  <th class="card-body">description</th>
+                  <th class="card-body"> completed</th>
+                  <th class="card-body">Created At</th>
+                  <th class="card-body">Updated At</th>
+                </tr>
+   <tbody id="taskListBody">
+
+   </tbody>
+   </table>
     </div>
+
+   
+   
   </section>
+
 
   
+
+
+
+  
+ 
+  <!-- DETAILS -->
+  
+
+  <script src="src/testdetails.js"></script>
 </body>
