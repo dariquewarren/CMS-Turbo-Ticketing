@@ -1,64 +1,644 @@
-// const userRouter = require('./routers/user')
-// const taskRouter = require('./routers/tasks')
-// const Task = require('./models/task')
-// const User = require('./models/user')
-// const hbs = require('express-handlebars')
-// const express = require('express')
-// require('./db/mongoose')
-// const app = express()
-// const port = process.env.PORT || 3000
+var taskIDDiv = document.getElementById('taskIDDiv')
+var categoryDiv =document.getElementById('categoryDiv')
+var ownerDiv = document.getElementById('ownerDiv')
+var completedDiv = document.getElementById('completedDiv')
+var descriptionDiv = document.getElementById('descriptionDiv')
+var detailsDiv = document.getElementById('detailsDiv')
 
-// const path = require('path')
-// const auth = require('./middleware/auth')
-// const router = new express.Router()
+// var messageOne = document.getElementById('testParagraph')
+// var testDiv = document.getElementById('testDiv')
+// var testList = document.getElementById('testList')
 
-// express.static(__dirname + '../public')
+var table = document.getElementById("taskListBody");
 
-
-// app.use(express.static('public'))
-
-// app.engine( 'hbs', hbs( {
-//     extname: '.hbs',
-//     defaultView: 'default',
-//     layoutsDir: __dirname + '/views/pages/',
-//     partialsDir: __dirname + '/views/partials/'
-//   }));
+var categoryButton = document.getElementById('selectCategoryButton')
+var completeButton = document.getElementById('completeButton')
+var incompleteButton = document.getElementById('incompleteButton')
+var createdButton = document.getElementById('createdButton')
+var updatedButton = document.getElementById('updatedButton')
+var allTicketsButton = document.getElementById('allTicketsButton')
 
 
-// app.set('view engine', 'hbs')
-
-
-
-
-
-// app.use(express.json())
-// app.use(userRouter)
-// app.use(taskRouter)
-
-// app.get('/',(req, res)=>{
-//   res.render('index')
-// })
-
-// app.listen(port, ()=>{
-//     console.log('Server is up on port ' + port)
-// })
-
-
-
-//  const main = async ()=>{
-//     //  const task = await Task.findById('5ef80ec2fe11913240ef03c7')
-//     //  await task.populate('owner').execPopulate()
-//     //  console.log(task.owner)
-
-//     const user = await User.findById('5eff6c92bc53c01210c7ddc7')
-//     // await user.populate('tasks').execPopulate()
-
-
-//     console.log(user)
+// buttons
+var everyTask = ()=>{
+    fetch(`/tasks`).then((response)=> {
     
     
-//  }
+        response.json().then((data)=>{
+           if(data.error) {
+           return    console.log(data.error)
+           }
+       
+          table.innerHTML = ''
 
-//  main()
+
+          data.forEach((element)=> {
+             var deleteButton = document.createElement('button')
+              
+
+              deleteButton.innerText = 'DELETE TICKET'
+              deleteButton.setAttribute('type', 'button')
+              deleteButton.setAttribute('class','card bg-danger text-warning')
+              deleteButton.addEventListener('click', (e)=>{
+                  e.preventDefault()
+                  fetch(`tasks/${element._id}`,{
+                    method: 'DELETE', // or 'PUT'
+                    headers: {
+                      'Content-Type': 'application/json',
+                      }
+                 
+                  }).then((response)=>{
+                    response.json().then((data)=>{
+                        console.log(data)
+                    })
+                    window.location.assign('/index.html')
+                 })
+              })
+
+              var idButton = document.createElement('button')
+              idButton.innerText = 'TICKET DETAILS'
+              idButton.setAttribute('type', 'button')
+
+              idButton.addEventListener('click', (e)=>{
+                  e.preventDefault()
+
+                  
+                 var id = element._id
+                 console.log(id)
+                fetch(`/tasks/${id}`).then((response)=>{
+                    response.json().then((data)=>{
+                        console.log(data)
+                        
+
+                        taskIDDiv.innerHTML =`TICKET ID: ${data._id}`
+                        ownerDiv.textContent = `OWNER: ${data.ticketOwner}`
+                        descriptionDiv.innerHTML = `DESCRIPTION: ${data.description}`
+                        detailsDiv.innerHTML = `TICKET DETAILS: ${data.details}`
+                        
+  
+//   taskIDOutput.innerHTML =`${data._id}`
+//   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
+//   taskDescriptionOutput.innerHTML = `${data.description}`
+//   taskDetailsOutput.innerHTML = `${data.details}`
+//   taskIDOutput.focus()
+
+                    })
+                })
+                })
+
+            table.classList.add('table','table-striped')
+            var row = table.insertRow(0);
+                row.classList.add('card-header')
+    
+                var cell1 = row.insertCell(0);
+                cell1.setAttribute('class', 'card-body')
+                var cell2 = row.insertCell(1)
+                cell2.setAttribute('class', 'card-body')
+                var cell3 = row.insertCell(2)
+                cell3.setAttribute('class', 'card-body')
+                var cell4 = row.insertCell(3);
+                cell4.setAttribute('class', 'card-body')
+                var cell5 = row.insertCell(4)
+                cell5.setAttribute('class', 'card-body')
+                var cell6 = row.insertCell(5)
+                cell6.setAttribute('class', 'card-body')
+                cell1.innerHTML= `${element.ticketOwner}`
+                cell2.innerHTML = `${element.category}`;
+                cell3.innerHTML = `${element.details}`
+                cell4.innerHTML= `${element.completed}`
+                cell5.appendChild(idButton)
+                cell6.appendChild(deleteButton)
+          });
+          
+    })
+    })
+    
+}
 
 
+var getAllTasks = ()=>{
+    fetch(`/tasks`).then((response)=> {
+    
+    
+        response.json().then((data)=>{
+           if(data.error) {
+           return    console.log(data.error)
+           }
+       
+          table.innerHTML = ''
+
+
+          data.forEach((element)=> {
+             var deleteButton = document.createElement('button')
+              
+
+              deleteButton.innerText = 'DELETE TICKET'
+              deleteButton.setAttribute('type', 'button')
+              deleteButton.setAttribute('class', 'card bg-danger text-warning')
+              deleteButton.addEventListener('click', (e)=>{
+                  e.preventDefault()
+                  fetch(`tasks/${element._id}`,{
+                    method: 'DELETE', // or 'PUT'
+                    headers: {
+                      'Content-Type': 'application/json',
+                      }
+                 
+                  }).then((response)=>{
+                    response.json().then((data)=>{
+                        console.log(data)
+                    })
+                    window.location.assign('/index.html')
+                      })
+                
+              })
+
+              var idButton = document.createElement('button')
+              idButton.innerText = 'TICKET DETAILS'
+              idButton.setAttribute('type', 'button')
+              idButton.setAttribute('class', 'card bg-success text-white')
+
+              idButton.addEventListener('click', (e)=>{
+                  e.preventDefault()
+
+                  
+                 var id = element._id
+                 console.log(id)
+                fetch(`/tasks/${id}`).then((response)=>{
+                    response.json().then((data)=>{
+                        console.log(data)
+                        
+
+                        
+                        taskIDDiv.innerHTML =`TICKET ID: ${data._id}`
+                        ownerDiv.textContent = `OWNER: ${data.ticketOwner}`
+                        descriptionDiv.innerHTML = `DESCRIPTION: ${data.description}`
+                        detailsDiv.innerHTML = `TICKET DETAILS: ${data.details}`
+                       
+  
+//   taskIDOutput.innerHTML =`${data._id}`
+//   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
+//   taskDescriptionOutput.innerHTML = `${data.description}`
+//   taskDetailsOutput.innerHTML = `${data.details}`
+//   taskIDOutput.focus()
+
+                    })
+                })
+                })
+
+            table.classList.add('table','table-striped')
+            var row = table.insertRow(0);
+            row.classList.add('card-header')
+
+            var cell1 = row.insertCell(0);
+            cell1.setAttribute('class', 'card-body')
+            var cell2 = row.insertCell(1)
+            cell2.setAttribute('class', 'card-body')
+            var cell3 = row.insertCell(2)
+            cell3.setAttribute('class', 'card-body')
+            var cell4 = row.insertCell(3);
+            cell4.setAttribute('class', 'card-body')
+            var cell5 = row.insertCell(4)
+            cell5.setAttribute('class', 'card-body')
+            var cell6 = row.insertCell(5)
+            cell6.setAttribute('class', 'card-body')
+            cell1.innerHTML= `${element.ticketOwner}`
+            cell2.innerHTML = `${element.category}`;
+            cell3.innerHTML = `${element.details}`
+            cell4.innerHTML= `${element.completed}`
+            cell5.appendChild(idButton)
+            cell6.appendChild(deleteButton)    
+          });
+          
+    })
+    })
+    
+}
+
+
+
+var byCreatedAt = () =>{
+    fetch('/tasks').then((response)=>{
+        response.json().then((data)=>{
+         if(data.error){
+                alert(data.error)
+            }
+            const tasks = data.sort((a, b) => b.createdAt - a.createdAt)
+            console.log(tasks)
+            var trueTasks = []
+            tasks.forEach((e)=>{
+               trueTasks.push(e)
+            })
+
+           
+            table.innerHTML= ``
+          console.log(trueTasks)
+            trueTasks.forEach((element)=> {
+                var deleteButton = document.createElement('button')
+              
+
+              deleteButton.innerText = 'DELETE TICKET'
+              deleteButton.setAttribute('type', 'button')
+              deleteButton.setAttribute('class', 'card bg-danger text-warning')
+              deleteButton.addEventListener('click', (e)=>{
+                  e.preventDefault()
+                  fetch(`tasks/${element._id}`,{
+                    method: 'DELETE', // or 'PUT'
+                    headers: {
+                      'Content-Type': 'application/json',
+                      }
+                 
+                  }).then((response)=>{
+                    response.json().then((data)=>{
+                        console.log(data)
+                    })
+                    window.location.assign('/index.html')   
+                 })
+                
+              })
+                
+                var idButton = document.createElement('button')
+
+                idButton.innerText = 'TICKET DETAILS'
+                idButton.setAttribute('type', 'button')
+                idButton.setAttribute('class', 'card bg-success text-white')
+  
+                idButton.addEventListener('click', (e)=>{
+                    e.preventDefault()
+  
+                    
+                   var id = element._id
+                   console.log(id)
+                  fetch(`/tasks/${id}`).then((response)=>{
+                      response.json().then((data)=>{
+                          console.log(data)
+                          
+                          taskIDDiv.innerHTML =`TICKET ID: ${data._id}`
+                          ownerDiv.textContent = `OWNER: ${data.ticketOwner}`
+                          descriptionDiv.innerHTML = `DESCRIPTION: ${data.description}`
+                          detailsDiv.innerHTML = `TICKET DETAILS: ${data.details}`
+                         rHTML =`${data._id}`
+//   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
+//   taskDescriptionOutput.innerHTML = `${data.description}`
+//   taskDetailsOutput.innerHTML = `${data.details}`
+//   taskIDOutput.focus()
+  
+                      })
+                  })
+                  })
+
+                table.classList.add('table','table-striped')
+                var row = table.insertRow(0);
+                row.classList.add('card-header')
+    
+                var cell1 = row.insertCell(0);
+                cell1.setAttribute('class', 'card-body')
+                var cell2 = row.insertCell(1)
+                cell2.setAttribute('class', 'card-body')
+                var cell3 = row.insertCell(2)
+                cell3.setAttribute('class', 'card-body')
+                var cell4 = row.insertCell(3);
+                cell4.setAttribute('class', 'card-body')
+                var cell5 = row.insertCell(4)
+                cell5.setAttribute('class', 'card-body')
+                var cell6 = row.insertCell(5)
+                cell6.setAttribute('class', 'card-body')
+                cell1.innerHTML= `${element.ticketOwner}`
+                cell2.innerHTML = `${element.category}`;
+                cell3.innerHTML = `${element.details}`
+                cell4.innerHTML= `${element.completed}`
+                cell5.appendChild(idButton)
+                cell6.appendChild(deleteButton) });
+
+
+
+        })
+    })
+}
+
+
+
+var byUpdatedAt = () =>{
+    fetch('/tasks').then((response)=>{
+        response.json().then((data)=>{
+         if(data.error){
+                alert(data.error)
+            }
+
+            const tasks = data.sort((a, b) => b.updatedAt - a.updatedAt)
+            console.log(tasks)
+            var trueTasks = []
+            tasks.forEach((e)=>{
+               trueTasks.push(e)
+               console.log(e)
+            })
+
+           
+            table.innerHTML= ``
+            console.log(trueTasks)
+            trueTasks.forEach((element)=> {
+                var deleteButton = document.createElement('button')
+              
+
+                deleteButton.innerText = 'DELETE TICKET'
+                deleteButton.setAttribute('type', 'button')
+                deleteButton.setAttribute('class', 'card bg-danger text-warning')
+                deleteButton.addEventListener('click', (e)=>{
+                    e.preventDefault()
+                    fetch(`tasks/${element._id}`,{
+                      method: 'DELETE', // or 'PUT'
+                      headers: {
+                        'Content-Type': 'application/json',
+                        }
+                   
+                    }).then((response)=>{
+                      response.json().then((data)=>{
+                          console.log(data)
+                      })
+                      window.location.assign('/index.html')
+                    })
+                  
+                })
+
+                var idButton = document.createElement('button')
+
+                idButton.innerText = 'TICKET DETAILS'
+                idButton.setAttribute('type', 'button')
+                idButton.setAttribute('class', 'card bg-success text-white')
+  
+                idButton.addEventListener('click', (e)=>{
+                    e.preventDefault()
+                    var id = element._id
+                  fetch(`/tasks/${id}`).then((response)=>{
+                      response.json().then((data)=>{
+                          console.log(data)
+                          
+  
+                          taskIDDiv.innerHTML =`TICKET ID: ${data._id}`
+                          ownerDiv.textContent = `OWNER: ${data.ticketOwner}`
+                          descriptionDiv.innerHTML = `DESCRIPTION: ${data.description}`
+                          detailsDiv.innerHTML = `TICKET DETAILS: ${data.details}`
+                           
+//   taskIDOutput.innerHTML =`${data._id}`
+//   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
+//   taskDescriptionOutput.innerHTML = `${data.description}`
+//   taskDetailsOutput.innerHTML = `${data.details}`
+//   taskIDOutput.focus()
+  
+                      })
+                  })
+                  })
+  
+
+                table.classList.add('table','table-striped')
+                var row = table.insertRow(0);
+                row.classList.add('card-header')
+    
+                var cell1 = row.insertCell(0);
+                cell1.setAttribute('class', 'card-body')
+                var cell2 = row.insertCell(1)
+                cell2.setAttribute('class', 'card-body')
+                var cell3 = row.insertCell(2)
+                cell3.setAttribute('class', 'card-body')
+                var cell4 = row.insertCell(3);
+                cell4.setAttribute('class', 'card-body')
+                var cell5 = row.insertCell(4)
+                cell5.setAttribute('class', 'card-body')
+                var cell6 = row.insertCell(5)
+                cell6.setAttribute('class', 'card-body')
+                cell1.innerHTML= `${element.ticketOwner}`
+                cell2.innerHTML = `${element.category}`;
+                cell3.innerHTML = `${element.details}`
+                cell4.innerHTML= `${element.completed}`
+                cell5.appendChild(idButton)
+                cell6.appendChild(deleteButton)  });
+        })
+    })
+}
+
+var completeTasksOnly = () =>{
+    fetch('/tasks').then((response)=>{
+        response.json().then((data)=>{
+         if(data.error){
+                alert(data.error)
+            }
+
+            var trueTasks =[]
+            data.forEach((e)=>{
+                if(e.completed === true){
+                    trueTasks.push(e)
+                }
+            })
+   table.innerHTML= ``
+              console.log(trueTasks)
+              trueTasks.forEach((element)=> {
+                var deleteButton = document.createElement('button')
+              
+
+              deleteButton.innerText = 'DELETE TICKET'
+              deleteButton.setAttribute('type', 'button')
+              deleteButton.setAttribute('class', 'card bg-danger text-warning')
+              deleteButton.addEventListener('click', (e)=>{
+                  e.preventDefault()
+                  fetch(`tasks/${element._id}`,{
+                    method: 'DELETE', // or 'PUT'
+                    headers: {
+                      'Content-Type': 'application/json',
+                      }
+                 
+                  }).then((response)=>{
+                    response.json().then((data)=>{
+                        console.log(data)
+                    })
+                    window.location.assign('/index.html')
+                })
+                
+              })  
+
+                var idButton = document.createElement('button')
+
+                idButton.innerText = 'TICKET DETAILS'
+                idButton.setAttribute('type', 'button')
+                idButton.setAttribute('class', 'card bg-success text-white')
+  
+                idButton.addEventListener('click', (e)=>{
+                    e.preventDefault()
+                    var id = element._id
+                  fetch(`/tasks/${id}`).then((response)=>{
+                      response.json().then((data)=>{
+                          console.log(data)
+                          
+  
+                          
+                          taskIDDiv.innerHTML =`TICKET ID: ${data._id}`
+                          ownerDiv.textContent = `OWNER: ${data.ticketOwner}`
+                          descriptionDiv.innerHTML = `DESCRIPTION: ${data.description}`
+                          detailsDiv.innerHTML = `TICKET DETAILS: ${data.details}`
+                         
+  //   taskIDOutput.innerHTML =`${data._id}`
+  //   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
+  //   taskDescriptionOutput.innerHTML = `${data.description}`
+  //   taskDetailsOutput.innerHTML = `${data.details}`
+  //   taskIDOutput.focus()
+  
+                      })
+                  })
+                  })
+
+                table.classList.add('table','table-striped')
+                var row = table.insertRow(0);
+                row.classList.add('card-header')
+    
+                var cell1 = row.insertCell(0);
+                cell1.setAttribute('class', 'card-body')
+                var cell2 = row.insertCell(1)
+                cell2.setAttribute('class', 'card-body')
+                var cell3 = row.insertCell(2)
+                cell3.setAttribute('class', 'card-body')
+                var cell4 = row.insertCell(3);
+                cell4.setAttribute('class', 'card-body')
+                var cell5 = row.insertCell(4)
+                cell5.setAttribute('class', 'card-body')
+                var cell6 = row.insertCell(5)
+                cell6.setAttribute('class', 'card-body')
+                cell1.innerHTML= `${element.ticketOwner}`
+                cell2.innerHTML = `${element.category}`;
+                cell3.innerHTML = `${element.details}`
+                cell4.innerHTML= `${element.completed}`
+                cell5.appendChild(idButton)
+                cell6.appendChild(deleteButton)
+             });
+        })
+    })
+}
+
+var incompleteTasksOnly = () =>{
+    fetch('/tasks').then((response)=>{
+        response.json().then((data)=>{
+         if(data.error){
+                alert(data.error)
+            }
+
+            var trueTasks =[]
+            data.forEach((e)=>{
+                if(e.completed === false){
+                    trueTasks.push(e)
+                }
+            })
+            console.log(trueTasks)
+   table.innerHTML= ``
+              console.log(trueTasks)
+              trueTasks.forEach((element)=> {
+               
+                var idButton = document.createElement('button')
+
+                var deleteButton = document.createElement('button')
+              
+
+                deleteButton.innerText = 'DELETE TICKET'
+                deleteButton.setAttribute('type', 'button')
+                deleteButton.setAttribute('class', 'card bg-danger text-warning')
+                deleteButton.addEventListener('click', (e)=>{
+                    e.preventDefault()
+                    fetch(`tasks/${element._id}`,{
+                      method: 'DELETE', // or 'PUT'
+                      headers: {
+                        'Content-Type': 'application/json',
+                        }
+                   
+                    }).then((response)=>{
+                      response.json().then((data)=>{
+                          console.log(data)
+                      })
+                      window.location.assign('/index.html')     })
+                  
+                })
+
+                idButton.innerText = 'TICKET DETAILS'
+                idButton.setAttribute('type', 'button')
+                idButton.setAttribute('class', 'card bg-success text-white')
+  
+                idButton.addEventListener('click', (e)=>{
+                    e.preventDefault()
+                    var id = element._id
+                  fetch(`/tasks/${id}`).then((response)=>{
+                      response.json().then((data)=>{
+                          console.log(data)
+                          
+  
+                          taskIDDiv.innerHTML =`TICKET ID: ${data._id}`
+                          ownerDiv.textContent = `OWNER: ${data.ticketOwner}`
+                          
+                          descriptionDiv.innerHTML = `DESCRIPTION: ${data.description}`
+                          detailsDiv.innerHTML = `TICKET DETAILS: ${data.details}`
+                            
+    
+  //   taskIDOutput.innerHTML =`${data._id}`
+  //   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
+  //   taskDescriptionOutput.innerHTML = `${data.description}`
+  //   taskDetailsOutput.innerHTML = `${data.details}`
+  //   taskIDOutput.focus()
+                      })
+                  })
+                  })
+
+               table.classList.add('table','table-striped')
+               var row = table.insertRow(0);
+               row.classList.add('card-header')
+   
+               var cell1 = row.insertCell(0);
+               cell1.setAttribute('class', 'card-body')
+               var cell2 = row.insertCell(1)
+               cell2.setAttribute('class', 'card-body')
+               var cell3 = row.insertCell(2)
+               cell3.setAttribute('class', 'card-body')
+               var cell4 = row.insertCell(3);
+               cell4.setAttribute('class', 'card-body')
+               var cell5 = row.insertCell(4)
+               cell5.setAttribute('class', 'card-body')
+               var cell6 = row.insertCell(5)
+               cell6.setAttribute('class', 'card-body')
+               cell1.innerHTML= `${element.ticketOwner}`
+               cell2.innerHTML = `${element.category}`;
+               cell3.innerHTML = `${element.details}`
+               cell4.innerHTML= `${element.completed}`
+               cell5.appendChild(idButton)
+               cell6.appendChild(deleteButton)
+          
+                });
+        })
+    })
+}
+
+
+
+
+
+completeButton.addEventListener('submit', (e)=>{
+    e.preventDefault()
+    completeTasksOnly()
+})
+incompleteButton.addEventListener('submit', (e)=>{
+    e.preventDefault()
+    incompleteTasksOnly()
+})
+
+createdButton.addEventListener('submit', (e)=>{
+    e.preventDefault()
+    byCreatedAt()
+})
+
+updatedButton.addEventListener('submit', (e)=>{
+    e.preventDefault()
+    byUpdatedAt()
+})
+
+allTicketsButton.addEventListener('submit', (e)=>{
+    e.preventDefault()
+console.log('lolololo')
+getAllTasks()
+})
+
+
+
+getAllTasks()
+//   delete button

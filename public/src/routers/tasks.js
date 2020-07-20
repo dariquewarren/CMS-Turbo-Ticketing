@@ -37,7 +37,7 @@ router.post('/tasks/owner', async (req,res)=>{
     
     try{
         
-const task = await Tasks.find({ticketOwner: req.body.ticketOwner, completed: false})
+const task = await Tasks.find(req.body)
 if(!task){
 res.status(404).send()
         }

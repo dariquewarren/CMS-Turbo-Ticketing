@@ -67,7 +67,7 @@ app.get('/categories.html',(req, res )=>{
 app.get('/details.html',(req, res )=>{
     // res.send('helloooooooooo')
     //  res.sendFile(viewsPath + '/main.hbs' )
-     res.render('main', {layout: 'details'})
+     res.render('details', {layout: 'details'})
 })
 
 app.get('/index.html',(req, res )=>{
