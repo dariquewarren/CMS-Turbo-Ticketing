@@ -3,7 +3,7 @@
     
     
     <div id="openDetails" class="card-header text-success text-center bg-dark">
-      CHANGE COMPLETED INPUT TO A CHECKBOX
+      
     </div>
       <!-- HEADER -->
   <header id="main-header" class="py-2 bg-dark text-white">
@@ -34,17 +34,14 @@
  <div id="tableDiv" class="bg-dark text-success">
        
     </div>
- <form class="card" id="createTaskForm">
+ <form class="card text-success bg-dark" id="createTaskForm">
+<h6>TITLE</h6>
+         <textarea name="titleInput" id="titleInput" placeholder="Title Goes Here" cols="30" rows="2" class="card-header bg-white text-danger"></textarea>
+            <H6>DETAILS</H6>
+        <textarea name="descriptionInput" id="descriptionInput" placeholder="DESCRIPTION GOES HERE" cols="30" rows="2" class="card-header bg-white"></textarea>
 
-         <textarea name="titleInput" id="titleInput" placeholder="Title Goes Here" cols="30" rows="2" class="card-header"></textarea>
-            
-        <textarea name="descriptionInput" id="descriptionInput" placeholder="DESCRIPTION GOES HERE" cols="30" rows="2" class="card-header"></textarea>
-
-           
-<textarea name="completedInput" id="completedInput" placeholder="TYPE TRUE OR FALSE" cols="30" rows="2" class="card-header"></textarea>
-        
-          <input type="checkbox" name="completedCheckbox" id="completedCheckbox"> COMPLETED
-         <button class="btn btn-dark text-warning" >CREATE TICKET</button>        
+          <h6> <input type="checkbox" name="completedCheckbox" id="completedCheckbox"><br> COMPLETED</h6>
+              <button class="btn btn-secondary text-warning">CREATE TICKET</button>
         </form>
 
 </body>
