@@ -86,20 +86,16 @@ var byCreatedAt = () =>{
                   row.classList.add('card-header')
       
                   var cell1 = row.insertCell(0);
-                  cell1.setAttribute('class', 'card-body text-dark')
+                  cell1.setAttribute('class', 'card-body bg-secondary')
                   var cell2 = row.insertCell(1)
-                  cell2.setAttribute('class', 'card-body bg-secondary text-dark')
+                  cell2.setAttribute('class', 'card-body ')
                   var cell3 = row.insertCell(2)
-                  cell3.setAttribute('class', 'card-body')
-                  var cell4 = row.insertCell(3);
-                  cell4.setAttribute('class', 'card-body bg-secondary')
+                  cell3.setAttribute('class', 'card-body bg-secondary')
                   
-             
                   cell1.innerHTML= `${element.title}`
-                  cell2.innerHTML = `${element.details}`;
-                  cell3.appendChild(idButton)
-                  cell4.appendChild(deleteButton) 
-                     });
+                  cell2.appendChild(idButton)
+                  cell3.appendChild(deleteButton)    
+                                 });
 
 
 
@@ -182,20 +178,16 @@ var byUpdatedAt = () =>{
                   row.classList.add('card-header')
       
                   var cell1 = row.insertCell(0);
-                  cell1.setAttribute('class', 'card-body text-dark')
+                  cell1.setAttribute('class', 'card-body bg-secondary')
                   var cell2 = row.insertCell(1)
-                  cell2.setAttribute('class', 'card-body bg-secondary text-dark')
+                  cell2.setAttribute('class', 'card-body ')
                   var cell3 = row.insertCell(2)
-                  cell3.setAttribute('class', 'card-body')
-                  var cell4 = row.insertCell(3);
-                  cell4.setAttribute('class', 'card-body bg-secondary')
+                  cell3.setAttribute('class', 'card-body bg-secondary')
                   
-             
                   cell1.innerHTML= `${element.title}`
-                  cell2.innerHTML = `${element.details}`;
-                  cell3.appendChild(idButton)
-                  cell4.appendChild(deleteButton)
-           });
+                  cell2.appendChild(idButton)
+                  cell3.appendChild(deleteButton)    
+                       });
 
 
 
@@ -271,20 +263,16 @@ var completeTasksOnly = () =>{
                   row.classList.add('card-header')
       
                   var cell1 = row.insertCell(0);
-                  cell1.setAttribute('class', 'card-body text-dark')
+                  cell1.setAttribute('class', 'card-body bg-secondary')
                   var cell2 = row.insertCell(1)
-                  cell2.setAttribute('class', 'card-body bg-secondary text-dark')
+                  cell2.setAttribute('class', 'card-body ')
                   var cell3 = row.insertCell(2)
-                  cell3.setAttribute('class', 'card-body')
-                  var cell4 = row.insertCell(3);
-                  cell4.setAttribute('class', 'card-body bg-secondary')
+                  cell3.setAttribute('class', 'card-body bg-secondary')
                   
-             
                   cell1.innerHTML= `${element.title}`
-                  cell2.innerHTML = `${element.details}`;
-                  cell3.appendChild(idButton)
-                  cell4.appendChild(deleteButton)
-           });
+                  cell2.appendChild(idButton)
+                  cell3.appendChild(deleteButton)    
+             });
         })
     })
 }
@@ -340,7 +328,7 @@ var incompleteTasksOnly = () =>{
                   fetch(`/tasks/${id}`).then((response)=>{
                       response.json().then((data)=>{
                         console.log(data)
-                        
+                    
                                         
                         taskIDOutput.innerHTML =`${data._id}`
                         detailsInput.innerHTML = `${data.details}`
@@ -356,20 +344,16 @@ var incompleteTasksOnly = () =>{
                   row.classList.add('card-header')
       
                   var cell1 = row.insertCell(0);
-                  cell1.setAttribute('class', 'card-body text-dark')
+                  cell1.setAttribute('class', 'card-body bg-secondary')
                   var cell2 = row.insertCell(1)
-                  cell2.setAttribute('class', 'card-body bg-secondary text-dark')
+                  cell2.setAttribute('class', 'card-body ')
                   var cell3 = row.insertCell(2)
-                  cell3.setAttribute('class', 'card-body')
-                  var cell4 = row.insertCell(3);
-                  cell4.setAttribute('class', 'card-body bg-secondary')
+                  cell3.setAttribute('class', 'card-body bg-secondary')
                   
-             
                   cell1.innerHTML= `${element.title}`
-                  cell2.innerHTML = `${element.details}`;
-                  cell3.appendChild(idButton)
-                  cell4.appendChild(deleteButton)
-               });
+                  cell2.appendChild(idButton)
+                  cell3.appendChild(deleteButton)    
+             });
         })
     })
 }
@@ -443,19 +427,16 @@ table.innerHTML = ``
             row.classList.add('card-header')
 
             var cell1 = row.insertCell(0);
-            cell1.setAttribute('class', 'card-body text-dark')
+            cell1.setAttribute('class', 'card-body bg-secondary')
             var cell2 = row.insertCell(1)
-            cell2.setAttribute('class', 'card-body bg-secondary text-dark')
+            cell2.setAttribute('class', 'card-body ')
             var cell3 = row.insertCell(2)
-            cell3.setAttribute('class', 'card-body')
-            var cell4 = row.insertCell(3);
-            cell4.setAttribute('class', 'card-body bg-secondary')
+            cell3.setAttribute('class', 'card-body bg-secondary')
             
-       
             cell1.innerHTML= `${element.title}`
-            cell2.innerHTML = `${element.details}`;
-            cell3.appendChild(idButton)
-            cell4.appendChild(deleteButton)
+            cell2.appendChild(idButton)
+            cell3.appendChild(deleteButton)    
+      
        });
           
     })
