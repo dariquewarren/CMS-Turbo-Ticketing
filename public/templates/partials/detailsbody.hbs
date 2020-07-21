@@ -1,139 +1,68 @@
 <body>
     <!-- HEADER -->
-  <header id="main-header" class="py-2 bg-dark text-success text-center">
-<div id="openDetails" class="card-header"></div>
 
-<section id="actions" class="py-4 mb-4 bg-dark">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <a href="#" class="btn btn-secondary text-dark btn-block" data-toggle="modal" data-target="#addPostModal">
-            <i class="fas fa-plus"></i> UPDATE A TICKET
-          </a>
-        </div>
-  </section>
-  
-  <!-- MODALS -->
-
-  <!-- ADD POST MODAL -->
-  <div class="modal fade" id="addPostModal">
-    
-      <div class="text-center bg-dark">
-
-  <h4 class="text-success">UPDATE A TICKET</h4>
-      <div class="card bg-primary">
-<form class="card" id="createTaskForm">
-<div id="taskIDOutput"></div>
-        
-  <select class="card" name="selectCategoryButton" id="selectCategoryButton">
-    <option value="category">/////SELECT CATEGORY\\\\\</option>
-  <option class="card" value="urgent">Urgent</option>
-  <option class="card" value="semi-urgent">Semi-Urgent</option>
-  <option class="card" value="short-term-goal">Short-Term Goal</option>
-  <option class="card" value="long-term-goal">Long-Term Goal</option>
-</select>
-
-              
-  <select name="ticketOwnerInput" id="ticketOwnerInput" class="card-header">
-    <option value="owner">/////SELECT OWNER\\\\\</option>
-    <option value="ddw">ddw</option>
-     <option value="damien">damien</option>
-     <option value="intern">intern</option>
-     <option value="manager">manager</option>
-      
-  </select>
-  
-  <select name="completedInput" id="completedInput" class="card-header">
-    <option value="completed">/////COMPLETION STATUS\\\\\</option>
-    <option value="true">true</option>
-     <option value="false">false</option>
-      
-  </select>
-        <textarea name="descriptionInput" id="descriptionInput" placeholder="DESCRIPTION GOES HERE" cols="30" rows="2" class="card-header"></textarea>
-
-            <textarea name="detailsInput" id="detailsInput" placeholder="DETAILS GO HERE" cols="30" rows="2" class="card-header"></textarea>
-        
-
-          
-         <button class="btn btn-dark text-warning" >UPDATE TICKET</button>
-        
-         
-        </form>
- 
-           </div>
- 
-    </div>
-    <span class="modal-dialog modal-lg">
-      <button class="card-header bg-danger text-dark" data-toggle="modal" data-target="#addPostModal">
-        CLOSE</button>
-         </span>
-  </div>
-  <h5 class="bg-dark">SORT TICKETS BY</h5>
-  
-       <div class="row">
-       <form id="completeButton" class="card-header bg-dark text-white">
-      <button class="card-header bg-dark text-success">COMPLETE</button>
-    </form>
-    <form id="incompleteButton" class="card-header bg-dark text-white">
-      <button class="card-header bg-dark text-success">NOT COMPLETE</button>
-    </form>
-    
-
-<form  id="createdButton" class="card-header bg-dark text-white">
-      <button class="card-header bg-dark text-success">Recently Created</button>
-    </form>
-    <form id="updatedButton" class="card-header bg-dark text-white">
-      <button class="card-header bg-dark text-success">Recently Updated</button>
-    </form>
-    
-    
-    <form id="allTicketsButton" class="card-header bg-dark text-white">
-  <button class="card-header bg-dark text-success"> All Tickets</button>
-</form>
-  <form action="" class="bg-dark w-50 p-3 " id="openTicketForm">
-   <select name="searchOwner" id="searchOwner" class="card-header bg-success">
-    <option value="ddw">ddw</option>
-     <option value="damien">damien</option>
-     <option value="intern">intern</option>
-     <option value="manager">manager</option>
-      
-  </select>
-  
-  <button>Open Tickets By Owner</button>
-</form>
-<form action="" class="bg-dark w-50 p-3 " id="closedTicketForm">
-   <select name="searchOwner2" id="searchOwner2" class="card-header bg-success">
-    <option value="ddw">ddw</option>
-     <option value="damien">damien</option>
-     <option value="intern">intern</option>
-     <option value="manager">manager</option>
-      
-  </select>
-
-  <button>Closed Tickets By Owner</button>
-</form>   
-
-      </div>
-     </header> 
 
 
 
         {{!-- table --}}
         <div id="tableDiv" class="bg-dark text-success">
+<div class="dropdown bg-dark text-success">
+  <button class="dropdown-toggle bg-dark text-success" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    SORT TICKETS BY
+    
+  </button>
+  <div class="dropdown-menu bg-dark text-success" aria-labelledby="dropdownMenuButton">
+    
+           <form id="completeButton" class="dropdown-item">
+       <button class="bg-dark text-success">COMPLETE</button>
+    </form>
+    <form id="incompleteButton" class="dropdown-item">
+     <button class="bg-dark text-success"> NOT COMPLETE</button>
+    </form>
+    
+
+<form  id="createdButton" class="dropdown-item">
+      <button class="bg-dark text-success">Recently Created</button> 
+    </form>
+    <form id="updatedButton" class="dropdown-item">
+       <button class="bg-dark text-success">Recently Updated</button>
+    </form>
+    
+    
+    <form id="allTicketsButton" class="dropdown-item ">
+   <button class="bg-dark text-success">All Tickets</button>
+</form>
+
+  </div>
+</div>
+
        <table id="myTable" class="table table-striped bg-dark">
    <tr class="bg-dark text-success">
-<th class="card-body">Owner</th> 
-                <th class="card-body">Category</th>
                   <th class="card-body">Title</th>
-                  <th class="card-body">Completed</th>
-                </tr>
+                  </tr>
    <tbody id="taskListBody">
 
    </tbody>
    </table>
     </div>
 
-   
+   <form class="card" id="createTaskForm">
+
+  <textarea name="taskIDOutput" id="taskIDOutput" placeholder="TASK ID" cols="30" rows="2" class="card-header"></textarea>
+         <textarea name="titleInput" id="titleInput" placeholder="Title Goes Here" cols="30" rows="2" class="card-header"></textarea>
+            
+        <textarea name="detailsInput" id="detailsInput" placeholder="DESCRIPTION GOES HERE" cols="30" rows="2" class="card-header"></textarea>
+
+           
+<textarea name="completedInput" id="completedInput" placeholder="TYPE TRUE OR FALSE" cols="30" rows="2" class="card-header"></textarea>
+        
+          
+         <button class="btn btn-dark text-warning" >UPDATE TICKET</button>
+        
+         
+        </form>
+ 
+
    
   </section>
 

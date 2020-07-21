@@ -8,18 +8,10 @@ const exphbs = require('express-handlebars')
 const express = require('express')
 require('./db/mongoose')
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.port || 3000
 
-var cookieParser = require('cookie-parser');
-var session = require('express-session');
-
-app.use(cookieParser());
-app.use(session({
-    secret: 'keyboard cat',
-    resave: true,
-    saveUninitialized: true,
-    cookie: { secure: true }
-  }))//DEFINE PATHS FOR EXPRESS CONFIG
+const cookieParser = require('cookie-parser')
+//DEFINE PATHS FOR EXPRESS CONFIG
 
 const viewsPath = path.join(__dirname, '../templates/views')
 const partialsPath = path.join(__dirname, '../templates/partials')
@@ -34,15 +26,9 @@ express.static(__dirname)
 
 // SETUP STATIC DIRECTORY TO SERVE
 app.use(express.static('public'))
-
-
-
-const auth = require('./middleware/auth')
-const router = new express.Router()
-
-
-
 app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+app.use(cookieParser())
 app.use(userRouter)
 app.use(taskRouter)
 
@@ -54,9 +40,23 @@ app.get('/',(req, res )=>{
     // res.send('helloooooooooo')
     //  res.sendFile(viewsPath + '/main.hbs' )
      res.render('index', {layout: 'index'})
-})// app.get('/',(req, res )=>{
-//     res.render('index',{layout: 'index'})
-// })
+})
+
+
+
+app.get('/tickets',(req, res )=>{
+    // res.send('helloooooooooo')
+    //  res.sendFile(viewsPath + '/main.hbs' )
+     res.render('tickets',{layout: 'tickets'})
+    
+})
+
+
+app.get('/register.html',(req, res )=>{
+    // res.send('helloooooooooo')
+    //  res.sendFile(viewsPath + '/categories.hbs' )
+     res.render('register', {layout: 'register'})
+})
 
 app.get('/categories.html',(req, res )=>{
     // res.send('helloooooooooo')

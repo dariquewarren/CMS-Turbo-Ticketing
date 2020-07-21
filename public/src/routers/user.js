@@ -34,6 +34,7 @@ router.post('/users', async (req, res) => {
     try {
         await user.save()
         const token = await user.generateAuthToken()
+        res.cookie('auth_token', token)
         res.status(201).send({ user, token })
     } catch (e) {
         res.status(400).send(e)
@@ -59,9 +60,9 @@ router.post('/users/login', async (req, res) => {
     try {
         const user = await User.findByCredentials(req.body.email, req.body.password)
         const token = await user.generateAuthToken()
-        res.send({ user, token })
-        req.session.user = user;
-        res.redirect('/index.html')
+        res.cookie('auth_token', token)
+        res.send(user)
+        res.render('/index.html')
     } catch (e) {
         res.status(400).send()
     }
@@ -79,9 +80,6 @@ router.post('/users/logout', auth, async (req, res) => {
         res.status(500).send()
     }
 })
-
-
-
 
 
 router.post('/users/logoutAll', auth, async (req, res) => {

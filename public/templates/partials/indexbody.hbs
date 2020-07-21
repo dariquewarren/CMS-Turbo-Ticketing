@@ -7,38 +7,48 @@
     <div class="row">
 <div class="max-height: card-body 10% text-success" id="taskIDDiv">TICKET ID</div>
         
-          <div class="max-height: 10% card-body text-primary" id="ownerDiv">OWNER</div>
-         
-          <div class="max-height: 10% card-body text-primary" id="descriptionDiv">DESCRIPTION</div>
+          <div class="max-height: 10% card-body text-primary" id="titleDiv">TITLE</div>
+
           <div class="max-height: 10% card-body text-primary" id="detailsDiv">DETAILS</div>
   
     </div>
+<div class="dropdown bg-dark text-success">
+  <button class="dropdown-toggle bg-dark text-success" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    SORT TICKETS BY
+    
+  </button>
+  <div class="dropdown-menu bg-dark text-success" aria-labelledby="dropdownMenuButton">
+    
+           <form id="completeButton" class="dropdown-item">
+       <button class="bg-dark text-success">COMPLETE</button>
+    </form>
+    <form id="incompleteButton" class="dropdown-item">
+     <button class="bg-dark text-success"> NOT COMPLETE</button>
+    </form>
+    
+
+<form  id="createdButton" class="dropdown-item">
+      <button class="bg-dark text-success">Recently Created</button> 
+    </form>
+    <form id="updatedButton" class="dropdown-item">
+       <button class="bg-dark text-success">Recently Updated</button>
+    </form>
+    
+    
+    <form id="allTicketsButton" class="dropdown-item ">
+   <button class="bg-dark text-success">All Tickets</button>
+</form>
+
+  </div>
+</div>
+
   
 
   </header>
 
   <!-- ACTIONS -->
   
-        <div class="row bg-dark">
-          
-       
-<form id="completeButton" class="card-header bg-dark text-white">
-      <button class="card-header bg-dark text-success">COMPLETE</button>
-    </form>
-    <form id="incompleteButton" class="card-header bg-dark text-white">
-      <button class="card-header bg-dark text-success">NOT COMPLETE</button>
-    </form>
-    <form  id="createdButton" class="card-header bg-dark text-white">
-      <button class="card-header bg-dark text-success">Recently Created</button>
-    </form>
-    <form id="updatedButton" class="card-header bg-dark text-white">
-      <button class="card-header bg-dark text-success">Recently updated</button>
-    </form>
-    <form id="allTicketsButton" class="card-header bg-dark text-white">
-  <button class="card-header bg-dark text-success"> All Tickets</button>
-</form>
-        </div>
-
+  <div id="tableDiv" class="bg-dark text-success">
 
  
   <!-- tasks -->
@@ -50,14 +60,12 @@
             
 
 
-        <div id="tableDiv" class="bg-dark text-success">
+        <div id="tableDiv" class="bg-dark">
 
  <table id="myTable" class="table table-striped bg-dark">
    <tr class="bg-dark text-success">
-                <th class="card-body">Owner</th> 
-                <th class="card-body">Category</th>
-                  <th class="card-body">Title</th>
-                  <th class="card-body">Completed</th>
+                 <th class="card-body">Title</th>
+                 
                 </tr>
    <tbody id="taskListBody">
 
