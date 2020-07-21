@@ -42,7 +42,11 @@ app.get('/',(req, res )=>{
      res.render('index', {layout: 'index'})
 })
 
-
+app.get('/profile',(req, res )=>{
+    // res.send('helloooooooooo')
+    //  res.sendFile(viewsPath + '/main.hbs' )
+     res.render('profile', {layout: 'profile'})
+})
 
 app.get('/tickets',(req, res )=>{
     // res.send('helloooooooooo')
