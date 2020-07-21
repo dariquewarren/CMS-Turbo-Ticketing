@@ -44,8 +44,18 @@ throw new Error('Invalid Email')
                 }      
         }
        
-        },
+        }, about: {
 
+            type: String,
+            required: true,
+            trim: true
+            },
+            jobtitle: {
+
+                type: String,
+                required: true,
+                trim: true
+                },
         tokens: [{
             token: {
                 type: String,
