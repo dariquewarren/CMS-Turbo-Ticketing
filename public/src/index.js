@@ -77,7 +77,8 @@ var getAllTasks = ()=>{
             row.classList.add('card-header')
 
             var cell1 = row.insertCell(0);
-            cell1.setAttribute('class', 'card-body bg-light text-primary')
+             cell1.setAttribute('class', 'card-body bg-light text-primary')
+           
             var cell2 = row.insertCell(1)
             cell2.setAttribute('class', 'card-body bg-dark')
             var cell3 = row.insertCell(2)
@@ -156,7 +157,8 @@ var byCreatedAt = () =>{
                 row.classList.add('card-header')
     
                 var cell1 = row.insertCell(0);
-                cell1.setAttribute('class', 'card-body bg-dark')
+                 cell1.setAttribute('class', 'card-body bg-light text-primary')
+           
                 var cell2 = row.insertCell(1)
                 cell2.setAttribute('class', 'card-body bg-dark')
                 var cell3 = row.insertCell(2)
@@ -239,7 +241,8 @@ var byUpdatedAt = () =>{
                 row.classList.add('card-header')
     
                 var cell1 = row.insertCell(0);
-                cell1.setAttribute('class', 'card-body bg-dark')
+                 cell1.setAttribute('class', 'card-body bg-light text-primary')
+           
                 var cell2 = row.insertCell(1)
                 cell2.setAttribute('class', 'card-body bg-dark')
                 var cell3 = row.insertCell(2)
@@ -313,7 +316,8 @@ var completeTasksOnly = () =>{
                 row.classList.add('card-header')
     
                 var cell1 = row.insertCell(0);
-                cell1.setAttribute('class', 'card-body bg-dark')
+                 cell1.setAttribute('class', 'card-body bg-light text-primary')
+           
                 var cell2 = row.insertCell(1)
                 cell2.setAttribute('class', 'card-body bg-dark')
                 var cell3 = row.insertCell(2)
@@ -390,7 +394,8 @@ var incompleteTasksOnly = () =>{
                row.classList.add('card-header')
    
                var cell1 = row.insertCell(0);
-               cell1.setAttribute('class', 'card-body bg-dark')
+                cell1.setAttribute('class', 'card-body bg-light text-primary')
+           
                var cell2 = row.insertCell(1)
                cell2.setAttribute('class', 'card-body bg-dark')
                var cell3 = row.insertCell(2)
