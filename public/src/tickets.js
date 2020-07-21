@@ -1,5 +1,5 @@
 
-var completedInput = document.getElementById('completedInput')
+
 var descriptionInput = document.getElementById('descriptionInput')
 var titleInput = document.getElementById('titleInput')
 var createTaskForm = document.getElementById('createTaskForm')
@@ -7,13 +7,13 @@ var createTaskForm = document.getElementById('createTaskForm')
 // var testDiv = document.getElementById('testDiv')
 // var testList = document.getElementById('testList')
 
-
+var completedCheckbox = document.getElementById('completedCheckbox')
 
 
 
 // buttons
 
-
+console.log(completedCheckbox.checked)
 
 createTaskForm.addEventListener('submit', (e)=>{
     e.preventDefault()
@@ -21,7 +21,7 @@ createTaskForm.addEventListener('submit', (e)=>{
     var ddw = {
 
 details: descriptionInput.value,
-completed: completedInput.value,
+completed: completedCheckbox.checked,
 title: titleInput.value
     }
     
