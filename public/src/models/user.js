@@ -8,7 +8,7 @@ const userSchema = mongoose.Schema({
     name: {
 
         type: String,
-        required: true,
+       required: true,
         trim: true
         },
     email: {
@@ -45,15 +45,13 @@ throw new Error('Invalid Email')
         }
        
         }, about: {
-
+default: 'THIS PERSON IS PRIVATE. PLEASE RESPECT THAT.',
             type: String,
-            required: true,
             trim: true
             },
             jobtitle: {
-
+                default: 'JOB TITLE NEEDED',
                 type: String,
-                required: true,
                 trim: true
                 },
         tokens: [{
