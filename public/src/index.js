@@ -1,6 +1,4 @@
-var taskIDDiv = document.getElementById('taskIDDiv')
-var titleDiv = document.getElementById('titleDiv')
-var detailsDiv = document.getElementById('detailsDiv')
+
 
 // var messageOne = document.getElementById('testParagraph')
 // var testDiv = document.getElementById('testDiv')
@@ -17,103 +15,6 @@ var allTicketsButton = document.getElementById('allTicketsButton')
 
 
 // buttons
-var everyTask = ()=>{
-    fetch(`/tasks`).then((response)=> {
-    
-    
-        response.json().then((data)=>{
-           if(data.error) {
-           return    console.log(data.error)
-           }
-       
-          table.innerHTML = ''
-
-
-          data.forEach((element)=> {
-             var deleteButton = document.createElement('button')
-              
-
-              deleteButton.innerText = 'DELETE TICKET'
-              deleteButton.setAttribute('type', 'button')
-              deleteButton.setAttribute('class','card bg-danger text-warning')
-              deleteButton.addEventListener('click', (e)=>{
-                  e.preventDefault()
-                  fetch(`tasks/${element._id}`,{
-                    method: 'DELETE', // or 'PUT'
-                    headers: {
-                      'Content-Type': 'application/json',
-                      }
-                 
-                  }).then((response)=>{
-                    response.json().then((data)=>{
-                        console.log(data)
-                    })
-                    window.location.assign('/index.html')
-                 })
-              })
-
-              var idButton = document.createElement('button')
-              idButton.innerText = 'TICKET DETAILS'
-              idButton.setAttribute('type', 'button')
-              idButton.setAttribute('class', 'card bg-success text-white')
-              
-              idButton.setAttribute('data-toggle', "tooltip")
-              
-              idButton.setAttribute('data-html', 'true')
-              
-              idButton.setAttribute('title', `display task above`)
-              idButton.addEventListener('click', (e)=>{
-                  e.preventDefault()
-
-                  
-                 var id = element._id
-                 console.log(id)
-                fetch(`/tasks/${id}`).then((response)=>{
-                    response.json().then((data)=>{
-                        console.log(data)
-                        
-
-                        taskIDDiv.innerHTML =`TICKET ID: ${data._id}`
-                        titleDiv.textContent = `TITLE: ${data.title}`
-                        detailsDiv.innerHTML = `TICKET DETAILS: ${data.details}`
-                        
-  
-//   taskIDOutput.innerHTML =`${data._id}`
-//   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
-//   taskDescriptionOutput.innerHTML = `${data.description}`
-//   taskDetailsOutput.innerHTML = `${data.details}`
-//   taskIDOutput.focus()
-
-                    })
-                })
-                })
-
-            table.classList.add('table','table-striped')
-            var row = table.insertRow(0);
-            var row = table.insertRow(0);
-            row.classList.add('card-header')
-
-            var cell1 = row.insertCell(0);
-            cell1.setAttribute('class', 'card-body bg-secondary')
-            var cell2 = row.insertCell(1)
-            cell2.setAttribute('class', 'card-body ')
-            var cell3 = row.insertCell(2)
-            cell3.setAttribute('class', 'card-body bg-secondary')
-            var cell4 = row.insertCell(3);
-            cell4.setAttribute('class', 'card-body')
-            var cell5 = row.insertCell(4)
-            cell5.setAttribute('class', 'card-body bg-secondary')
-       
-            cell1.innerHTML= `${element.title}`
-            cell2.innerHTML = `${element.details}`;
-            cell3.innerHTML = `${element.completed}`
-            cell4.appendChild(idButton)
-            cell5.appendChild(deleteButton)      });
-          
-    })
-    })
-    
-}
 
 
 var getAllTasks = ()=>{
@@ -153,7 +54,7 @@ var getAllTasks = ()=>{
               })
 
               var idButton = document.createElement('button')
-              idButton.innerText = 'TICKET DETAILS'
+              idButton.innerText = 'UPDATE '
               idButton.setAttribute('type', 'button')
               idButton.setAttribute('class', 'card bg-success text-white')
               
@@ -169,25 +70,6 @@ var getAllTasks = ()=>{
                   e.preventDefault()
                   location.assign(`/tickets?${element._id}`)
                   
-//                  var id = element._id
-//                  console.log(id)
-//                 fetch(`/tasks/${id}`).then((response)=>{
-//                     response.json().then((data)=>{
-//                         console.log(data)
-                        
-//                         taskIDDiv.innerHTML =`TICKET ID: ${data._id}`
-//                         titleDiv.textContent = `TITLE: ${data.title}`
-//                         detailsDiv.innerHTML = `TICKET DETAILS: ${data.details}`
-                       
-  
-// //   taskIDOutput.innerHTML =`${data._id}`
-// //   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
-// //   taskDescriptionOutput.innerHTML = `${data.description}`
-// //   taskDetailsOutput.innerHTML = `${data.details}`
-// //   taskIDOutput.focus()
-
-//                     })
-//                 })
                 })
 
             table.classList.add('table','table-striped')
@@ -195,11 +77,11 @@ var getAllTasks = ()=>{
             row.classList.add('card-header')
 
             var cell1 = row.insertCell(0);
-            cell1.setAttribute('class', 'card-body bg-secondary')
+            cell1.setAttribute('class', 'card-body bg-dark')
             var cell2 = row.insertCell(1)
-            cell2.setAttribute('class', 'card-body ')
+            cell2.setAttribute('class', 'card-body bg-dark')
             var cell3 = row.insertCell(2)
-            cell3.setAttribute('class', 'card-body bg-secondary')
+            cell3.setAttribute('class', 'card-body bg-dark')
             
             cell1.innerHTML= `${element.title}`
             cell2.appendChild(idButton)
@@ -254,7 +136,7 @@ var byCreatedAt = () =>{
               })
                 
               var idButton = document.createElement('button')
-              idButton.innerText = 'TICKET DETAILS'
+              idButton.innerText = 'UPDATE '
               idButton.setAttribute('type', 'button')
               idButton.setAttribute('class', 'card bg-success text-white')
               
@@ -266,23 +148,7 @@ var byCreatedAt = () =>{
   
                 idButton.addEventListener('click', (e)=>{
                     e.preventDefault()
-  
-                    
-                   var id = element._id
-                   console.log(id)
-                  fetch(`/tasks/${id}`).then((response)=>{
-                      response.json().then((data)=>{
-                          console.log(data)
-                          taskIDDiv.innerHTML =`TICKET ID: ${data._id}`
-                          titleDiv.textContent = `TITLE: ${data.title}`
-                          detailsDiv.innerHTML = `TICKET DETAILS: ${data.details}`
-//   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
-//   taskDescriptionOutput.innerHTML = `${data.description}`
-//   taskDetailsOutput.innerHTML = `${data.details}`
-//   taskIDOutput.focus()
-  
-                      })
-                  })
+                    location.assign(`/tickets?${element._id}`)
                   })
 
                 table.classList.add('table','table-striped')
@@ -290,11 +156,11 @@ var byCreatedAt = () =>{
                 row.classList.add('card-header')
     
                 var cell1 = row.insertCell(0);
-                cell1.setAttribute('class', 'card-body bg-secondary')
+                cell1.setAttribute('class', 'card-body bg-dark')
                 var cell2 = row.insertCell(1)
-                cell2.setAttribute('class', 'card-body ')
+                cell2.setAttribute('class', 'card-body bg-dark')
                 var cell3 = row.insertCell(2)
-                cell3.setAttribute('class', 'card-body bg-secondary')
+                cell3.setAttribute('class', 'card-body bg-dark')
                 
                 cell1.innerHTML= `${element.title}`
                 cell2.appendChild(idButton)
@@ -352,7 +218,7 @@ var byUpdatedAt = () =>{
                   
                 })
                 var idButton = document.createElement('button')
-                idButton.innerText = 'TICKET DETAILS'
+                idButton.innerText = 'UPDATE '
                 idButton.setAttribute('type', 'button')
                 idButton.setAttribute('class', 'card bg-success text-white')
                 
@@ -364,23 +230,7 @@ var byUpdatedAt = () =>{
   
                 idButton.addEventListener('click', (e)=>{
                     e.preventDefault()
-                    var id = element._id
-                  fetch(`/tasks/${id}`).then((response)=>{
-                      response.json().then((data)=>{
-                          console.log(data)
-                          
-                          taskIDDiv.innerHTML =`TICKET ID: ${data._id}`
-                          titleDiv.textContent = `TITLE: ${data.title}`
-                          detailsDiv.innerHTML = `TICKET DETAILS: ${data.details}`
-                           
-//   taskIDOutput.innerHTML =`${data._id}`
-//   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
-//   taskDescriptionOutput.innerHTML = `${data.description}`
-//   taskDetailsOutput.innerHTML = `${data.details}`
-//   taskIDOutput.focus()
-  
-                      })
-                  })
+                    location.assign(`/tickets?${element._id}`)
                   })
   
 
@@ -389,11 +239,11 @@ var byUpdatedAt = () =>{
                 row.classList.add('card-header')
     
                 var cell1 = row.insertCell(0);
-                cell1.setAttribute('class', 'card-body bg-secondary')
+                cell1.setAttribute('class', 'card-body bg-dark')
                 var cell2 = row.insertCell(1)
-                cell2.setAttribute('class', 'card-body ')
+                cell2.setAttribute('class', 'card-body bg-dark')
                 var cell3 = row.insertCell(2)
-                cell3.setAttribute('class', 'card-body bg-secondary')
+                cell3.setAttribute('class', 'card-body bg-dark')
                 
                 cell1.innerHTML= `${element.title}`
                 cell2.appendChild(idButton)
@@ -443,7 +293,7 @@ var completeTasksOnly = () =>{
                 
               })  
               var idButton = document.createElement('button')
-              idButton.innerText = 'TICKET DETAILS'
+              idButton.innerText = 'UPDATE '
               idButton.setAttribute('type', 'button')
               idButton.setAttribute('class', 'card bg-success text-white')
               
@@ -455,35 +305,19 @@ var completeTasksOnly = () =>{
   
                 idButton.addEventListener('click', (e)=>{
                     e.preventDefault()
-                    var id = element._id
-                  fetch(`/tasks/${id}`).then((response)=>{
-                      response.json().then((data)=>{
-                          console.log(data)
-                          
-                          taskIDDiv.innerHTML =`TICKET ID: ${data._id}`
-                          titleDiv.textContent = `TITLE: ${data.title}`
-                          detailsDiv.innerHTML = `TICKET DETAILS: ${data.details}`
-                         
-  //   taskIDOutput.innerHTML =`${data._id}`
-  //   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
-  //   taskDescriptionOutput.innerHTML = `${data.description}`
-  //   taskDetailsOutput.innerHTML = `${data.details}`
-  //   taskIDOutput.focus()
-  
-                      })
-                  })
-                  })
+                    location.assign(`/tickets?${element._id}`)
+                                 })
 
                 table.classList.add('table','table-striped')
                 var row = table.insertRow(0);
                 row.classList.add('card-header')
     
                 var cell1 = row.insertCell(0);
-                cell1.setAttribute('class', 'card-body bg-secondary')
+                cell1.setAttribute('class', 'card-body bg-dark')
                 var cell2 = row.insertCell(1)
-                cell2.setAttribute('class', 'card-body ')
+                cell2.setAttribute('class', 'card-body bg-dark')
                 var cell3 = row.insertCell(2)
-                cell3.setAttribute('class', 'card-body bg-secondary')
+                cell3.setAttribute('class', 'card-body bg-dark')
                 
                 cell1.innerHTML= `${element.title}`
                 cell2.appendChild(idButton)
@@ -537,7 +371,7 @@ var incompleteTasksOnly = () =>{
 
   
                 var idButton = document.createElement('button')
-                idButton.innerText = 'TICKET DETAILS'
+                idButton.innerText = 'UPDATE '
                 idButton.setAttribute('type', 'button')
                 idButton.setAttribute('class', 'card bg-success text-white')
                 
@@ -548,24 +382,7 @@ var incompleteTasksOnly = () =>{
                 idButton.setAttribute('title', `display task above`)
                 idButton.addEventListener('click', (e)=>{
                     e.preventDefault()
-                    var id = element._id
-                  fetch(`/tasks/${id}`).then((response)=>{
-                      response.json().then((data)=>{
-                          console.log(data)
-                          
-  
-                          taskIDDiv.innerHTML =`TICKET ID: ${data._id}`
-                          titleDiv.textContent = `TITLE: ${data.title}`
-                          detailsDiv.innerHTML = `TICKET DETAILS: ${data.details}`
-                            
-    
-  //   taskIDOutput.innerHTML =`${data._id}`
-  //   taskOwnerOutput.innerHTML = `${data.ticketOwner}`
-  //   taskDescriptionOutput.innerHTML = `${data.description}`
-  //   taskDetailsOutput.innerHTML = `${data.details}`
-  //   taskIDOutput.focus()
-                      })
-                  })
+                    location.assign(`/tickets?${element._id}`)
                   })
 
                table.classList.add('table','table-striped')
@@ -573,11 +390,11 @@ var incompleteTasksOnly = () =>{
                row.classList.add('card-header')
    
                var cell1 = row.insertCell(0);
-               cell1.setAttribute('class', 'card-body bg-secondary')
+               cell1.setAttribute('class', 'card-body bg-dark')
                var cell2 = row.insertCell(1)
-               cell2.setAttribute('class', 'card-body ')
+               cell2.setAttribute('class', 'card-body bg-dark')
                var cell3 = row.insertCell(2)
-               cell3.setAttribute('class', 'card-body bg-secondary')
+               cell3.setAttribute('class', 'card-body bg-dark')
                
                cell1.innerHTML= `${element.title}`
                cell2.appendChild(idButton)

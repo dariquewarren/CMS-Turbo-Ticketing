@@ -1,23 +1,24 @@
-<body>
+<body class="bg-dark text-center">
     <!-- HEADER -->
  
 
   
 
-    <form id="loginForm" class="card">
+    <form id="loginForm" class="form-group text-success">
       
+      <h6 class="text-primary">EMAIL</h6>
+      <input type="text"  id="emailInput"  class="form-control"  />
+      <h6 class="text-primary">PASSWORD</h6>
+      <input type="text" id="passwordInput"  class="form-control"/>
+      <button class="form-option bg-dark border border-warning"><h6 class="text-primary">LOGIN</h6></button>
       
-      <input type="text"  id="emailInput"  class="card-header" placeholder="EMAIL" />
-      <input type="text" id="passwordInput"  class="card-header" placeholder="PASSWORD"/>
-      <button class="btn btn-dark text-success">LOGIN</button>
     </form>
-<br>
-<br>
-<form id="logoutForm">
-  <button>LOGOUT</button>
-</form>
 
-<form id="redirectForm">
-  <button>REDIRECT</button>
+
+
+<div>
+<form id="logoutForm" class="form-option">
+  <button class="btn btn-danger text-dark"><h5>LOGOUT</h5></button>
 </form>
+</div>
 </body>
