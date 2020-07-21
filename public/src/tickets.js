@@ -35,6 +35,13 @@ title: titleInput.value
       }).then(response => response.json()).then(data => {
     console.log(document.cookie) 
        console.log('Success:', data);
+       if(!data.title){
+       return alert('ALL FIELDS REQUIRED.')
+       }else {
+         alert(`${data.title} has been CREATED`)
+        window.location.assign('/index.html')
+       }
+
       }).catch((error) => {
         console.error('Error:', error);
       })
