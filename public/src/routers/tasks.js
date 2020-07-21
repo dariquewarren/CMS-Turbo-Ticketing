@@ -64,9 +64,7 @@ res.send(task)
     }catch(e){
         res.status(500).send()
     }
-    res.render('tickets',{
-        tickets: task
-    })
+    
 })
 
 

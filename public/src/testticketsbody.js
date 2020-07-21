@@ -57,7 +57,11 @@ createTaskForm.addEventListener('submit', (e)=>{
       }).then((response)=>{
           response.json().then((data)=>{
     console.log('this is from update', data)
-          })
+ alert(`UPDATED: ${data.title}`)
+    location.assign('/index.html')
+          }).catch((e)=>{
+            console.log(e)
+        })
       })
 })
 
