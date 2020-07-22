@@ -45,25 +45,20 @@ var logoutForm = document.getElementById('logoutForm')
 
 logoutForm.addEventListener('submit', (e)=>{
   e.preventDefault()
-  // fetch('/users/logoutall').then(response => response.json()).then(data => {
-  //   console.log('Success:', data);
-    
-  // }).catch((error) => {
-  //   console.error('Error:', error);
-  // })
+  
 console.log(document.cookie)
 document.cookie = "auth_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
 console.log(document.cookie)
 alert(`YOU HAVE LOGGED OUT. COME BACK SOON`)
-
+window.location.assign('index.html')
 
 })
 
 
-var redirectForm = document.getElementById('redirectForm')
+// var redirectForm = document.getElementById('redirectForm')
 
-redirectForm.addEventListener('submit', (e)=>{
-  e.preventDefault()
-  var id = 12345
-window.location.assign(`/index.html/${id}`)
-})
+// redirectForm.addEventListener('submit', (e)=>{
+//   e.preventDefault()
+//   var id = 12345
+// window.location.assign(`/index.html/${id}`)
+// })

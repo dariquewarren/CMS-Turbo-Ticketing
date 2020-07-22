@@ -5,21 +5,29 @@ var userAgeDiv = document.getElementById('userAgeDiv')
 var userEmailDiv =document.getElementById('userEmailDiv')
 
 
-var catsDiv = document.getElementById('catsDiv')
+var quoteDiv = document.getElementById('quoteDiv')
+var authorDiv = document.getElementById('authorDiv')
 
-var getCat=()=>{
-    fetch('https://api.thecatapi.com/v1/images/search').then((data)=>{
-        data.json().then((data)=>{
-            console.log('json data', data)
-            var catImage = document.createElement('img')
-            catImage.src = `${data[0].url}`
-            catsDiv.append(catImage)
-
+var getQuote=()=>{
+    fetch("http://quotes.stormconsultancy.co.uk/random.json", {
+        "method": "GET",
+        
+    })
+    .then((response) => {
+        response.json().then((data)=>{
+            console.log(data)
+        authorDiv.innerHTML = `${data.author}`  
+        quoteDiv.innerHTML = `${data.quote}`
+        
         })
     })
+    .catch(err => {
+        console.log(err);
+    });
+    
 }
 
-getCat()
+getQuote()
 
 
 var getUser = ()=>{
