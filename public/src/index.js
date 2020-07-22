@@ -77,7 +77,7 @@ var getAllTasks = ()=>{
             row.classList.add('card-header')
 
             var cell1 = row.insertCell(0);
-             cell1.setAttribute('class', 'card-body bg-light text-primary')
+             cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-center')
            
             var cell2 = row.insertCell(1)
             cell2.setAttribute('class', 'card-body bg-dark')
@@ -157,8 +157,7 @@ var byCreatedAt = () =>{
                 row.classList.add('card-header')
     
                 var cell1 = row.insertCell(0);
-                 cell1.setAttribute('class', 'card-body bg-light text-primary')
-           
+                cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-center')
                 var cell2 = row.insertCell(1)
                 cell2.setAttribute('class', 'card-body bg-dark')
                 var cell3 = row.insertCell(2)
@@ -185,7 +184,7 @@ var byUpdatedAt = () =>{
                 alert(data.error)
             }
 
-            const tasks = data.sort((a, b) => b.updatedAt - a.updatedAt)
+            const tasks = data.sort((a, b) => a.updatedAt - b.updatedAt)
             console.log(tasks)
             var trueTasks = []
             tasks.forEach((e)=>{
@@ -241,7 +240,7 @@ var byUpdatedAt = () =>{
                 row.classList.add('card-header')
     
                 var cell1 = row.insertCell(0);
-                 cell1.setAttribute('class', 'card-body bg-light text-primary')
+                cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-center')
            
                 var cell2 = row.insertCell(1)
                 cell2.setAttribute('class', 'card-body bg-dark')
@@ -316,8 +315,7 @@ var completeTasksOnly = () =>{
                 row.classList.add('card-header')
     
                 var cell1 = row.insertCell(0);
-                 cell1.setAttribute('class', 'card-body bg-light text-primary')
-           
+                cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-center')
                 var cell2 = row.insertCell(1)
                 cell2.setAttribute('class', 'card-body bg-dark')
                 var cell3 = row.insertCell(2)
@@ -394,9 +392,8 @@ var incompleteTasksOnly = () =>{
                row.classList.add('card-header')
    
                var cell1 = row.insertCell(0);
-                cell1.setAttribute('class', 'card-body bg-light text-primary')
-           
-               var cell2 = row.insertCell(1)
+               cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-center')
+            var cell2 = row.insertCell(1)
                cell2.setAttribute('class', 'card-body bg-dark')
                var cell3 = row.insertCell(2)
                cell3.setAttribute('class', 'card-body bg-dark')
