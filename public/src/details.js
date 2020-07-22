@@ -46,6 +46,8 @@ fetch(`/users/me`, {
   }).then((response)=>{
       response.json().then((data)=>{
 console.log('success',data)
+alert('UPDATE SUCCESSFUL')
+location.assign('/details.html')
       })
   })
 })
