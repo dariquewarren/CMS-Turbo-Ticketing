@@ -70,6 +70,7 @@ router.post('/users/login', async (req, res) => {
 
 router.get('/users/logout', auth, async (req, res) => {
     res.clearCookie('auth_token')
+    res.send()
 })
 
 
