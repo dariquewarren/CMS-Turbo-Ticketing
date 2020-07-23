@@ -1,4 +1,4 @@
-
+  
 var updateUserForm = document.getElementById('updateUserForm')
 
 var completedInput = document.getElementById('completedInput')
@@ -9,12 +9,16 @@ var userAge = document.getElementById('userAge')
 
 
 
+var birthdayInput = document.getElementById('birthdayInput')
+var birthmonthInput = document.getElementById('birthmonthInput')
+
+
 
 var getUserData = ()=>{
     fetch('/users/me').then((response)=>{
         response.json().then((data)=>{
             console.log('get',data)
-           userAge.value =`${data.age}`
+           
            userName.value =`${data.name}`
            jobTitle.value =`${data.jobtitle}`
            userAbout.value = `${data.about}`
@@ -23,18 +27,23 @@ var getUserData = ()=>{
 }
 getUserData()
 
+
 updateUserForm.addEventListener('submit', (e)=>{
     e.preventDefault()
-
+    var realDay = birthdayInput.value
+    var realMonth = birthmonthInput.value
+    var realBirthday = realDay +'-'+ realMonth
+    console.log(realBirthday)
+   console.log(typeof realBirthday)
 var userUpdate = {
-    age: userAge.value,
+    birthday: realBirthday,
   name: userName.value,
   jobtitle: jobTitle.value,
   about: userAbout.value,
 
 }
 
-console.log(userUpdate)
+ console.log(userUpdate)
 
 
 fetch(`/users/me`, {
@@ -51,4 +60,6 @@ location.assign('/details.html')
       })
   })
 })
+
+
 

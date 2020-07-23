@@ -35,14 +35,10 @@ throw new Error('Invalid Email')
                 }
             }
         },
-    age: {
-            type: Number,
-            default: 0,
-            validate (value) {
-                if (value < 0){
-                    throw new Error('age must be positive number')
-                }      
-        }
+    birthday: {
+            type: String,
+            default: 'No birthday included',
+            
        
         }, about: {
 default: 'THIS PERSON IS PRIVATE. PLEASE RESPECT THAT.',
