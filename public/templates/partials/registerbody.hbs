@@ -1,16 +1,42 @@
-<body class="bg-dark">
+<body class="bg-dark text-center">
     <h6 class="text-center bg-dark text-success">
       SIGNUP BELOW
     </h6>
-    <form id="createUserForm" class="card">
-   <input type="number" id="userAge"  class="btn border border-success" placeholder="AGE"/>
- <input type="text" id="userName"  class="btn border border-success" placeholder="NAME"/>
-      <input type="text" id="userTitle"  class="btn border border-success" placeholder="JOB TITLE"/>
-      <textarea name="userAbout" id="userAbout" class="btn border border-success" placeholder="ABOUT YOU" cols="4" rows="4"></textarea>
+    <form id="createUserForm" class="card bg-dark">
+  
+ <input type="text" id="userName"  class="btn bg-dark text-success  border border-success" placeholder="NAME"/>
+      <input type="text" id="userTitle"  class="btn bg-dark text-success  border border-success" placeholder="JOB TITLE"/>
+      <textarea name="userAbout" id="userAbout" class="btn  bg-dark text-success border border-success" placeholder="ABOUT YOU" cols="4" rows="4"></textarea>
     
-      <input type="text"  id="userEmail"  class="btn border border-success" placeholder="EMAIL" />
-      <input type="password" id="userPassword"  class="btn border border-success" placeholder="PASSWORD"/>
-      <button class="btn btn-dark  border border-success text-success">REGISTER ACCOUNT</button>
+      <input type="text"  id="userEmail"  class="btn  bg-dark text-success border border-success" placeholder="EMAIL" />
+      <input type="password" id="userPassword"  class="btn  bg-dark text-success border border-success" placeholder="PASSWORD"/>
+  
+ <h4 class="text-secondary">
+ <i class="fa fa-birthday-cake text-success"></i>BIRTHDAY<i class="fa fa-birthday-cake text-success"></i>
+          </h4>      
+
+
+             <span class="text-success">DAY</span>  
+      <input type="number" min="01" max="31" id="birthdayInput" class="row   bg-dark text-success text-center border border-success" placeholder="00">
+<span class="text-success">Month</span>
+<select name="birthmonthInput" id="birthmonthInput" class="row  bg-dark  text-success text-center border border-success" >
+   <option value="no month selected" class="row text-center  text-success btn-dark border border-success"></option>
+   <option value="January">01 January</option>
+    <option value="February">02 February</option>
+     <option value="March">03 March</option>
+      <option value="April">04 April</option>
+         <option value="May">05 May</option>
+    <option value="June">06 June</option>
+     <option value="July">07 July</option>
+      <option value="August">08 August</option>
+         <option value="September">09 September</option>
+    <option value="October">10 October</option>
+     <option value="November">11 November</option>
+      <option value="December">12 December</option>
+ </select>
+ 
+
+      <button class="btn btn-dark  border border-success text-success">REGISTER ACCOUNT   <i class="fa fa-fighter-jet"></i></button>
     </form>
 
   </body>
