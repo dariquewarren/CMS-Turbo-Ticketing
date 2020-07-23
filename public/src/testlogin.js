@@ -6,14 +6,6 @@ var passwordInput = document.getElementById('passwordInput')
 loginForm.addEventListener('submit', (e)=>{
     e.preventDefault()
 
-/*
-{
-    "name":"darique warren",
-    "email": "ddwarren@swag.com",
-    "password": "harlemworld"
-} 
-
-*/
 
 var ddw = {
     email: emailInput.value,

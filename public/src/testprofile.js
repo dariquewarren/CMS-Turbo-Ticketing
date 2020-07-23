@@ -15,7 +15,7 @@ var getQuote=()=>{
     })
     .then((response) => {
         response.json().then((data)=>{
-            console.log('quote array',Array.from(data.quote))
+            
 
 
          var quoteArray = Array.from(data.quote)
@@ -31,10 +31,7 @@ var getQuote=()=>{
       var ddw4 =   data.quote.substring(quoteChunks3, quoteChunks4).toUpperCase()
       var ddw5 =   data.quote.substring(quoteChunks4, quoteChunks5).toUpperCase()
       
-      console.log(ddw, ddw2,ddw3,ddw4,ddw5)
-     
-
-        quoteDiv.innerHTML = `<i class="fa fa-quote-left text-success"></i> ...${ddw} 
+      quoteDiv.innerHTML = `<i class="fa fa-quote-left text-success"></i> ...${ddw} 
         <br> ${ddw2}<br> ${ddw3}<br> ${ddw4}<br> ${ddw5}... <i class="fa fa-quote-right text-success"></i>`  
         authorDiv.innerHTML = `${data.author}`
         
