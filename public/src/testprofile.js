@@ -58,7 +58,7 @@ var getUser = ()=>{
             userNameDiv.innerHTML = `${data.name.toUpperCase()}`
             userJobDiv.innerHTML = `${data.jobtitle}`
             userAboutDiv.innerHTML = `${data.about}`
-            userAgeDiv.innerHTML = `${data.age}`
+            userAgeDiv.innerHTML = `${data.birthday}`
             userEmailDiv.innerHTML = `${data.email.toUpperCase()}`
         })
     })
