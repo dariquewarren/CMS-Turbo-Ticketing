@@ -68,10 +68,10 @@ app.get('/categories.html',(req, res )=>{
      res.render('categories')
 })
 
-app.get('/details.html',(req, res )=>{
+app.get('/edituser',(req, res )=>{
     // res.send('helloooooooooo')
     //  res.sendFile(viewsPath + '/main.hbs' )
-     res.render('details', {layout: 'details'})
+     res.render('edit', {layout: 'edit'})
 })
 
 app.get('/index.html',(req, res )=>{
