@@ -39,7 +39,7 @@ app.use(taskRouter)
 app.get('/',(req, res )=>{
     // res.send('helloooooooooo')
     //  res.sendFile(viewsPath + '/main.hbs' )
-     res.render('register', {layout: 'register'})
+     res.render('login', {layout: 'login'})
 })
 
 app.get('/profile',(req, res )=>{
