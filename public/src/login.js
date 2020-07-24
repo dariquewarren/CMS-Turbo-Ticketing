@@ -33,16 +33,12 @@ console.log(ddw)
     
 })
 
-var logoutForm = document.getElementById('logoutForm')
+var signupForm = document.getElementById('signupForm')
 
-logoutForm.addEventListener('submit', (e)=>{
+signupForm.addEventListener('submit', (e)=>{
   e.preventDefault()
   
-fetch('/users/logout').then((response)=>{
-  console.log(document.cookie)
-alert('you are now logged out')
-window.location.assign('/index')
-})
+window.location.assign('/register')
 
 })
 
