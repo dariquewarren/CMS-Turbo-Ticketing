@@ -1,3 +1,6 @@
+
+
+
 var userForm = document.getElementById('createUserForm')
 var usertitle = document.getElementById('userTitle')
 var userabout = document.getElementById('userAbout')
@@ -33,7 +36,9 @@ console.log(ddw.name)
         body: JSON.stringify(ddw)
       }).then(response => response.json()).then(data => {
         console.log('Success:', data);
-        alert(` THANK YOU FOR SIGNING UP! PLEASE LOGIN`)
+       if(!data.email){
+         location.assign('/register')
+       }
         location.assign('/login')
       }).catch((error) => {
         console.error('Error:', error);

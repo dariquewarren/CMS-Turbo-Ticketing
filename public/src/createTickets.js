@@ -1,4 +1,25 @@
+var checkForCookie = ()=>{
+  if(!document.cookie){
+    return location.assign('/login')
+  }
+  }
+  
+  checkForCookie()
 
+  var welcomeDiv = document.getElementById('welcomeID')
+
+  // buttons
+  var welcome = ()=>{
+    fetch('/users/me').then((response)=>{
+      response.json().then((data)=>{
+        console.log(data)
+        welcomeDiv.innerHTML = `${data.name} Welcome to Turbo Ticket`
+      })
+    })
+  }
+  welcome()
+   
+ 
 
 var descriptionInput = document.getElementById('descriptionInput')
 var titleInput = document.getElementById('titleInput')

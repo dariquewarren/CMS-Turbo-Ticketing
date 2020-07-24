@@ -89,7 +89,7 @@ app.get('/login',(req, res )=>{
 app.get('/createticket',(req, res )=>{
     // res.send('helloooooooooo')
     //  res.sendFile(viewsPath + '/main.hbs' )
-     res.render('createTicket', {layout: 'posts'})
+     res.render('createTicket', {layout: 'createTicket'})
 })
 app.get('/profile.html',(req, res )=>{
     // res.send('helloooooooooo')

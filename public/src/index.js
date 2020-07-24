@@ -1,5 +1,34 @@
+var checkForCookie = ()=>{
+  if(!document.cookie){
+    return location.assign('/login')
+  }
+  }
+  
+  checkForCookie()
 
+  var welcomeDiv = document.getElementById('welcomeID')
+var logoutButton = document.getElementById('logoutButton')
 
+logoutButton.addEventListener('click', (e)=>{
+  e.preventDefault()
+  fetch('/users/logout').then((response)=>{
+    console.log(document.cookie)
+  alert('you are now logged out')
+  window.location.assign('/index')
+  })
+})
+
+  // buttons
+  var welcome = ()=>{
+    fetch('/users/me').then((response)=>{
+      response.json().then((data)=>{
+        console.log(data)
+        welcomeDiv.innerHTML = `${data.name} Welcome to Turbo Ticket`
+      })
+    })
+  }
+  welcome()
+   
 // var messageOne = document.getElementById('testParagraph')
 // var testDiv = document.getElementById('testDiv')
 // var testList = document.getElementById('testList')
@@ -12,11 +41,6 @@ var incompleteButton = document.getElementById('incompleteButton')
 var createdButton = document.getElementById('createdButton')
 var updatedButton = document.getElementById('updatedButton')
 var allTicketsButton = document.getElementById('allTicketsButton')
-
-
-// buttons
-
-
 var getAllTasks = ()=>{
     fetch(`/tasks`).then((response)=> {
     
@@ -68,7 +92,7 @@ var getAllTasks = ()=>{
 </button> */
               idButton.addEventListener('click', (e)=>{
                   e.preventDefault()
-                  location.assign(`/edituser?${element._id}`)
+                  location.assign(`/tickets?${element._id}`)
                   
                 })
 
@@ -149,7 +173,7 @@ var byCreatedAt = () =>{
   
                 idButton.addEventListener('click', (e)=>{
                     e.preventDefault()
-                    location.assign(`/edituser?${element._id}`)
+                    location.assign(`/tickets?${element._id}`)
                   })
 
                 table.classList.add('table','table-striped')
@@ -231,7 +255,7 @@ var byUpdatedAt = () =>{
   
                 idButton.addEventListener('click', (e)=>{
                     e.preventDefault()
-                    location.assign(`/edituser?${element._id}`)
+                    location.assign(`/tickets?${element._id}`)
                   })
   
 
@@ -307,7 +331,7 @@ var completeTasksOnly = () =>{
   
                 idButton.addEventListener('click', (e)=>{
                     e.preventDefault()
-                    location.assign(`/edituser?${element._id}`)
+                    location.assign(`/tickets?${element._id}`)
                                  })
 
                 table.classList.add('table','table-striped')
@@ -384,7 +408,7 @@ var incompleteTasksOnly = () =>{
                 idButton.setAttribute('title', `display task above`)
                 idButton.addEventListener('click', (e)=>{
                     e.preventDefault()
-                    location.assign(`/edituser?${element._id}`)
+                    location.assign(`/tickets?${element._id}`)
                   })
 
                table.classList.add('table','table-striped')
