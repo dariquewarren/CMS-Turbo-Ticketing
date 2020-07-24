@@ -7,16 +7,23 @@ var checkForCookie = ()=>{
   checkForCookie()
 
   var welcomeDiv = document.getElementById('welcomeID')
-  var logoutButton = document.getElementById('logoutButton')
+var logoutButton = document.getElementById('logoutButton')
+var mainHeader = document.getElementById('mainHeader')
+logoutButton.addEventListener('click', (e)=>{
+  e.preventDefault()
+  fetch('/users/logout').then((response)=>{
+    console.log(document.cookie)
+    mainHeader.setAttribute('class','text-danger')
+    mainHeader.innerHTML = `<strong>Logging out</strong>`
 
-  logoutButton.addEventListener('click', (e)=>{
-    e.preventDefault()
-    fetch('/users/logout').then((response)=>{
-      console.log(document.cookie)
-    alert('you are now logged out')
-    window.location.assign('/index')
-    })
+    setTimeout(()=>{
+     
+      window.location.assign('/login')
+      
+    }, 3000)
   })
+})
+
   // buttons
   var welcome = ()=>{
     fetch('/users/me').then((response)=>{
@@ -27,8 +34,7 @@ var checkForCookie = ()=>{
     })
   }
   welcome()
-   
- 
+  
 
 var descriptionInput = document.getElementById('descriptionInput')
 var titleInput = document.getElementById('titleInput')
