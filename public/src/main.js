@@ -86,10 +86,10 @@ app.get('/login.html',(req, res )=>{
     //  res.sendFile(viewsPath + '/main.hbs' )
      res.render('login', {layout: 'login'})
 })
-app.get('/posts.html',(req, res )=>{
+app.get('/createticket',(req, res )=>{
     // res.send('helloooooooooo')
     //  res.sendFile(viewsPath + '/main.hbs' )
-     res.render('posts', {layout: 'posts'})
+     res.render('createTicket', {layout: 'posts'})
 })
 app.get('/profile.html',(req, res )=>{
     // res.send('helloooooooooo')

@@ -1,0 +1,43 @@
+<body class="text-center bg-dark">
+    
+    
+    
+          <!-- HEADER -->
+  <header id="main-header" class="py-2 bg-dark text-white">
+    
+
+<h4 class="text-success">CREATE TICKET</h4>
+  
+  
+  </header>
+
+{{!-- <div class="card">
+  <p id="taskIDOutput" class=" card-body bg-dark text-success">Copy this ID and use it to Edit this Task</p>
+  <p id="taskOwnerOutput" class="card-body bg-danger text-primary">TASK OWNER</p>
+  <p id="taskDescriptionOutput" class="card-body bg-dark text-primary">TASK DESCRIPTION</p>
+  <p id="taskDetailsOutput" class="card-header bg-danger text-warning text-center">ADDITIONAL TASK DETAILS</p>
+</div> --}}
+
+  
+ 
+
+  <!-- tasks -->
+  
+  
+ <div id="tableDiv" class="bg-dark text-success">
+       
+    </div>
+ <form class="card text-success bg-dark" id="createTaskForm">
+<h6>TITLE </h6>
+<i class="fa fa-arrow-down" aria-hidden="true"></i>
+         <textarea name="titleInput" id="titleInput" cols="30" rows="2" class="card-header border border-success bg-white text-success"></textarea>
+            <H6>DETAILS </H6>
+            <i class="fa fa-arrow-down" aria-hidden="true"></i>
+        <textarea name="descriptionInput" id="descriptionInput" cols="30" rows="2" class="card-header border border-success bg-white text-success"></textarea>
+
+          <h6><i class="fa fa-arrow-down"></i> COMPLETED <i class="fa fa-arrow-down"></i><br> <input type="checkbox" name="completedCheckbox" id="completedCheckbox"></h6>
+        
+              <button class="btn btn-secondary text-warning">CREATE TICKET <i class="fa fa-fighter-jet"></i></button>
+        </form>
+
+</body>
