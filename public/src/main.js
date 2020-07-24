@@ -39,7 +39,7 @@ app.use(taskRouter)
 app.get('/',(req, res )=>{
     // res.send('helloooooooooo')
     //  res.sendFile(viewsPath + '/main.hbs' )
-     res.render('index', {layout: 'index'})
+     res.render('register', {layout: 'register'})
 })
 
 app.get('/profile',(req, res )=>{
@@ -56,7 +56,7 @@ app.get('/tickets',(req, res )=>{
 })
 
 
-app.get('/register.html',(req, res )=>{
+app.get('/register',(req, res )=>{
     // res.send('helloooooooooo')
     //  res.sendFile(viewsPath + '/categories.hbs' )
      res.render('register', {layout: 'register'})
@@ -81,7 +81,7 @@ app.get('/index.html',(req, res )=>{
 })
 
 
-app.get('/login.html',(req, res )=>{
+app.get('/login',(req, res )=>{
     // res.send('helloooooooooo')
     //  res.sendFile(viewsPath + '/main.hbs' )
      res.render('login', {layout: 'login'})
