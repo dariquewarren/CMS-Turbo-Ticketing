@@ -39,7 +39,7 @@ title: titleInput.value
        return alert('ALL FIELDS REQUIRED.')
        }else {
          alert(`${data.title} has been CREATED`)
-        window.location.assign('/index.html')
+        window.location.assign('/index')
        }
 
       }).catch((error) => {

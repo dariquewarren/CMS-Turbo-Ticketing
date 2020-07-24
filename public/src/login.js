@@ -20,8 +20,11 @@ console.log(ddw)
         body: JSON.stringify(ddw)
       }).then((response) => {response.json()}).then(data => {
         console.log('Success:', data);
-       alert(`$ Thank you for signing in`)
-      location.assign('/index')
+     if(!document.cookie){
+     return  alert('bad login')
+     }
+        alert(`$ Thank you for signing in`)
+      
       }).catch((error) => {
         console.error('Error:', error);
         alert('please try again',error )
@@ -38,7 +41,7 @@ logoutForm.addEventListener('submit', (e)=>{
 fetch('/users/logout').then((response)=>{
   console.log(document.cookie)
 alert('you are now logged out')
-window.location.assign('/index.html')
+window.location.assign('/index')
 })
 
 })

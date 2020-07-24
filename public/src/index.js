@@ -48,7 +48,7 @@ var getAllTasks = ()=>{
                     response.json().then((data)=>{
                         console.log(data)
                     })
-                    window.location.assign('/index.html')
+                    window.location.assign('/index')
                       })
                 
               })
@@ -68,7 +68,7 @@ var getAllTasks = ()=>{
 </button> */
               idButton.addEventListener('click', (e)=>{
                   e.preventDefault()
-                  location.assign(`/tickets?${element._id}`)
+                  location.assign(`/edituser?${element._id}`)
                   
                 })
 
@@ -131,7 +131,7 @@ var byCreatedAt = () =>{
                     response.json().then((data)=>{
                         console.log(data)
                     })
-                    window.location.assign('/index.html')   
+                    window.location.assign('/index')   
                  })
                 
               })
@@ -149,7 +149,7 @@ var byCreatedAt = () =>{
   
                 idButton.addEventListener('click', (e)=>{
                     e.preventDefault()
-                    location.assign(`/tickets?${element._id}`)
+                    location.assign(`/edituser?${element._id}`)
                   })
 
                 table.classList.add('table','table-striped')
@@ -214,7 +214,7 @@ var byUpdatedAt = () =>{
                       response.json().then((data)=>{
                           console.log(data)
                       })
-                      window.location.assign('/index.html')
+                      window.location.assign('/index')
                     })
                   
                 })
@@ -231,7 +231,7 @@ var byUpdatedAt = () =>{
   
                 idButton.addEventListener('click', (e)=>{
                     e.preventDefault()
-                    location.assign(`/tickets?${element._id}`)
+                    location.assign(`/edituser?${element._id}`)
                   })
   
 
@@ -290,7 +290,7 @@ var completeTasksOnly = () =>{
                     response.json().then((data)=>{
                         console.log(data)
                     })
-                    window.location.assign('/index.html')
+                    window.location.assign('/index')
                 })
                 
               })  
@@ -307,7 +307,7 @@ var completeTasksOnly = () =>{
   
                 idButton.addEventListener('click', (e)=>{
                     e.preventDefault()
-                    location.assign(`/tickets?${element._id}`)
+                    location.assign(`/edituser?${element._id}`)
                                  })
 
                 table.classList.add('table','table-striped')
@@ -367,7 +367,7 @@ var incompleteTasksOnly = () =>{
                       response.json().then((data)=>{
                           console.log(data)
                       })
-                      window.location.assign('/index.html')     })
+                      window.location.assign('/index')     })
                   
                 })
 
@@ -384,7 +384,7 @@ var incompleteTasksOnly = () =>{
                 idButton.setAttribute('title', `display task above`)
                 idButton.addEventListener('click', (e)=>{
                     e.preventDefault()
-                    location.assign(`/tickets?${element._id}`)
+                    location.assign(`/edituser?${element._id}`)
                   })
 
                table.classList.add('table','table-striped')

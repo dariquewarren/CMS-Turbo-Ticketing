@@ -1,4 +1,3 @@
-
 var userForm = document.getElementById('createUserForm')
 var usertitle = document.getElementById('userTitle')
 var userabout = document.getElementById('userAbout')
@@ -11,8 +10,7 @@ var birthmonthInput = document.getElementById('birthmonthInput')
 userForm.addEventListener('submit', (e)=>{
     e.preventDefault()
 
-   
-    var realDay = birthdayInput.value
+  var realDay = birthdayInput.value
         var realMonth = birthmonthInput.value
         var realBirthday = realDay +'-'+ realMonth
         console.log(realBirthday)

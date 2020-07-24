@@ -53,7 +53,7 @@ fetch(`/users/me`, {
       response.json().then((data)=>{
 console.log('success',data)
 alert('UPDATE SUCCESSFUL')
-location.assign('/details.html')
+location.assign('/editUser')
       })
   })
 })

@@ -74,7 +74,7 @@ app.get('/edituser',(req, res )=>{
      res.render('edit', {layout: 'edit'})
 })
 
-app.get('/index.html',(req, res )=>{
+app.get('/index',(req, res )=>{
     // res.send('helloooooooooo')
     //  res.sendFile(viewsPath + '/main.hbs' )
      res.render('index', {layout: 'index'})
@@ -102,11 +102,7 @@ app.get('/settings.html',(req, res )=>{
     //  res.sendFile(viewsPath + '/main.hbs' )
      res.render('settings', {layout: 'settings'})
 })
-app.get('/users.html',(req, res )=>{
-    // res.send('helloooooooooo')
-    //  res.sendFile(viewsPath + '/main.hbs' )
-     res.render('users', {layout: 'users'})
-})
+
 
 
 
