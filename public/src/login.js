@@ -20,10 +20,8 @@ console.log(ddw)
         body: JSON.stringify(ddw)
       }).then((response) => {response.json()}).then(data => {
         console.log('Success:', data);
-     if(!document.cookie){
-     return  alert('bad login')
-     }
-        alert(`$ Thank you for signing in`)
+     
+     location.assign('/index')
       
       }).catch((error) => {
         console.error('Error:', error);

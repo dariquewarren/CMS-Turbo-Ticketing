@@ -7,7 +7,16 @@ var checkForCookie = ()=>{
   checkForCookie()
 
   var welcomeDiv = document.getElementById('welcomeID')
+  var logoutButton = document.getElementById('logoutButton')
 
+  logoutButton.addEventListener('click', (e)=>{
+    e.preventDefault()
+    fetch('/users/logout').then((response)=>{
+      console.log(document.cookie)
+    alert('you are now logged out')
+    window.location.assign('/index')
+    })
+  })
   // buttons
   var welcome = ()=>{
     fetch('/users/me').then((response)=>{
