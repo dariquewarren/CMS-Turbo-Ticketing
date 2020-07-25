@@ -74,8 +74,12 @@ title: titleInput.value
        if(!data.title){
        return alert('ALL FIELDS REQUIRED.')
        }else {
-         alert(`${data.title} has been CREATED`)
-        window.location.assign('/index')
+welcomeDiv.innerHTML= `${data.title} has been CREATED`
+        setTimeout(()=>{
+window.location.assign('/index')
+        },2000)
+         
+        
        }
 
       }).catch((error) => {
