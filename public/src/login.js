@@ -27,15 +27,21 @@ var ddw = {
         console.log('Success:', data);
             
 
-         /*
+        /*
  <div class="" role="alert">
   This is a primary alert—check it out!
 </div>
 
 */
-
+var timedreload = ()=>{
+  
+setTimeout(()=>{
+  location.assign('/login')
+},3000)
+}
 if(document.cookie.length === 0){
- return location.assign('/login')
+notLoggedInDiv.innerHTML = `incorrect Email/Password. Redirecting...`
+ return timedreload()
 } else{
   notLoggedInDiv.innerHTML = `loading tickets.......`
  
@@ -44,12 +50,7 @@ if(document.cookie.length === 0){
 setTimeout(()=>{
   location.assign('/index')
 }, 3000)
-// if(!document.cookies){
-// notLoggedInDiv.innerHTML =`ooooops!`
-//   setTimeout
-// }else{
-//   location.assign('/index')
-// }
+
 
 
 
