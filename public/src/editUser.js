@@ -6,35 +6,7 @@ var checkForCookie = ()=>{
   
   checkForCookie()
 
-  var welcomeDiv = document.getElementById('welcomeID')
-var logoutButton = document.getElementById('logoutButton')
-var mainHeader = document.getElementById('mainHeader')
-logoutButton.addEventListener('click', (e)=>{
-  e.preventDefault()
-  fetch('/users/logout').then((response)=>{
-    console.log(document.cookie)
-    mainHeader.setAttribute('class','text-danger')
-    mainHeader.innerHTML = `<strong>Logging out</strong>`
 
-    setTimeout(()=>{
-     
-      window.location.assign('/login')
-      
-    }, 3000)
-  })
-})
-
-  // buttons
-  var welcome = ()=>{
-    fetch('/users/me').then((response)=>{
-      response.json().then((data)=>{
-        console.log(data)
-        welcomeDiv.innerHTML = `${data.name} Welcome to Turbo Ticket`
-      })
-    })
-  }
-  welcome()
-  
   var welcomeDiv = document.getElementById('welcomeID')
   var logoutButton = document.getElementById('logoutButton')
 
@@ -47,15 +19,7 @@ logoutButton.addEventListener('click', (e)=>{
     })
   })
   // buttons
-  var welcome = ()=>{
-    fetch('/users/me').then((response)=>{
-      response.json().then((data)=>{
-        console.log(data)
-        welcomeDiv.innerHTML = `${data.name} Welcome to Turbo Ticket`
-      })
-    })
-  }
-  welcome()
+  
    
 
 var updateUserForm = document.getElementById('updateUserForm')
@@ -111,8 +75,12 @@ fetch(`/users/me`, {
   }).then((response)=>{
       response.json().then((data)=>{
 console.log('success',data)
-alert('UPDATE SUCCESSFUL')
-location.assign('/editUser')
+welcomeDiv.innerHTML='UPDATE SUCCESSFUL...'
+
+setTimeout(()=>{
+location.assign('/profile')
+}, 2000)
+
       })
   })
 })

@@ -13,14 +13,14 @@ logoutButton.addEventListener('click', (e)=>{
   e.preventDefault()
   fetch('/users/logout').then((response)=>{
     console.log(document.cookie)
-    mainHeader.setAttribute('class','text-danger')
+    mainHeader.setAttribute('class','text-danger text-center')
     mainHeader.innerHTML = `<strong>Logging out</strong>`
 
     setTimeout(()=>{
      
       window.location.assign('/login')
       
-    }, 3000)
+    }, 1500)
   })
 })
 
@@ -29,7 +29,7 @@ logoutButton.addEventListener('click', (e)=>{
     fetch('/users/me').then((response)=>{
       response.json().then((data)=>{
         console.log(data)
-        welcomeDiv.innerHTML = `${data.name} Welcome to Turbo Ticket`
+        welcomeDiv.innerHTML = `${data.name}: ${data.jobtitle}`
       })
     })
   }

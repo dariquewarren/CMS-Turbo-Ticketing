@@ -62,11 +62,7 @@ app.get('/register',(req, res )=>{
      res.render('register', {layout: 'register'})
 })
 
-app.get('/categories.html',(req, res )=>{
-    // res.send('helloooooooooo')
-    //  res.sendFile(viewsPath + '/categories.hbs' )
-     res.render('categories')
-})
+
 
 app.get('/edituser',(req, res )=>{
     // res.send('helloooooooooo')
@@ -97,11 +93,7 @@ app.get('/profile.html',(req, res )=>{
      res.render('profile', {layout: 'profile'})
 })
 
-app.get('/settings.html',(req, res )=>{
-    // res.send('helloooooooooo')
-    //  res.sendFile(viewsPath + '/main.hbs' )
-     res.render('settings', {layout: 'settings'})
-})
+
 
 
 
