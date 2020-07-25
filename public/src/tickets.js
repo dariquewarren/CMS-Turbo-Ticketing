@@ -1,10 +1,41 @@
 var checkForCookie = ()=>{
-    if(!document.cookie){
-      return location.assign('/login')
-    }
-    }
+  if(!document.cookie){
+    return location.assign('/login')
+  }
+  }
+  
+  checkForCookie()
+
+  var welcomeDiv = document.getElementById('welcomeID')
+var logoutButton = document.getElementById('logoutButton')
+var mainHeader = document.getElementById('mainHeader')
+logoutButton.addEventListener('click', (e)=>{
+  e.preventDefault()
+  fetch('/users/logout').then((response)=>{
+    console.log(document.cookie)
+    mainHeader.setAttribute('class','text-danger text-center')
     
-    checkForCookie()
+    mainHeader.innerHTML = `<strong>Logging out</strong>`
+
+    setTimeout(()=>{
+     
+      window.location.assign('/login')
+      
+    }, 1500)
+  })
+})
+
+  // buttons
+  var welcome = ()=>{
+    fetch('/users/me').then((response)=>{
+      response.json().then((data)=>{
+        console.log(data)
+        welcomeDiv.innerHTML = `${data.name}: ${data.jobtitle}`
+      })
+    })
+  }
+  welcome()
+
 var dropdownMenuButton = document.getElementById('dropdownMenuButton')
 
 var completedInput = document.getElementById('completedInput')
