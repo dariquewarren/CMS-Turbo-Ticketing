@@ -63,7 +63,7 @@ var getAllTasks = ()=>{
              var deleteButton = document.createElement('button')
               
 
-              deleteButton.innerText = 'DELETE TICKET'
+              deleteButton.innerText = 'DELETE'
               deleteButton.setAttribute('type', 'button')
               deleteButton.setAttribute('class', 'card bg-danger text-warning')
               deleteButton.addEventListener('click', (e)=>{
@@ -146,7 +146,7 @@ var byCreatedAt = () =>{
                 var deleteButton = document.createElement('button')
               
 
-              deleteButton.innerText = 'DELETE TICKET'
+              deleteButton.innerText = 'DELETE'
               deleteButton.setAttribute('type', 'button')
               deleteButton.setAttribute('class', 'card bg-danger text-warning')
               deleteButton.addEventListener('click', (e)=>{
@@ -229,7 +229,7 @@ var byUpdatedAt = () =>{
                 var deleteButton = document.createElement('button')
               
 
-                deleteButton.innerText = 'DELETE TICKET'
+                deleteButton.innerText = 'DELETE'
                 deleteButton.setAttribute('type', 'button')
                 deleteButton.setAttribute('class', 'card bg-danger text-warning')
                 deleteButton.addEventListener('click', (e)=>{
@@ -305,7 +305,7 @@ var completeTasksOnly = () =>{
                 var deleteButton = document.createElement('button')
               
 
-              deleteButton.innerText = 'DELETE TICKET'
+              deleteButton.innerText = 'DELETE'
               deleteButton.setAttribute('type', 'button')
               deleteButton.setAttribute('class', 'card bg-danger text-warning')
               deleteButton.addEventListener('click', (e)=>{
@@ -382,7 +382,7 @@ var incompleteTasksOnly = () =>{
                 var deleteButton = document.createElement('button')
               
 
-                deleteButton.innerText = 'DELETE TICKET'
+                deleteButton.innerText = 'DELETE'
                 deleteButton.setAttribute('type', 'button')
                 deleteButton.setAttribute('class', 'card bg-danger text-warning')
                 deleteButton.addEventListener('click', (e)=>{
