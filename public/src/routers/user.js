@@ -60,6 +60,7 @@ router.post('/users/login', async (req, res) => {
     try {
         const user = await User.findByCredentials(req.body.email, req.body.password)
         const token = await user.generateAuthToken()
+       
         res.cookie('auth_token', token)
         res.send(user)
         res.render('/index.html')
@@ -68,17 +69,9 @@ router.post('/users/login', async (req, res) => {
     }
 })
 
-router.post('/users/logout', auth, async (req, res) => {
-    try {
-        req.user.tokens = req.user.tokens.filter((token) => {
-            return token.token !== req.token
-        })
-        await req.user.save()
-
-        res.send()
-    } catch (e) {
-        res.status(500).send()
-    }
+router.get('/users/logout', auth, async (req, res) => {
+    res.clearCookie('auth_token')
+    res.send()
 })
 
 
@@ -112,7 +105,7 @@ GOAL REFACTOR THE UPDATE PROFILE ROUTE HANDLER
 
 router.patch('/users/me', auth, async (req, res) => {
     const updates = Object.keys(req.body)
-    const allowedUpdates = ['name', 'email', 'password', 'age']
+    const allowedUpdates = ['name', 'jobtitle', 'about', 'birthday']
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
 
     if (!isValidOperation) {

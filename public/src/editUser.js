@@ -1,4 +1,27 @@
+var checkForCookie = ()=>{
+  if(!document.cookie){
+    return location.assign('/login')
+  }
+  }
   
+  checkForCookie()
+
+
+  var welcomeDiv = document.getElementById('welcomeID')
+  var logoutButton = document.getElementById('logoutButton')
+
+  logoutButton.addEventListener('click', (e)=>{
+    e.preventDefault()
+    fetch('/users/logout').then((response)=>{
+      console.log(document.cookie)
+    alert('you are now logged out')
+    window.location.assign('/index')
+    })
+  })
+  // buttons
+  
+   
+
 var updateUserForm = document.getElementById('updateUserForm')
 
 var completedInput = document.getElementById('completedInput')
@@ -52,8 +75,12 @@ fetch(`/users/me`, {
   }).then((response)=>{
       response.json().then((data)=>{
 console.log('success',data)
-alert('UPDATE SUCCESSFUL')
-location.assign('/details.html')
+welcomeDiv.innerHTML='UPDATE SUCCESSFUL...'
+
+setTimeout(()=>{
+location.assign('/profile')
+}, 2000)
+
       })
   })
 })

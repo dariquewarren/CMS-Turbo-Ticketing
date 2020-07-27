@@ -1,24 +1,42 @@
-<body class="bg-dark">
-    <h6 class="text-center bg-dark text-success">
-      SIGNUP BELOW
+<body class="bg-dark text-center">
+    <h6 class="text-center bg-dark text-warning">
+      SIGNUP BELOW <i class="fa fa-id-badge text-secondary "></i>
     </h6>
-    <form id="createUserForm" class="card">
-      
-      <input type="text" id="userName"  class="card-header" placeholder="NAME"/>
-      <input type="text"  id="userEmail"  class="card-header" placeholder="EMAIL" />
-      <input type="text" id="userPassword"  class="card-header" placeholder="PASSWORD"/>
-      <button class="btn btn-dark text-success">REGISTER ACCOUNT</button>
+    <form id="createUserForm" class="card bg-dark">
+  
+ <input type="text" id="userName"  class="btn bg-dark text-success  border border-success" placeholder="NAME"/>
+      <input type="text" id="userTitle"  class="btn bg-dark text-success  border border-success" placeholder="JOB TITLE"/>
+      <textarea name="userAbout" id="userAbout" class="btn  bg-dark text-success border border-success" placeholder="ABOUT YOU" cols="4" rows="4"></textarea>
+    
+      <input type="text"  id="userEmail"  class="btn  bg-dark text-success border border-success" placeholder="EMAIL" />
+      <input type="password" id="userPassword"  class="btn  bg-dark text-success border border-success" placeholder="PASSWORD"/>
+  
+ <h4 class="text-warning">
+ <i class="fa fa-birthday-cake text-success"></i>BIRTHDAY<i class="fa fa-birthday-cake text-success"></i>
+          </h4>      
+
+
+             <span class="text-success">DAY</span>  
+      <input type="number" min="01" max="31" id="birthdayInput" class="row   bg-dark text-success text-center border border-success" placeholder="00">
+<span class="text-success">Month</span>
+<select name="birthmonthInput" id="birthmonthInput" class="row  bg-dark  text-success text-center border border-success" >
+   <option value="no month selected" class="row text-center  text-success btn-dark border border-success"></option>
+   <option value="January">01 January</option>
+    <option value="February">02 February</option>
+     <option value="March">03 March</option>
+      <option value="April">04 April</option>
+         <option value="May">05 May</option>
+    <option value="June">06 June</option>
+     <option value="July">07 July</option>
+      <option value="August">08 August</option>
+         <option value="September">09 September</option>
+    <option value="October">10 October</option>
+     <option value="November">11 November</option>
+      <option value="December">12 December</option>
+ </select>
+ 
+
+      <button class="btn btn-dark  border border-success text-success">REGISTER ACCOUNT   <i class="fa fa-fighter-jet"></i></button>
     </form>
-    {{!-- <form class="card" id="createTaskForm">
 
-         <textarea name="titleInput" id="titleInput" placeholder="Title Goes Here" cols="30" rows="2" class="card-header"></textarea>
-            
-        <textarea name="descriptionInput" id="descriptionInput" placeholder="DESCRIPTION GOES HERE" cols="30" rows="2" class="card-header"></textarea>
-
-           
-<textarea name="completedInput" id="completedInput" placeholder="TYPE TRUE OR FALSE" cols="30" rows="2" class="card-header"></textarea>
-        
-          
-         <button class="btn btn-dark text-warning" >CREATE TICKET</button>        
-        </form> --}}
   </body>

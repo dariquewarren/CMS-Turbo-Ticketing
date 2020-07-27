@@ -3,12 +3,12 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const Tasks = require('./task')
-const { Timestamp } = require('mongodb')
+
 const userSchema = mongoose.Schema({
     name: {
 
         type: String,
-        required: true,
+       required: true,
         trim: true
         },
     email: {
@@ -35,17 +35,21 @@ throw new Error('Invalid Email')
                 }
             }
         },
-    age: {
-            type: Number,
-            default: 0,
-            validate (value) {
-                if (value < 0){
-                    throw new Error('age must be positive number')
-                }      
-        }
+    birthday: {
+            type: String,
+            default: 'No birthday included',
+            
        
-        },
-
+        }, about: {
+default: 'THIS PERSON IS PRIVATE. PLEASE RESPECT THAT.',
+            type: String,
+            trim: true
+            },
+            jobtitle: {
+                default: 'JOB TITLE NEEDED',
+                type: String,
+                trim: true
+                },
         tokens: [{
             token: {
                 type: String,

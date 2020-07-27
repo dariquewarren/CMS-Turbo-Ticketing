@@ -1,5 +1,40 @@
+var checkForCookie = ()=>{
+  if(!document.cookie){
+    return location.assign('/login')
+  }
+  }
+  
+  checkForCookie()
 
+  var welcomeDiv = document.getElementById('welcomeID')
+var logoutButton = document.getElementById('logoutButton')
+var mainHeader = document.getElementById('mainHeader')
+logoutButton.addEventListener('click', (e)=>{
+  e.preventDefault()
+  fetch('/users/logout').then((response)=>{
+    console.log(document.cookie)
+    mainHeader.setAttribute('class','text-danger text-center')
+    mainHeader.innerHTML = `<strong>Logging out</strong>`
 
+    setTimeout(()=>{
+     
+      window.location.assign('/login')
+      
+    }, 1500)
+  })
+})
+
+  // buttons
+  var welcome = ()=>{
+    fetch('/users/me').then((response)=>{
+      response.json().then((data)=>{
+        console.log(data)
+        welcomeDiv.innerHTML = `${data.name}: ${data.jobtitle}`
+      })
+    })
+  }
+  welcome()
+   
 // var messageOne = document.getElementById('testParagraph')
 // var testDiv = document.getElementById('testDiv')
 // var testList = document.getElementById('testList')
@@ -12,11 +47,6 @@ var incompleteButton = document.getElementById('incompleteButton')
 var createdButton = document.getElementById('createdButton')
 var updatedButton = document.getElementById('updatedButton')
 var allTicketsButton = document.getElementById('allTicketsButton')
-
-
-// buttons
-
-
 var getAllTasks = ()=>{
     fetch(`/tasks`).then((response)=> {
     
@@ -48,7 +78,7 @@ var getAllTasks = ()=>{
                     response.json().then((data)=>{
                         console.log(data)
                     })
-                    window.location.assign('/index.html')
+                    window.location.assign('/index')
                       })
                 
               })
@@ -77,7 +107,8 @@ var getAllTasks = ()=>{
             row.classList.add('card-header')
 
             var cell1 = row.insertCell(0);
-            cell1.setAttribute('class', 'card-body bg-dark')
+             cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-center')
+           
             var cell2 = row.insertCell(1)
             cell2.setAttribute('class', 'card-body bg-dark')
             var cell3 = row.insertCell(2)
@@ -130,7 +161,7 @@ var byCreatedAt = () =>{
                     response.json().then((data)=>{
                         console.log(data)
                     })
-                    window.location.assign('/index.html')   
+                    window.location.assign('/index')   
                  })
                 
               })
@@ -156,7 +187,7 @@ var byCreatedAt = () =>{
                 row.classList.add('card-header')
     
                 var cell1 = row.insertCell(0);
-                cell1.setAttribute('class', 'card-body bg-dark')
+                cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-center')
                 var cell2 = row.insertCell(1)
                 cell2.setAttribute('class', 'card-body bg-dark')
                 var cell3 = row.insertCell(2)
@@ -183,7 +214,7 @@ var byUpdatedAt = () =>{
                 alert(data.error)
             }
 
-            const tasks = data.sort((a, b) => b.updatedAt - a.updatedAt)
+            const tasks = data.sort((a, b) => a.updatedAt - b.updatedAt)
             console.log(tasks)
             var trueTasks = []
             tasks.forEach((e)=>{
@@ -213,7 +244,7 @@ var byUpdatedAt = () =>{
                       response.json().then((data)=>{
                           console.log(data)
                       })
-                      window.location.assign('/index.html')
+                      window.location.assign('/index')
                     })
                   
                 })
@@ -239,7 +270,8 @@ var byUpdatedAt = () =>{
                 row.classList.add('card-header')
     
                 var cell1 = row.insertCell(0);
-                cell1.setAttribute('class', 'card-body bg-dark')
+                cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-center')
+           
                 var cell2 = row.insertCell(1)
                 cell2.setAttribute('class', 'card-body bg-dark')
                 var cell3 = row.insertCell(2)
@@ -288,7 +320,7 @@ var completeTasksOnly = () =>{
                     response.json().then((data)=>{
                         console.log(data)
                     })
-                    window.location.assign('/index.html')
+                    window.location.assign('/index')
                 })
                 
               })  
@@ -313,7 +345,7 @@ var completeTasksOnly = () =>{
                 row.classList.add('card-header')
     
                 var cell1 = row.insertCell(0);
-                cell1.setAttribute('class', 'card-body bg-dark')
+                cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-center')
                 var cell2 = row.insertCell(1)
                 cell2.setAttribute('class', 'card-body bg-dark')
                 var cell3 = row.insertCell(2)
@@ -365,7 +397,7 @@ var incompleteTasksOnly = () =>{
                       response.json().then((data)=>{
                           console.log(data)
                       })
-                      window.location.assign('/index.html')     })
+                      window.location.assign('/index')     })
                   
                 })
 
@@ -390,8 +422,8 @@ var incompleteTasksOnly = () =>{
                row.classList.add('card-header')
    
                var cell1 = row.insertCell(0);
-               cell1.setAttribute('class', 'card-body bg-dark')
-               var cell2 = row.insertCell(1)
+               cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-center')
+            var cell2 = row.insertCell(1)
                cell2.setAttribute('class', 'card-body bg-dark')
                var cell3 = row.insertCell(2)
                cell3.setAttribute('class', 'card-body bg-dark')

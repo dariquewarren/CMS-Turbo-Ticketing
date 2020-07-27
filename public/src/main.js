@@ -39,10 +39,14 @@ app.use(taskRouter)
 app.get('/',(req, res )=>{
     // res.send('helloooooooooo')
     //  res.sendFile(viewsPath + '/main.hbs' )
-     res.render('index', {layout: 'index'})
+     res.render('login', {layout: 'login'})
 })
 
-
+app.get('/profile',(req, res )=>{
+    // res.send('helloooooooooo')
+    //  res.sendFile(viewsPath + '/main.hbs' )
+     res.render('profile', {layout: 'profile'})
+})
 
 app.get('/tickets',(req, res )=>{
     // res.send('helloooooooooo')
@@ -52,40 +56,36 @@ app.get('/tickets',(req, res )=>{
 })
 
 
-app.get('/register.html',(req, res )=>{
+app.get('/register',(req, res )=>{
     // res.send('helloooooooooo')
     //  res.sendFile(viewsPath + '/categories.hbs' )
      res.render('register', {layout: 'register'})
 })
 
-app.get('/categories.html',(req, res )=>{
-    // res.send('helloooooooooo')
-    //  res.sendFile(viewsPath + '/categories.hbs' )
-     res.render('categories')
-})
 
-app.get('/details.html',(req, res )=>{
+
+app.get('/edituser',(req, res )=>{
     // res.send('helloooooooooo')
     //  res.sendFile(viewsPath + '/main.hbs' )
-     res.render('details', {layout: 'details'})
+     res.render('edit', {layout: 'edit'})
 })
 
-app.get('/index.html',(req, res )=>{
+app.get('/index',(req, res )=>{
     // res.send('helloooooooooo')
     //  res.sendFile(viewsPath + '/main.hbs' )
      res.render('index', {layout: 'index'})
 })
 
 
-app.get('/login.html',(req, res )=>{
+app.get('/login',(req, res )=>{
     // res.send('helloooooooooo')
     //  res.sendFile(viewsPath + '/main.hbs' )
      res.render('login', {layout: 'login'})
 })
-app.get('/posts.html',(req, res )=>{
+app.get('/createticket',(req, res )=>{
     // res.send('helloooooooooo')
     //  res.sendFile(viewsPath + '/main.hbs' )
-     res.render('posts', {layout: 'posts'})
+     res.render('createTicket', {layout: 'createTicket'})
 })
 app.get('/profile.html',(req, res )=>{
     // res.send('helloooooooooo')
@@ -93,16 +93,8 @@ app.get('/profile.html',(req, res )=>{
      res.render('profile', {layout: 'profile'})
 })
 
-app.get('/settings.html',(req, res )=>{
-    // res.send('helloooooooooo')
-    //  res.sendFile(viewsPath + '/main.hbs' )
-     res.render('settings', {layout: 'settings'})
-})
-app.get('/users.html',(req, res )=>{
-    // res.send('helloooooooooo')
-    //  res.sendFile(viewsPath + '/main.hbs' )
-     res.render('users', {layout: 'users'})
-})
+
+
 
 
 
