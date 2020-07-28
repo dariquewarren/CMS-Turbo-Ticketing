@@ -8,14 +8,35 @@ var checkForCookie = ()=>{
 
   var welcomeDiv = document.getElementById('welcomeID')
 var logoutButton = document.getElementById('logoutButton')
+var deleteUserButton = document.getElementById('deleteUserButton')
+deleteUserButton.addEventListener('click', (e)=>{
+  e.preventDefault()
+  fetch('/users/me',{
+    method: 'DELETE', // or 'PUT'
+    headers: {
+      'Content-Type': 'application/json',
+      }
+ 
+  }).then((response)=>{
+    console.log(document.cookie)
+    
+    welcomeDiv.innerHTML = `<strong>${response.email} has been deleted </strong>`
+
+    setTimeout(()=>{
+     
+      window.location.assign('/login')
+      
+    }, 3000)
+  })
+})
 var mainHeader = document.getElementById('mainHeader')
 logoutButton.addEventListener('click', (e)=>{
   e.preventDefault()
+  
   fetch('/users/logout').then((response)=>{
     console.log(document.cookie)
-    mainHeader.setAttribute('class','text-danger text-center')
-    mainHeader.innerHTML = `<strong>Logging out</strong>`
-
+   welcomeDiv.innerHTML = `<strong>Logging out</strong>`
+console.log(response)
     setTimeout(()=>{
      
       window.location.assign('/login')
@@ -107,8 +128,8 @@ var getAllTasks = ()=>{
             row.classList.add('card-header')
 
             var cell1 = row.insertCell(0);
-             cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-center')
-           
+             cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-wrap')
+           cell1.setAttribute('style', "width: 6rem;")
             var cell2 = row.insertCell(1)
             cell2.setAttribute('class', 'card-body bg-dark')
             var cell3 = row.insertCell(2)
@@ -187,15 +208,16 @@ var byCreatedAt = () =>{
                 row.classList.add('card-header')
     
                 var cell1 = row.insertCell(0);
-                cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-center')
+                cell1.setAttribute('class', 'card-body bg-light w-25 text-primary border border-primary text-center')
                 var cell2 = row.insertCell(1)
                 cell2.setAttribute('class', 'card-body bg-dark')
                 var cell3 = row.insertCell(2)
                 cell3.setAttribute('class', 'card-body bg-dark')
-                
+                var titleCell = document.createElement('span')
+                titleCell.innerHTML = `${element.title}`
                 cell1.innerHTML= `${element.title}`
                 cell2.appendChild(idButton)
-                cell3.appendChild(deleteButton)    
+                cell2.appendChild(deleteButton)    
            
              });
 
