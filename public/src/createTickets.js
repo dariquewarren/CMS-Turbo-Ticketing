@@ -12,8 +12,8 @@ var mainHeader = document.getElementById('mainHeader')
 logoutButton.addEventListener('click', (e)=>{
   e.preventDefault()
   fetch('/users/logout').then((response)=>{
-    console.log(document.cookie)
-    mainHeader.setAttribute('class','text-danger text-center')
+    
+    
     mainHeader.innerHTML = `<strong>Logging out</strong>`
 
     setTimeout(()=>{
