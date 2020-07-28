@@ -46,7 +46,7 @@ var quoteDiv = document.getElementById('quoteDiv')
 var authorDiv = document.getElementById('authorDiv')
 
 var getQuote=()=>{
-    fetch("http://quotes.stormconsultancy.co.uk/random.json", {
+    fetch("https://quotes.stormconsultancy.co.uk/random.json", {
         "method": "GET",
         
     })
