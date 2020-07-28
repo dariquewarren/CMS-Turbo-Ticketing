@@ -8,14 +8,35 @@ var checkForCookie = ()=>{
 
   var welcomeDiv = document.getElementById('welcomeID')
 var logoutButton = document.getElementById('logoutButton')
+var deleteUserButton = document.getElementById('deleteUserButton')
+deleteUserButton.addEventListener('click', (e)=>{
+  e.preventDefault()
+  fetch('/users/me',{
+    method: 'DELETE', // or 'PUT'
+    headers: {
+      'Content-Type': 'application/json',
+      }
+ 
+  }).then((response)=>{
+    console.log(document.cookie)
+    
+    welcomeDiv.innerHTML = `<strong>${response.email} has been deleted </strong>`
+
+    setTimeout(()=>{
+     
+      window.location.assign('/login')
+      
+    }, 3000)
+  })
+})
 var mainHeader = document.getElementById('mainHeader')
 logoutButton.addEventListener('click', (e)=>{
   e.preventDefault()
+  
   fetch('/users/logout').then((response)=>{
     console.log(document.cookie)
-    mainHeader.setAttribute('class','text-danger text-center')
-    mainHeader.innerHTML = `<strong>Logging out</strong>`
-
+   welcomeDiv.innerHTML = `<strong>Logging out</strong>`
+console.log(response)
     setTimeout(()=>{
      
       window.location.assign('/login')
