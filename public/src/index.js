@@ -1,3 +1,5 @@
+
+
 var checkForCookie = ()=>{
   if(!document.cookie){
     return location.assign('/login')
@@ -105,7 +107,7 @@ var getAllTasks = ()=>{
               })
 
               var idButton = document.createElement('button')
-              idButton.innerText = 'UPDATE '
+              idButton.innerHTML = 'VIEW/<br>UPDATE '
               idButton.setAttribute('type', 'button')
               idButton.setAttribute('class', 'card bg-success text-white')
               
@@ -129,23 +131,17 @@ var getAllTasks = ()=>{
 
             var cell1 = row.insertCell(0);
              cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-wrap')
-           cell1.setAttribute('style', "width: 6rem;")
-            var cell2 = row.insertCell(1)
-            cell2.setAttribute('class', 'card-body bg-dark')
-            var cell3 = row.insertCell(2)
-            cell3.setAttribute('class', 'card-body bg-dark')
-            
-            cell1.innerHTML= `${element.title}`
-            cell2.appendChild(idButton)
-            cell3.appendChild(deleteButton)    
+    
+           
+            cell1.innerHTML= `Title:<br> ${element.title}<br>Completed?:<br>${element.completed}`
+            cell1.appendChild(idButton)
+            cell1.appendChild(deleteButton)    
           });
           
     })
     })
-    
+    logoutButton.focus()
 }
-
-
 
 var byCreatedAt = () =>{
     fetch('/tasks').then((response)=>{
@@ -153,17 +149,42 @@ var byCreatedAt = () =>{
          if(data.error){
                 alert(data.error)
             }
-            const tasks = data.sort((a, b) => b.createdAt - a.createdAt)
-            console.log(tasks)
-            var trueTasks = []
-            tasks.forEach((e)=>{
-               trueTasks.push(e)
-            })
+           
+         
+        
+        var ddwTime = []
+        for (i=0;i<data.length;i++){
+          var newdate = Date.parse(data[i].createdAt)
+          ddwTime.push({
+            _id: data[i]._id,
+            title: data[i].title,
+            completed: data[i].completed,
+            oldDate: data[i].updatedAt,
+            newDate: newdate})
+        }
+             console.log('ddwTime', ddwTime)
+        var sortedddwtime = ddwTime.sort(function(a,b){
+         return a.newDate - b.newDate
+        })
+        console.log(sortedddwtime)
+          //  var timeArray= data.map((d)=>{
+        //   var realTime = Date.parse(d.createdAt)
+
+        //   return realTime
+        //   })
+          // // console.log(timeArray)
+
+          //   const tasks = data.sort((a, b) => b.createdAt - a.createdAt)
+          //   console.log(tasks)
+          //   var trueTasks = []
+          //   tasks.forEach((e)=>{
+          //      trueTasks.push(e)
+          //   })
 
            
             table.innerHTML= ``
-          console.log(trueTasks)
-            trueTasks.forEach((element)=> {
+      
+            sortedddwtime.forEach((element)=> {
                 var deleteButton = document.createElement('button')
               
 
@@ -188,7 +209,7 @@ var byCreatedAt = () =>{
               })
                 
               var idButton = document.createElement('button')
-              idButton.innerText = 'UPDATE '
+              idButton.innerHTML = 'VIEW/<br>UPDATE '
               idButton.setAttribute('type', 'button')
               idButton.setAttribute('class', 'card bg-success text-white')
               
@@ -203,22 +224,17 @@ var byCreatedAt = () =>{
                     location.assign(`/tickets?${element._id}`)
                   })
 
-                table.classList.add('table','table-striped')
-                var row = table.insertRow(0);
-                row.classList.add('card-header')
-    
-                var cell1 = row.insertCell(0);
-                cell1.setAttribute('class', 'card-body bg-light w-25 text-primary border border-primary text-center')
-                var cell2 = row.insertCell(1)
-                cell2.setAttribute('class', 'card-body bg-dark')
-                var cell3 = row.insertCell(2)
-                cell3.setAttribute('class', 'card-body bg-dark')
-                var titleCell = document.createElement('span')
-                titleCell.innerHTML = `${element.title}`
-                cell1.innerHTML= `${element.title}`
-                cell2.appendChild(idButton)
-                cell2.appendChild(deleteButton)    
-           
+                  table.classList.add('table','table-striped')
+                  var row = table.insertRow(0);
+                  row.classList.add('card-header')
+      
+                  var cell1 = row.insertCell(0);
+                   cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-wrap')
+          
+                 
+                  cell1.innerHTML= `Title:<br> ${element.title}<br>Completed?:<br>${element.completed}`
+                  cell1.appendChild(idButton)
+                  cell1.appendChild(deleteButton)    
              });
 
 
@@ -236,18 +252,35 @@ var byUpdatedAt = () =>{
                 alert(data.error)
             }
 
-            const tasks = data.sort((a, b) => a.updatedAt - b.updatedAt)
-            console.log(tasks)
-            var trueTasks = []
-            tasks.forEach((e)=>{
-               trueTasks.push(e)
-               console.log(e)
+
+            var ddwTime = []
+            for (i=0;i<data.length;i++){
+              var newdate = Date.parse(data[i].updatedAt)
+              ddwTime.push({
+                _id: data[i]._id,
+                title: data[i].title,
+                completed: data[i].completed,
+                oldDate: data[i].updatedAt,
+                newDate: newdate})
+            }
+            console.log('ddwTime', ddwTime)
+            var sortedddwtime = ddwTime.sort(function(a,b){
+             return a.newDate - b.newDate
             })
+            console.log(sortedddwtime)
+
+            // const tasks = data.sort((a, b) => a.updatedAt - b.updatedAt)
+            // console.log(tasks)
+            // var trueTasks = []
+            // tasks.forEach((e)=>{
+            //    trueTasks.push(e)
+            //    console.log(e)
+            // })
 
            
             table.innerHTML= ``
-            console.log(trueTasks)
-            trueTasks.forEach((element)=> {
+            
+            sortedddwtime.forEach((element)=> {
                 var deleteButton = document.createElement('button')
               
 
@@ -271,7 +304,7 @@ var byUpdatedAt = () =>{
                   
                 })
                 var idButton = document.createElement('button')
-                idButton.innerText = 'UPDATE '
+                idButton.innerHTML = 'VIEW/<br>UPDATE '
                 idButton.setAttribute('type', 'button')
                 idButton.setAttribute('class', 'card bg-success text-white')
                 
@@ -286,28 +319,22 @@ var byUpdatedAt = () =>{
                     location.assign(`/tickets?${element._id}`)
                   })
   
-
-                table.classList.add('table','table-striped')
-                var row = table.insertRow(0);
-                row.classList.add('card-header')
-    
-                var cell1 = row.insertCell(0);
-                cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-center')
-           
-                var cell2 = row.insertCell(1)
-                cell2.setAttribute('class', 'card-body bg-dark')
-                var cell3 = row.insertCell(2)
-                cell3.setAttribute('class', 'card-body bg-dark')
-                
-                cell1.innerHTML= `${element.title}`
-                cell2.appendChild(idButton)
-                cell3.appendChild(deleteButton)    
-             
+                  table.classList.add('table','table-striped')
+                  var row = table.insertRow(0);
+                  row.classList.add('card-header')
+      
+                  var cell1 = row.insertCell(0);
+                   cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-wrap')
+          
+                 
+                  cell1.innerHTML= `Title:<br> ${element.title}<br>Completed?:<br>${element.completed}`
+                  cell1.appendChild(idButton)
+                  cell1.appendChild(deleteButton)    
               });
         })
     })
 }
-
+// filter by complete
 var completeTasksOnly = () =>{
     fetch('/tasks').then((response)=>{
         response.json().then((data)=>{
@@ -347,7 +374,7 @@ var completeTasksOnly = () =>{
                 
               })  
               var idButton = document.createElement('button')
-              idButton.innerText = 'UPDATE '
+              idButton.innerHTML = 'VIEW/<br>UPDATE '
               idButton.setAttribute('type', 'button')
               idButton.setAttribute('class', 'card bg-success text-white')
               
@@ -362,25 +389,23 @@ var completeTasksOnly = () =>{
                     location.assign(`/tickets?${element._id}`)
                                  })
 
-                table.classList.add('table','table-striped')
-                var row = table.insertRow(0);
-                row.classList.add('card-header')
-    
-                var cell1 = row.insertCell(0);
-                cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-center')
-                var cell2 = row.insertCell(1)
-                cell2.setAttribute('class', 'card-body bg-dark')
-                var cell3 = row.insertCell(2)
-                cell3.setAttribute('class', 'card-body bg-dark')
-                
-                cell1.innerHTML= `${element.title}`
-                cell2.appendChild(idButton)
-                cell3.appendChild(deleteButton)    
+                                 table.classList.add('table','table-striped')
+                                 var row = table.insertRow(0);
+                                 row.classList.add('card-header')
+                     
+                                 var cell1 = row.insertCell(0);
+                                  cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-wrap')
+                         
+                                
+                                 cell1.innerHTML= `Title:<br> ${element.title}<br>Completed?:<br>${element.completed}`
+                                 cell1.appendChild(idButton)
+                                 cell1.appendChild(deleteButton)    
                  });
         })
     })
 }
 
+// filter by incomplete
 var incompleteTasksOnly = () =>{
     fetch('/tasks').then((response)=>{
         response.json().then((data)=>{
@@ -425,7 +450,7 @@ var incompleteTasksOnly = () =>{
 
   
                 var idButton = document.createElement('button')
-                idButton.innerText = 'UPDATE '
+                idButton.innerHTML = 'VIEW/<br>UPDATE '
                 idButton.setAttribute('type', 'button')
                 idButton.setAttribute('class', 'card bg-success text-white')
                 
@@ -439,21 +464,17 @@ var incompleteTasksOnly = () =>{
                     location.assign(`/tickets?${element._id}`)
                   })
 
-               table.classList.add('table','table-striped')
-               var row = table.insertRow(0);
-               row.classList.add('card-header')
-   
-               var cell1 = row.insertCell(0);
-               cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-center')
-            var cell2 = row.insertCell(1)
-               cell2.setAttribute('class', 'card-body bg-dark')
-               var cell3 = row.insertCell(2)
-               cell3.setAttribute('class', 'card-body bg-dark')
-               
-               cell1.innerHTML= `${element.title}`
-               cell2.appendChild(idButton)
-               cell3.appendChild(deleteButton)    
-           
+                  table.classList.add('table','table-striped')
+                  var row = table.insertRow(0);
+                  row.classList.add('card-header')
+      
+                  var cell1 = row.insertCell(0);
+                   cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-wrap')
+          
+                 
+                  cell1.innerHTML= `Title:<br> ${element.title}<br>Completed?:<br>${element.completed}`
+                  cell1.appendChild(idButton)
+                  cell1.appendChild(deleteButton)    
                 });
         })
     })
