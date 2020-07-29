@@ -4,30 +4,32 @@
    
 <div class="dropdown bg-dark text-success">
   <button class="dropdown-toggle bg-dark text-success" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    SORT TICKETS BY
+    SORT/FILTER TICKETS BY...
     
   </button>
   <div class="dropdown-menu bg-dark text-success" aria-labelledby="dropdownMenuButton">
-    
-           <form id="completeButton" class="dropdown-item">
-       <button class="bg-dark text-success">COMPLETE</button>
+
+    <form id="allTicketsButton" class="dropdown-item bg-dark ">
+   <button class="bg-dark text-success">See All Tickets</button>
+</form>
+
+           <form id="completeButton" class="dropdown-item bg-dark">
+       <button class="bg-dark text-success">Filter Complete Only</button>
     </form>
-    <form id="incompleteButton" class="dropdown-item">
-     <button class="bg-dark text-success"> NOT COMPLETE</button>
+    <form id="incompleteButton" class="dropdown-item bg-dark">
+     <button class="bg-dark text-success">Filter NOT Complete</button>
     </form>
     
 
-<form  id="createdButton" class="dropdown-item">
-      <button class="bg-dark text-success">Recently Created</button> 
+<form  id="createdButton" class="dropdown-item bg-dark">
+      <button class="bg-dark text-success">Sort By: Most Recently Created</button> 
     </form>
-    <form id="updatedButton" class="dropdown-item">
-       <button class="bg-dark text-success">Recently Updated</button>
+    <form id="updatedButton" class="dropdown-item bg-dark">
+       <button class="bg-dark text-success">Sort By: Most Recently Updated</button>
     </form>
     
     
-    <form id="allTicketsButton" class="dropdown-item ">
-   <button class="bg-dark text-success">All Tickets</button>
-</form>
+
 
   </div>
 </div>
