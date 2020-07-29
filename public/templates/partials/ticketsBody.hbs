@@ -2,13 +2,54 @@
 
 
 <div id="mainHeader"></div>
+<div class="text-center text-primary">
+  
+        
+<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+  UPDATE TICKET
+</button>       
+        
+</div>
+ <form action="" class="card text-center text-success bg-dark">
 
-<div class="col">
+        <span class="btn btn-dark text-primary"> TITLE</span>
+            <header id="titleHeader"></header>
+      <span class="btn btn-dark text-primary">  DETAILS</span>
+ <header id="detailsHeader"></header>
+ <span class="btn btn-dark text-primary"> COMPLETED</i></span>
+        <header id="completedHeader"></header>
+      </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+     
+      <div class="modal-body bg-dark">
+ <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">Exit</span>
+        </button><br><br>
      <form class="form-group text-center bg-secondary" id="createTaskForm">
 <h6>Title <br> <i class="fa fa-arrow-down"></i></h6>
-         <textarea  maxlength="50" name="titleInput" id="titleInput" placeholder="Title Goes Here" cols="30" rows="2" class="form-control text-success bg-dark"></textarea>
+         <textarea  maxlength="50" name="titleInput" id="titleInput" placeholder="Title Goes Here" cols="30" rows="2" class="form-control text-success text-center bg-dark"></textarea>
             <h6>DETAILS <br> <i class="fa fa-arrow-down"></i></h6>
-        <textarea maxlength="1000" name="detailsInput" id="detailsInput" placeholder="DESCRIPTION GOES HERE" cols="30" rows="2" class="form-control text-success bg-dark"></textarea>
+        <textarea maxlength="1000" name="detailsInput" id="detailsInput" placeholder="DESCRIPTION GOES HERE" cols="30" rows="2" class="form-control text-success text-center bg-dark"></textarea>
 
      
 <h6>COMPLETED <br> <i class="fa fa-arrow-down"></i> </h6>
@@ -21,5 +62,14 @@
 </div>   
 
          
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
 
 </body>

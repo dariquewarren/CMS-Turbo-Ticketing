@@ -52,6 +52,9 @@ var details = document.getElementById('details')
 var title = document.getElementById('title')
 var id = document.getElementById('id')
 
+var titleHeader = document.getElementById('titleHeader')
+var detailsHeader = document.getElementById('detailsHeader')
+var completedHeader = document.getElementById('completedHeader')
 
 var myWindow = window.location.search
 
@@ -69,7 +72,9 @@ var retrieveTicket = ()=>{
             titleInput.innerHTML = `${data.title}`
             detailsInput.innerHTML = `${data.details}`
             
-
+            titleHeader.innerHTML = `${data.title}`
+            detailsHeader.innerHTML = `${data.details}`
+            completedHeader.innerHTML = `${data.completed}`
         })
     })
 }

@@ -107,7 +107,7 @@ var getAllTasks = ()=>{
               })
 
               var idButton = document.createElement('button')
-              idButton.innerText = 'UPDATE '
+              idButton.innerHTML = 'VIEW/<br>UPDATE '
               idButton.setAttribute('type', 'button')
               idButton.setAttribute('class', 'card bg-success text-white')
               
@@ -140,10 +140,8 @@ var getAllTasks = ()=>{
           
     })
     })
-    
+    logoutButton.focus()
 }
-
-
 
 var byCreatedAt = () =>{
     fetch('/tasks').then((response)=>{
@@ -211,7 +209,7 @@ var byCreatedAt = () =>{
               })
                 
               var idButton = document.createElement('button')
-              idButton.innerText = 'UPDATE '
+              idButton.innerHTML = 'VIEW/<br>UPDATE '
               idButton.setAttribute('type', 'button')
               idButton.setAttribute('class', 'card bg-success text-white')
               
@@ -306,7 +304,7 @@ var byUpdatedAt = () =>{
                   
                 })
                 var idButton = document.createElement('button')
-                idButton.innerText = 'UPDATE '
+                idButton.innerHTML = 'VIEW/<br>UPDATE '
                 idButton.setAttribute('type', 'button')
                 idButton.setAttribute('class', 'card bg-success text-white')
                 
@@ -376,7 +374,7 @@ var completeTasksOnly = () =>{
                 
               })  
               var idButton = document.createElement('button')
-              idButton.innerText = 'UPDATE '
+              idButton.innerHTML = 'VIEW/<br>UPDATE '
               idButton.setAttribute('type', 'button')
               idButton.setAttribute('class', 'card bg-success text-white')
               
@@ -452,7 +450,7 @@ var incompleteTasksOnly = () =>{
 
   
                 var idButton = document.createElement('button')
-                idButton.innerText = 'UPDATE '
+                idButton.innerHTML = 'VIEW/<br>UPDATE '
                 idButton.setAttribute('type', 'button')
                 idButton.setAttribute('class', 'card bg-success text-white')
                 
