@@ -129,7 +129,7 @@ var getAllTasks = ()=>{
 
             var cell1 = row.insertCell(0);
              cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-wrap')
-           cell1.setAttribute('style', "width: 6rem;")
+    
            
             cell1.innerHTML= `Title:<br> ${element.title}<br>Completed?:<br>${element.completed}`
             cell1.appendChild(idButton)
@@ -199,22 +199,17 @@ var byCreatedAt = () =>{
                     location.assign(`/tickets?${element._id}`)
                   })
 
-                table.classList.add('table','table-striped')
-                var row = table.insertRow(0);
-                row.classList.add('card-header')
-    
-                var cell1 = row.insertCell(0);
-                cell1.setAttribute('class', 'card-body bg-light w-25 text-primary border border-primary text-center')
-                var cell2 = row.insertCell(1)
-                cell2.setAttribute('class', 'card-body bg-dark')
-                var cell3 = row.insertCell(2)
-                cell3.setAttribute('class', 'card-body bg-dark')
-                var titleCell = document.createElement('span')
-                titleCell.innerHTML = `${element.title}`
-                cell1.innerHTML= `${element.title}`
-                cell2.appendChild(idButton)
-                cell2.appendChild(deleteButton)    
-           
+                  table.classList.add('table','table-striped')
+                  var row = table.insertRow(0);
+                  row.classList.add('card-header')
+      
+                  var cell1 = row.insertCell(0);
+                   cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-wrap')
+          
+                 
+                  cell1.innerHTML= `Title:<br> ${element.title}<br>Completed?:<br>${element.completed}`
+                  cell1.appendChild(idButton)
+                  cell1.appendChild(deleteButton)    
              });
 
 
@@ -282,23 +277,17 @@ var byUpdatedAt = () =>{
                     location.assign(`/tickets?${element._id}`)
                   })
   
-
-                table.classList.add('table','table-striped')
-                var row = table.insertRow(0);
-                row.classList.add('card-header')
-    
-                var cell1 = row.insertCell(0);
-                cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-center')
-           
-                var cell2 = row.insertCell(1)
-                cell2.setAttribute('class', 'card-body bg-dark')
-                var cell3 = row.insertCell(2)
-                cell3.setAttribute('class', 'card-body bg-dark')
-                
-                cell1.innerHTML= `${element.title}`
-                cell2.appendChild(idButton)
-                cell3.appendChild(deleteButton)    
-             
+                  table.classList.add('table','table-striped')
+                  var row = table.insertRow(0);
+                  row.classList.add('card-header')
+      
+                  var cell1 = row.insertCell(0);
+                   cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-wrap')
+          
+                 
+                  cell1.innerHTML= `Title:<br> ${element.title}<br>Completed?:<br>${element.completed}`
+                  cell1.appendChild(idButton)
+                  cell1.appendChild(deleteButton)    
               });
         })
     })
@@ -358,20 +347,17 @@ var completeTasksOnly = () =>{
                     location.assign(`/tickets?${element._id}`)
                                  })
 
-                table.classList.add('table','table-striped')
-                var row = table.insertRow(0);
-                row.classList.add('card-header')
-    
-                var cell1 = row.insertCell(0);
-                cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-center')
-                var cell2 = row.insertCell(1)
-                cell2.setAttribute('class', 'card-body bg-dark')
-                var cell3 = row.insertCell(2)
-                cell3.setAttribute('class', 'card-body bg-dark')
-                
-                cell1.innerHTML= `${element.title}`
-                cell2.appendChild(idButton)
-                cell3.appendChild(deleteButton)    
+                                 table.classList.add('table','table-striped')
+                                 var row = table.insertRow(0);
+                                 row.classList.add('card-header')
+                     
+                                 var cell1 = row.insertCell(0);
+                                  cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-wrap')
+                         
+                                
+                                 cell1.innerHTML= `Title:<br> ${element.title}<br>Completed?:<br>${element.completed}`
+                                 cell1.appendChild(idButton)
+                                 cell1.appendChild(deleteButton)    
                  });
         })
     })
@@ -435,21 +421,17 @@ var incompleteTasksOnly = () =>{
                     location.assign(`/tickets?${element._id}`)
                   })
 
-               table.classList.add('table','table-striped')
-               var row = table.insertRow(0);
-               row.classList.add('card-header')
-   
-               var cell1 = row.insertCell(0);
-               cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-center')
-            var cell2 = row.insertCell(1)
-               cell2.setAttribute('class', 'card-body bg-dark')
-               var cell3 = row.insertCell(2)
-               cell3.setAttribute('class', 'card-body bg-dark')
-               
-               cell1.innerHTML= `${element.title}`
-               cell2.appendChild(idButton)
-               cell3.appendChild(deleteButton)    
-           
+                  table.classList.add('table','table-striped')
+                  var row = table.insertRow(0);
+                  row.classList.add('card-header')
+      
+                  var cell1 = row.insertCell(0);
+                   cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-wrap')
+          
+                 
+                  cell1.innerHTML= `Title:<br> ${element.title}<br>Completed?:<br>${element.completed}`
+                  cell1.appendChild(idButton)
+                  cell1.appendChild(deleteButton)    
                 });
         })
     })
