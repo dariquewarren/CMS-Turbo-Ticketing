@@ -1,3 +1,5 @@
+
+
 var checkForCookie = ()=>{
   if(!document.cookie){
     return location.assign('/login')
@@ -149,17 +151,42 @@ var byCreatedAt = () =>{
          if(data.error){
                 alert(data.error)
             }
-            const tasks = data.sort((a, b) => b.createdAt - a.createdAt)
-            console.log(tasks)
-            var trueTasks = []
-            tasks.forEach((e)=>{
-               trueTasks.push(e)
-            })
+           
+         
+        
+        var ddwTime = []
+        for (i=0;i<data.length;i++){
+          var newdate = Date.parse(data[i].createdAt)
+          ddwTime.push({
+            _id: data[i]._id,
+            title: data[i].title,
+            completed: data[i].completed,
+            oldDate: data[i].updatedAt,
+            newDate: newdate})
+        }
+             console.log('ddwTime', ddwTime)
+        var sortedddwtime = ddwTime.sort(function(a,b){
+         return a.newDate - b.newDate
+        })
+        console.log(sortedddwtime)
+          //  var timeArray= data.map((d)=>{
+        //   var realTime = Date.parse(d.createdAt)
+
+        //   return realTime
+        //   })
+          // // console.log(timeArray)
+
+          //   const tasks = data.sort((a, b) => b.createdAt - a.createdAt)
+          //   console.log(tasks)
+          //   var trueTasks = []
+          //   tasks.forEach((e)=>{
+          //      trueTasks.push(e)
+          //   })
 
            
             table.innerHTML= ``
-          console.log(trueTasks)
-            trueTasks.forEach((element)=> {
+      
+            sortedddwtime.forEach((element)=> {
                 var deleteButton = document.createElement('button')
               
 
@@ -227,18 +254,35 @@ var byUpdatedAt = () =>{
                 alert(data.error)
             }
 
-            const tasks = data.sort((a, b) => a.updatedAt - b.updatedAt)
-            console.log(tasks)
-            var trueTasks = []
-            tasks.forEach((e)=>{
-               trueTasks.push(e)
-               console.log(e)
+
+            var ddwTime = []
+            for (i=0;i<data.length;i++){
+              var newdate = Date.parse(data[i].updatedAt)
+              ddwTime.push({
+                _id: data[i]._id,
+                title: data[i].title,
+                completed: data[i].completed,
+                oldDate: data[i].updatedAt,
+                newDate: newdate})
+            }
+            console.log('ddwTime', ddwTime)
+            var sortedddwtime = ddwTime.sort(function(a,b){
+             return a.newDate - b.newDate
             })
+            console.log(sortedddwtime)
+
+            // const tasks = data.sort((a, b) => a.updatedAt - b.updatedAt)
+            // console.log(tasks)
+            // var trueTasks = []
+            // tasks.forEach((e)=>{
+            //    trueTasks.push(e)
+            //    console.log(e)
+            // })
 
            
             table.innerHTML= ``
-            console.log(trueTasks)
-            trueTasks.forEach((element)=> {
+            
+            sortedddwtime.forEach((element)=> {
                 var deleteButton = document.createElement('button')
               
 
@@ -292,7 +336,7 @@ var byUpdatedAt = () =>{
         })
     })
 }
-
+// filter by complete
 var completeTasksOnly = () =>{
     fetch('/tasks').then((response)=>{
         response.json().then((data)=>{
@@ -363,6 +407,7 @@ var completeTasksOnly = () =>{
     })
 }
 
+// filter by incomplete
 var incompleteTasksOnly = () =>{
     fetch('/tasks').then((response)=>{
         response.json().then((data)=>{
