@@ -131,9 +131,11 @@ var getAllTasks = ()=>{
 
             var cell1 = row.insertCell(0);
              cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-wrap')
+    var cell2 = row.insertCell(1)
     
            
             cell1.innerHTML= `Title:<br> ${element.title}<br>Completed?:<br>${element.completed}`
+            cell2.innerHTML= `${element.completed}`
             cell1.appendChild(idButton)
             cell1.appendChild(deleteButton)    
           });
