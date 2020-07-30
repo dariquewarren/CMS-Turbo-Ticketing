@@ -52,7 +52,7 @@ console.log(response)
     fetch('/users/me').then((response)=>{
       response.json().then((data)=>{
         console.log(data)
-        welcomeDiv.innerHTML = `${data.name}: ${data.jobtitle}`
+        welcomeDiv.innerHTML = `Welcome back, ${data.name}`
       })
     })
   }
