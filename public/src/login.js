@@ -1,5 +1,20 @@
-console.log(document.cookies)
+var welcomeDiv = document.getElementById('welcomeDiv')
 
+if(document.cookie){
+  console.log('COOKIE',document.cookie)
+  fetch('users/me').then((response)=>{
+    console.log('RESPONSE',response)
+response.json().then((data)=>{
+  console.log('data', data)
+  
+  welcomeDiv.innerHTML =` ${data.email} is already logged in <br> Redirecting`
+}).then(()=>{
+  setTimeout(()=>{
+location.assign('/profile')
+  }, 3000)
+})
+  })
+}
 
 let loginForm = document.getElementById('loginForm')
 let emailInput = document.getElementById('emailInput')
