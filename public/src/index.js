@@ -143,7 +143,7 @@ var getAllTasks = ()=>{
           
     })
     })
-    logoutButton.focus()
+    
 }
 
 var byCreatedAt = () =>{
