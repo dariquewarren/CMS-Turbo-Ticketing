@@ -52,7 +52,7 @@ console.log(response)
     fetch('/users/me').then((response)=>{
       response.json().then((data)=>{
         console.log(data)
-        welcomeDiv.innerHTML = `${data.name}: ${data.jobtitle}`
+        welcomeDiv.innerHTML = `Welcome back, ${data.name}`
       })
     })
   }
@@ -107,7 +107,7 @@ var getAllTasks = ()=>{
               })
 
               var idButton = document.createElement('button')
-              idButton.innerHTML = 'VIEW/<br>UPDATE '
+              idButton.innerHTML = 'VIEW OR UPDATE '
               idButton.setAttribute('type', 'button')
               idButton.setAttribute('class', 'card bg-success text-white')
               
@@ -130,17 +130,20 @@ var getAllTasks = ()=>{
             row.classList.add('card-header')
 
             var cell1 = row.insertCell(0);
-             cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-wrap')
+             cell1.setAttribute('class', 'card-body bg-dark text-primary border border-primary text-wrap')
+    var cell2 = row.insertCell(1)
+    cell2.setAttribute('class', 'card-body bg-dark text-primary border border-primary text-wrap')
     
            
-            cell1.innerHTML= `Title:<br> ${element.title}<br>Completed?:<br>${element.completed}`
-            cell1.appendChild(idButton)
+            cell1.innerHTML= `Title:<br> ${element.title}`
+            cell2.innerHTML= `Completed:<br>${element.completed}`
+            cell2.appendChild(idButton)
             cell1.appendChild(deleteButton)    
           });
           
     })
     })
-    logoutButton.focus()
+    
 }
 
 var byCreatedAt = () =>{
@@ -229,13 +232,16 @@ var byCreatedAt = () =>{
                   row.classList.add('card-header')
       
                   var cell1 = row.insertCell(0);
-                   cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-wrap')
+                   cell1.setAttribute('class', 'card-body bg-dark text-primary border border-primary text-wrap')
+          var cell2 = row.insertCell(1)
+          cell2.setAttribute('class', 'card-body bg-dark text-primary border border-primary text-wrap')
           
                  
-                  cell1.innerHTML= `Title:<br> ${element.title}<br>Completed?:<br>${element.completed}`
-                  cell1.appendChild(idButton)
+                  cell1.innerHTML= `Title:<br> ${element.title}`
+                  cell2.innerHTML= `Completed:<br>${element.completed}`
+                  cell2.appendChild(idButton)
                   cell1.appendChild(deleteButton)    
-             });
+                   });
 
 
 
@@ -324,11 +330,14 @@ var byUpdatedAt = () =>{
                   row.classList.add('card-header')
       
                   var cell1 = row.insertCell(0);
-                   cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-wrap')
+                   cell1.setAttribute('class', 'card-body bg-dark text-primary border border-primary text-wrap')
+          var cell2 = row.insertCell(1)
+          cell2.setAttribute('class', 'card-body bg-dark text-primary border border-primary text-wrap')
           
                  
-                  cell1.innerHTML= `Title:<br> ${element.title}<br>Completed?:<br>${element.completed}`
-                  cell1.appendChild(idButton)
+                  cell1.innerHTML= `Title:<br> ${element.title}`
+                  cell2.innerHTML= `Completed:<br>${element.completed}`
+                  cell2.appendChild(idButton)
                   cell1.appendChild(deleteButton)    
               });
         })
@@ -394,13 +403,16 @@ var completeTasksOnly = () =>{
                                  row.classList.add('card-header')
                      
                                  var cell1 = row.insertCell(0);
-                                  cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-wrap')
+                                  cell1.setAttribute('class', 'card-body bg-dark text-primary border border-primary text-wrap')
+                         var cell2 = row.insertCell(1)
+                         cell2.setAttribute('class', 'card-body bg-dark text-primary border border-primary text-wrap')
                          
                                 
-                                 cell1.innerHTML= `Title:<br> ${element.title}<br>Completed?:<br>${element.completed}`
-                                 cell1.appendChild(idButton)
+                                 cell1.innerHTML= `Title:<br> ${element.title}`
+                                 cell2.innerHTML= `Completed:<br>${element.completed}`
+                                 cell2.appendChild(idButton)
                                  cell1.appendChild(deleteButton)    
-                 });
+                               });
         })
     })
 }
@@ -469,13 +481,16 @@ var incompleteTasksOnly = () =>{
                   row.classList.add('card-header')
       
                   var cell1 = row.insertCell(0);
-                   cell1.setAttribute('class', 'card-body bg-light text-primary border border-primary text-wrap')
+                   cell1.setAttribute('class', 'card-body bg-dark text-primary border border-primary text-wrap')
+          var cell2 = row.insertCell(1)
+          cell2.setAttribute('class', 'card-body bg-dark text-primary border border-primary text-wrap')
           
                  
-                  cell1.innerHTML= `Title:<br> ${element.title}<br>Completed?:<br>${element.completed}`
-                  cell1.appendChild(idButton)
+                  cell1.innerHTML= `Title:<br> ${element.title}`
+                  cell2.innerHTML= `Completed:<br>${element.completed}`
+                  cell2.appendChild(idButton)
                   cell1.appendChild(deleteButton)    
-                });
+                      });
         })
     })
 }

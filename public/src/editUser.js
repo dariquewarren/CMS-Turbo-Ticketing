@@ -38,7 +38,7 @@ var getUserData = ()=>{
     fetch('/users/me').then((response)=>{
         response.json().then((data)=>{
             console.log('get',data)
-           
+           welcomeDiv.innerHTML = `Welcome back, ${data.name}`
            userName.value =`${data.name}`
            jobTitle.value =`${data.jobtitle}`
            userAbout.value = `${data.about}`
