@@ -21,6 +21,7 @@ let emailInput = document.getElementById('emailInput')
 let passwordInput = document.getElementById('passwordInput')
 let alertDiv = document.getElementById('alertDiv')
 let notLoggedInDiv = document.getElementById('notLoggedInDiv')
+
 loginForm.addEventListener('submit', async (e)=>{
     e.preventDefault()
     var  successDiv = document.createElement('div')
