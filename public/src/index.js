@@ -72,11 +72,9 @@ var updatedButton = document.getElementById('updatedButton')
 var allTicketsButton = document.getElementById('allTicketsButton')
 var getAllTasks = ()=>{
     fetch(`/tasks`).then((response)=> {
-    
-    
-        response.json().then((data)=>{
+      response.json().then((data)=>{
            if(data.error) {
-           return    console.log(data.error)
+           return console.log(data.error)
            }
        
           table.innerHTML = ''
@@ -525,6 +523,6 @@ getAllTasks()
 })
 
 
-
-getAllTasks()
+// 
+// getAllTasks()
 //   delete button
