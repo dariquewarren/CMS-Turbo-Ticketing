@@ -50,7 +50,7 @@ var authorDiv2 = document.getElementById('authorDiv2')
 
 
 var getQuote=()=>{
-  fetch("http://quotes.stormconsultancy.co.uk/quotes.json", {
+  fetch("https://quotes.stormconsultancy.co.uk/quotes.json", {
       "method": "GET",
       
   })
