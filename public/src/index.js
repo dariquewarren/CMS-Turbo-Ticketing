@@ -79,7 +79,7 @@ var getAllTasks = ()=>{
        
           table.innerHTML = ''
 
-
+           console.log(data)
           data.forEach((element)=> {
              var deleteButton = document.createElement('button')
               
@@ -523,6 +523,5 @@ getAllTasks()
 })
 
 
-// 
-// getAllTasks()
+ getAllTasks()
 //   delete button
