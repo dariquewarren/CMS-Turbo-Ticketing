@@ -70,6 +70,187 @@ var incompleteButton = document.getElementById('incompleteButton')
 var createdButton = document.getElementById('createdButton')
 var updatedButton = document.getElementById('updatedButton')
 var allTicketsButton = document.getElementById('allTicketsButton')
+
+var searchTitleInput = document.getElementById('searchTitleInput')
+var searchTitleButton = document.getElementById('searchTitleButton')
+
+var searchDetailsInput = document.getElementById('searchDetailsInput')
+var searchDetailsButton = document.getElementById('searchDetailsButton')
+
+
+
+var getSearchedTitle = (title)=>{
+  fetch(`/tasks`).then((response)=> {
+    response.json().then((data)=>{
+         if(data.error) {
+         return console.log(data.error)
+         }
+     
+        table.innerHTML = ''
+const searchData = data.filter((f)=>{
+  return f.title.toLowerCase() === title.toLowerCase()
+}) 
+         console.log(data)
+        searchData.forEach((element)=> {
+           var deleteButton = document.createElement('button')
+            
+
+            deleteButton.innerText = 'DELETE'
+            deleteButton.setAttribute('type', 'button')
+            deleteButton.setAttribute('class', 'card bg-danger text-warning')
+            deleteButton.addEventListener('click', (e)=>{
+                e.preventDefault()
+                fetch(`tasks/${element._id}`,{
+                  method: 'DELETE', // or 'PUT'
+                  headers: {
+                    'Content-Type': 'application/json',
+                    }
+               
+                }).then((response)=>{
+                  response.json().then((data)=>{
+                      console.log(data)
+                  })
+                  window.location.assign('/index')
+                    })
+              
+            })
+
+            var idButton = document.createElement('button')
+            idButton.innerHTML = 'VIEW OR UPDATE '
+            idButton.setAttribute('type', 'button')
+            idButton.setAttribute('class', 'card bg-success text-white')
+            
+            idButton.setAttribute('data-toggle', "tooltip")
+            
+            idButton.setAttribute('data-html', 'true')
+            
+            idButton.setAttribute('title', `display task above`)
+/* <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
+Tooltip with HTML
+</button> */
+            idButton.addEventListener('click', (e)=>{
+                e.preventDefault()
+                location.assign(`/tickets?${element._id}`)
+                
+              })
+
+          table.classList.add('table','table-striped')
+          var row = table.insertRow(0);
+          row.classList.add('card-header')
+
+          var cell1 = row.insertCell(0);
+           cell1.setAttribute('class', 'card-body bg-dark text-primary border border-primary text-wrap')
+  var cell2 = row.insertCell(1)
+  cell2.setAttribute('class', 'card-body bg-dark text-primary border border-primary text-wrap')
+  
+         
+          cell1.innerHTML= `Title:<br> ${element.title}`
+          cell2.innerHTML= `Completed:<br>${element.completed}`
+          cell2.appendChild(idButton)
+          cell1.appendChild(deleteButton)    
+        });
+        
+  })
+  })
+  
+}
+var getsearchedDetails = (details)=>{
+  fetch(`/tasks`).then((response)=> {
+    response.json().then((data)=>{
+         if(data.error) {
+         return console.log(data.error)
+         }
+     
+        table.innerHTML = ''
+const searchData = [] 
+data.forEach((f)=>{
+ 
+   if(f.details.toLowerCase().includes(details.toLowerCase())){
+return searchData.push(f)
+   }
+ 
+})
+         console.log(data)
+        searchData.forEach((element)=> {
+           var deleteButton = document.createElement('button')
+            
+
+            deleteButton.innerText = 'DELETE'
+            deleteButton.setAttribute('type', 'button')
+            deleteButton.setAttribute('class', 'card bg-danger text-warning')
+            deleteButton.addEventListener('click', (e)=>{
+                e.preventDefault()
+                fetch(`tasks/${element._id}`,{
+                  method: 'DELETE', // or 'PUT'
+                  headers: {
+                    'Content-Type': 'application/json',
+                    }
+               
+                }).then((response)=>{
+                  response.json().then((data)=>{
+                      console.log(data)
+                  })
+                  window.location.assign('/index')
+                    })
+              
+            })
+
+            var idButton = document.createElement('button')
+            idButton.innerHTML = 'VIEW OR UPDATE '
+            idButton.setAttribute('type', 'button')
+            idButton.setAttribute('class', 'card bg-success text-white')
+            
+            idButton.setAttribute('data-toggle', "tooltip")
+            
+            idButton.setAttribute('data-html', 'true')
+            
+            idButton.setAttribute('title', `display task above`)
+/* <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
+Tooltip with HTML
+</button> */
+            idButton.addEventListener('click', (e)=>{
+                e.preventDefault()
+                location.assign(`/tickets?${element._id}`)
+                
+              })
+
+          table.classList.add('table','table-striped')
+          var row = table.insertRow(0);
+          row.classList.add('card-header')
+
+          var cell1 = row.insertCell(0);
+           cell1.setAttribute('class', 'card-body bg-dark text-primary border border-primary text-wrap')
+  var cell2 = row.insertCell(1)
+  cell2.setAttribute('class', 'card-body bg-dark text-primary border border-primary text-wrap')
+  
+         
+          cell1.innerHTML= `Title:<br> ${element.title}`
+          cell2.innerHTML= `Completed:<br>${element.completed}`
+          cell2.appendChild(idButton)
+          cell1.appendChild(deleteButton)    
+        });
+        
+  })
+  })
+  
+}
+
+
+searchTitleButton.addEventListener('submit', (e)=>{
+  e.preventDefault()
+console.log(searchTitleInput.value)
+
+getSearchedTitle(searchTitleInput.value) 
+})
+
+searchDetailsButton.addEventListener('submit', (e)=>{
+  e.preventDefault()
+console.log(searchDetailsInput.value)
+
+getsearchedDetails(searchDetailsInput.value) 
+})
+
+
 var getAllTasks = ()=>{
     fetch(`/tasks`).then((response)=> {
       response.json().then((data)=>{
@@ -492,9 +673,6 @@ var incompleteTasksOnly = () =>{
         })
     })
 }
-
-
-
 
 
 completeButton.addEventListener('submit', (e)=>{
