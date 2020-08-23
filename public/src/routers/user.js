@@ -5,7 +5,19 @@ const auth = require('../middleware/auth')
 const router = new express.Router()
 const hbs = require('express-handlebars')
 const app = express( )
-
+const multer = require('multer')
+const upload = ({
+    limits: {
+        fileSize: 1000000
+    }, 
+    fileFilter(req, file, cb){
+if(!file.originalname.match(/\.(jpg|jpeg|png)$/)){
+        return cb(new Error('something went wrong. check file size and file type'))
+    }
+   return cb(undefined, true)
+    }
+    
+})
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
@@ -24,7 +36,15 @@ app.engine( 'hbs', hbs( {
 
 app.set('view engine', 'hbs')
 
-
+router.post('/users/me/avatar', auth, upload.single('avatar'), async (req, res)=>{
+  req.user.avatar = req.file.buffer
+   await req.user.save()
+   
+   
+    res.send()
+}, (error, res, next)=>{
+res.status(400).send({ error: error.message})
+})
 
 
 
