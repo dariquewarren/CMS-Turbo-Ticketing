@@ -30,9 +30,9 @@ var jobTitle = document.getElementById('jobTitle')
 var userAbout = document.getElementById('userAbout')
 var userAge = document.getElementById('userAge')
 
-
-
-
+let avatarInput = document.getElementById('avatarInput')
+let avatarForm = document.getElementById('avatarForm')
+let avatarImage = document.getElementById('avatarImage')
 
 var getUserData = ()=>{
     fetch('/users/me').then((response)=>{
@@ -42,10 +42,33 @@ var getUserData = ()=>{
            userName.value =`${data.name}`
            jobTitle.value =`${data.jobtitle}`
            userAbout.value = `${data.about}`
+          
+           
+          avatarImage.src = `/users/${data._id}/avatar`
+          
         })
     })
 }
 getUserData()
+// let getAvatar = ()=>{
+//  fetch(`/users/${userId}/avatar`).then((response)=>{
+//              console.log(response)
+//            })
+// }
+
+// getAvatar()
+
+avatarForm.addEventListener('submit', (e)=>{
+  e.preventDefault()
+  fetch(`/users/me/avatar`,{
+    method: 'POST', // or 'PUT'
+    headers: {
+      'Content-Type': 'image/jpg',
+      },
+    file: avatarInput.value,
+  })
+  console.log(avatarInput.value)
+})
 
 
 updateUserForm.addEventListener('submit', (e)=>{
