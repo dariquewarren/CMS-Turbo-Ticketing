@@ -7,7 +7,7 @@ const hbs = require('express-handlebars')
 const app = express()
 const sharp = require('sharp')
 const multer = require('multer')
-const upload = ({
+const upload = multer({
     limits: {
         fileSize: 1000000
     }, 
