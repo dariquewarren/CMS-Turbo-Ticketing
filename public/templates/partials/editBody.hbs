@@ -3,20 +3,27 @@
 
 <div id="mainHeader">
        
-<section>
- <details class="text-center justify-center">
-       <summary class="bg-dark text-warning">Upload an avatar</summary>
-       <form class="card col text-left bg-dark text-warning text-center" id="avatarForm" action="/users/me/avatar" method="POST" enctype="multipart/form-data" >
-    <h6>
- <input class="card bg-dark text-success text-center border border-success w-25" type="file" name="avatar" >
-      <button class="card bg-dark text-success text-center border border-success w-25">SUBMIT AVATAR</button>
-    </h6>
+<section  >
+      
+      <div class="d-flex  bd-highlight justify-content-center">
+ <details >
+       <summary class="bg-dark text-warning text-center">USER AVATAR</summary>
+      
+ <form class="form bg-dark text-warning text-center" id="avatarForm" action="/users/me/avatar" method="POST" enctype="multipart/form-data" >
+   Size Limit (~10 MB)<br>
+ <input  class="form-input bg-light text-success text-center" type="file" name="avatar" >
+    <br>  <button class="btn btn-dark text-success text-center border border-success">SUBMIT</button>
+    <button id="deleteAvatar" class="btn btn-danger text-light">DELETE</button>
+
      
 </form>
+     
  </details>
+ </div>
+  <h4 class="card-header bg-dark text-secondary text-center">UPDATE USER INFO</h4> 
 
        <form class="card col text-left bg-dark text-white text-center" id="updateUserForm">
- <h4 class="card-header bg-dark text-secondary">UPDATE USER INFO</h4>       
+       
        
  Name<input type="text" id="userName"  class="card bg-dark text-success text-center border border-success" placeholder="NAME"/>
 Job Title      <input type="text" id="jobTitle"  class="card  bg-dark  text-success text-center border border-success" placeholder="JOB TITLE"/>

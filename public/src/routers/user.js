@@ -38,13 +38,17 @@ app.engine( 'hbs', hbs( {
 app.set('view engine', 'hbs')
 
 router.post('/users/me/avatar', auth, upload.single('avatar'), async (req, res)=>{
+    if(!req.file){
+return res.redirect('/editUser')
+    }
     const buffer = await sharp(req.file.buffer).resize({width:50, height: 50}).png().toBuffer()
+    
     req.user.avatar = buffer
     //   req.user.avatar = req.file.buffer
    await req.user.save()
    
    
-    res.redirect('/profile')
+    res.redirect('/editUser')
 }, (error, res, next)=>{
 res.status(400).send({ error: error.message})
 })

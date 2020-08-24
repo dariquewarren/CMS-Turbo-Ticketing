@@ -15,7 +15,7 @@ var checkForCookie = ()=>{
     fetch('/users/logout').then((response)=>{
       console.log(document.cookie)
     alert('you are now logged out')
-    window.location.assign('/index')
+    window.location.assign('/editUser')
     })
   })
   // buttons
@@ -30,8 +30,7 @@ var jobTitle = document.getElementById('jobTitle')
 var userAbout = document.getElementById('userAbout')
 var userAge = document.getElementById('userAge')
 
-let avatarForm = document.getElementById('avatarForm')
-let avatarImage = document.getElementById('avatarImage')
+var deleteAvatar = document.getElementById('deleteAvatar')
 
 var getUserData = ()=>{
     fetch('/users/me').then((response)=>{
@@ -40,20 +39,38 @@ var getUserData = ()=>{
             welcomeDiv.innerHTML = ``
             var avatarImage = document.createElement('img')
             var nameParagraph = document.createElement('p')
+            var avatarButton = document.createElement('button')
+            avatarButton.setAttribute('class', 'border border-danger btn btn-dark text-success')
+    
             avatarImage.src = `/users/${data._id}/avatar`
             nameParagraph.innerHTML = `Welcome ${data.name}`
-            welcomeDiv.append(avatarImage)
-            welcomeDiv.append(nameParagraph)
-    
-            welcomeDiv.setAttribute('class', 'border border-danger btn btn-dark text-success')
-        
-          
-        })
+            avatarButton.append(avatarImage)
+            avatarButton.append(nameParagraph)
+            welcomeDiv.append(avatarButton)
+    avatarButton.addEventListener('click', (e)=>{
+      e.preventDefault()
+      location.assign('/profile')
+      }) 
     })
+  })
 }
 getUserData()
 
-
+deleteAvatar.addEventListener('click', (e)=>{
+  e.preventDefault()
+  fetch(`users/me/avatar`,{
+    method: 'DELETE', // or 'PUT'
+    headers: {
+      'Content-Type': 'image/png',
+      }
+ 
+  }).then((response)=>{
+    console.log(response)
+    location.assign('/editUser')
+  }).catch((e)=>{
+    console.log(e)
+  })
+})
 
 updateUserForm.addEventListener('submit', (e)=>{
     e.preventDefault()
