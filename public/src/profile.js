@@ -29,7 +29,15 @@ logoutButton.addEventListener('click', (e)=>{
     fetch('/users/me').then((response)=>{
       response.json().then((data)=>{
         console.log(data)
-        welcomeDiv.innerHTML = `Welcome back, ${data.name}`
+        welcomeDiv.innerHTML = ``
+        var avatarImage = document.createElement('img')
+        var nameParagraph = document.createElement('p')
+        avatarImage.src = `/users/${data._id}/avatar`
+        nameParagraph.innerHTML = `Welcome ${data.name}`
+        welcomeDiv.append(avatarImage)
+        welcomeDiv.append(nameParagraph)
+
+        welcomeDiv.setAttribute('class', 'border border-danger btn btn-dark text-success')
       })
     })
   }
@@ -126,7 +134,6 @@ var getUser = ()=>{
             userAboutDiv.innerHTML = `${data.about}`
             userAgeDiv.innerHTML = `${data.birthday}`
             userEmailDiv.innerHTML = `${data.email.toUpperCase()}`
-            avatarImage.src = `/users/${data._id}/avatar`
         })
     })
 }
