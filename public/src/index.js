@@ -7,7 +7,7 @@ var checkForCookie = ()=>{
   }
   
   checkForCookie()
-
+var avatarImage = document.getElementById('avatarImage')
   var welcomeDiv = document.getElementById('welcomeID')
 var logoutButton = document.getElementById('logoutButton')
 var deleteUserButton = document.getElementById('deleteUserButton')
@@ -53,6 +53,7 @@ console.log(response)
       response.json().then((data)=>{
         console.log(data)
         welcomeDiv.innerHTML = `Welcome back, ${data.name}`
+        avatarImage.src = `/users/${data._id}/avatar`
       })
     })
   }
