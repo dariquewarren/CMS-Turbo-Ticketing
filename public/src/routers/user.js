@@ -44,7 +44,7 @@ router.post('/users/me/avatar', auth, upload.single('avatar'), async (req, res)=
    await req.user.save()
    
    
-    res.send()
+    res.redirect('/profile')
 }, (error, res, next)=>{
 res.status(400).send({ error: error.message})
 })
