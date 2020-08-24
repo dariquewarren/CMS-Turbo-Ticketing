@@ -15,7 +15,7 @@ var checkForCookie = ()=>{
     fetch('/users/logout').then((response)=>{
       console.log(document.cookie)
     alert('you are now logged out')
-    window.location.assign('/index')
+    window.location.assign('/editUser')
     })
   })
   // buttons
