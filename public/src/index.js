@@ -7,7 +7,7 @@ var checkForCookie = ()=>{
   }
   
   checkForCookie()
-var avatarImage = document.getElementById('avatarImage')
+
   var welcomeDiv = document.getElementById('welcomeID')
 var logoutButton = document.getElementById('logoutButton')
 var deleteUserButton = document.getElementById('deleteUserButton')
@@ -52,8 +52,15 @@ console.log(response)
     fetch('/users/me').then((response)=>{
       response.json().then((data)=>{
         console.log(data)
-        welcomeDiv.innerHTML = `Welcome back, ${data.name}`
+      welcomeDiv.innerHTML = ``
+        var avatarImage = document.createElement('img')
+        var nameParagraph = document.createElement('p')
         avatarImage.src = `/users/${data._id}/avatar`
+        nameParagraph.innerHTML = `Welcome ${data.name}`
+        welcomeDiv.append(avatarImage)
+        welcomeDiv.append(nameParagraph)
+
+        welcomeDiv.setAttribute('class', 'border border-danger btn btn-dark text-success')
       })
     })
   }

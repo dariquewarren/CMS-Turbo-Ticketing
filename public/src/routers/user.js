@@ -38,7 +38,7 @@ app.engine( 'hbs', hbs( {
 app.set('view engine', 'hbs')
 
 router.post('/users/me/avatar', auth, upload.single('avatar'), async (req, res)=>{
-    const buffer = await sharp(req.file.buffer).resize({width:100, height: 100}).png().toBuffer()
+    const buffer = await sharp(req.file.buffer).resize({width:50, height: 50}).png().toBuffer()
     req.user.avatar = buffer
     //   req.user.avatar = req.file.buffer
    await req.user.save()
