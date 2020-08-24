@@ -58,17 +58,15 @@ getUserData()
 
 // getAvatar()
 
-avatarForm.addEventListener('submit', (e)=>{
-  e.preventDefault()
-  fetch(`/users/me/avatar`,{
-    method: 'POST', // or 'PUT'
-    headers: {
-      'Content-Type': 'image/jpg',
-      },
-    file: avatarInput.value,
-  })
-  console.log(avatarInput.value)
-})
+// avatarForm.addEventListener('submit', (e)=>{
+//   e.preventDefault()
+//   fetch(`/users/me/avatar`,{
+//     method: 'POST', // or 'PUT'
+    
+//     body: avatarInput.files[0],
+//   })
+//   console.log(avatarInput.files[0])
+// })
 
 
 updateUserForm.addEventListener('submit', (e)=>{
