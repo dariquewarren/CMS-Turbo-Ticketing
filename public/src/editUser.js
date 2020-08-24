@@ -30,8 +30,7 @@ var jobTitle = document.getElementById('jobTitle')
 var userAbout = document.getElementById('userAbout')
 var userAge = document.getElementById('userAge')
 
-let avatarForm = document.getElementById('avatarForm')
-let avatarImage = document.getElementById('avatarImage')
+var deleteAvatar = document.getElementById('deleteAvatar')
 
 var getUserData = ()=>{
     fetch('/users/me').then((response)=>{
@@ -53,7 +52,21 @@ var getUserData = ()=>{
 }
 getUserData()
 
-
+deleteAvatar.addEventListener('click', (e)=>{
+  e.preventDefault()
+  fetch(`users/me/avatar`,{
+    method: 'DELETE', // or 'PUT'
+    headers: {
+      'Content-Type': 'image/png',
+      }
+ 
+  }).then((response)=>{
+    console.log(response)
+    location.assign('/editUser')
+  }).catch((e)=>{
+    console.log(e)
+  })
+})
 
 updateUserForm.addEventListener('submit', (e)=>{
     e.preventDefault()
