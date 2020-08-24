@@ -30,22 +30,29 @@ var jobTitle = document.getElementById('jobTitle')
 var userAbout = document.getElementById('userAbout')
 var userAge = document.getElementById('userAge')
 
-
-
-
+let avatarForm = document.getElementById('avatarForm')
+let avatarImage = document.getElementById('avatarImage')
 
 var getUserData = ()=>{
     fetch('/users/me').then((response)=>{
         response.json().then((data)=>{
             console.log('get',data)
-           welcomeDiv.innerHTML = `Welcome back, ${data.name}`
-           userName.value =`${data.name}`
-           jobTitle.value =`${data.jobtitle}`
-           userAbout.value = `${data.about}`
+            welcomeDiv.innerHTML = ``
+            var avatarImage = document.createElement('img')
+            var nameParagraph = document.createElement('p')
+            avatarImage.src = `/users/${data._id}/avatar`
+            nameParagraph.innerHTML = `Welcome ${data.name}`
+            welcomeDiv.append(avatarImage)
+            welcomeDiv.append(nameParagraph)
+    
+            welcomeDiv.setAttribute('class', 'border border-danger btn btn-dark text-success')
+        
+          
         })
     })
 }
 getUserData()
+
 
 
 updateUserForm.addEventListener('submit', (e)=>{

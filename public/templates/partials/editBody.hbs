@@ -1,14 +1,26 @@
 <body class="container bg-dark">
 
 
-<div id="mainHeader"></div>
+<div id="mainHeader">
+       
+<section>
+ <details class="text-center justify-center">
+       <summary class="bg-dark text-warning">Upload an avatar</summary>
+       <form class="card col text-left bg-dark text-warning text-center" id="avatarForm" action="/users/me/avatar" method="POST" enctype="multipart/form-data" >
+    <h6>
+ <input class="card bg-dark text-success text-center border border-success w-25" type="file" name="avatar" >
+      <button class="card bg-dark text-success text-center border border-success w-25">SUBMIT AVATAR</button>
+    </h6>
+     
+</form>
+ </details>
 
        <form class="card col text-left bg-dark text-white text-center" id="updateUserForm">
  <h4 class="card-header bg-dark text-secondary">UPDATE USER INFO</h4>       
        
- Name<input type="text" id="userName"  class="row bg-dark text-success text-center border border-success" placeholder="NAME"/>
-Job Title      <input type="text" id="jobTitle"  class="row  bg-dark  text-success text-center border border-success" placeholder="JOB TITLE"/>
- About Me     <textarea name="userAbout" id="userAbout" class="row  bg-dark text-success  text-center border border-success" placeholder="ABOUT YOU" cols="4" rows="2"></textarea>
+ Name<input type="text" id="userName"  class="card bg-dark text-success text-center border border-success" placeholder="NAME"/>
+Job Title      <input type="text" id="jobTitle"  class="card  bg-dark  text-success text-center border border-success" placeholder="JOB TITLE"/>
+ About Me     <textarea name="userAbout" id="userAbout" class="card  bg-dark text-success  text-center border border-success" placeholder="ABOUT YOU" cols="4" rows="2"></textarea>
             
           <h4 class="text-secondary text-center">
  <i class="fa fa-birthday-cake text-success"></i>BIRTHDAY<i class="fa fa-birthday-cake text-success"></i>
@@ -37,10 +49,10 @@ Job Title      <input type="text" id="jobTitle"  class="row  bg-dark  text-succe
         
          
         </form>
- 
+
 
    
   </section>
-
+</div>
  
 </body>

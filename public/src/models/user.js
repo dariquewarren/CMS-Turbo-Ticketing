@@ -50,12 +50,16 @@ default: 'THIS PERSON IS PRIVATE. PLEASE RESPECT THAT.',
                 type: String,
                 trim: true
                 },
+               
         tokens: [{
             token: {
                 type: String,
                 required: true
             }
-        }]
+        }],
+        avatar: {
+            type: Buffer
+        },
     },{
         timestamps: true
              
@@ -73,7 +77,7 @@ userSchema.methods.toJSON = function() {
 
     delete userObject.password
     delete userObject.tokens
-   
+    delete userObject.avatar
 
     return userObject
 }

@@ -4,8 +4,21 @@ const User = require('../models/user')
 const auth = require('../middleware/auth')
 const router = new express.Router()
 const hbs = require('express-handlebars')
-const app = express( )
-
+const app = express()
+const sharp = require('sharp')
+const multer = require('multer')
+const upload = multer({
+    limits: {
+        fileSize: 10000000
+    }, 
+    fileFilter(req, file, cb){
+if(!file.originalname.match(/\.(jpg|jpeg|png)$/)){
+        return cb(new Error('something went wrong. check file size and file type'))
+    }
+   return cb(undefined, true)
+    }
+    
+})
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
@@ -24,6 +37,40 @@ app.engine( 'hbs', hbs( {
 
 app.set('view engine', 'hbs')
 
+router.post('/users/me/avatar', auth, upload.single('avatar'), async (req, res)=>{
+    const buffer = await sharp(req.file.buffer).resize({width:50, height: 50}).png().toBuffer()
+    req.user.avatar = buffer
+    //   req.user.avatar = req.file.buffer
+   await req.user.save()
+   
+   
+    res.redirect('/profile')
+}, (error, res, next)=>{
+res.status(400).send({ error: error.message})
+})
+
+router.delete('/users/me/avatar', auth, async (req, res)=>{
+    req.user.avatar = undefined
+     await req.user.save()
+     
+     
+      res.send()
+  })
+ 
+router.get('/users/:id/avatar', async (req,res)=>{
+    try{
+        const user = await User.findById(req.params.id)
+        if(!user || !user.avatar){
+            throw new Error()
+        }
+
+        res.set('Content-Type', 'image/png')
+        res.send(user.avatar)
+
+    }catch(e){
+        res.status(404).send()
+    }
+})
 
 
 

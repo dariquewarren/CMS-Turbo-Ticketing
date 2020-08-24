@@ -1,7 +1,10 @@
 <body class="bg-dark">
     <!-- HEADER -->
   <header id="mainHeader" class=" py-2 bg-dark text-white text-center">
-   
+       
+
+
+
 <div class="btn-group dropup bg-dark text-success">
   <button class="dropdown-toggle bg-dark text-success" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     SORT/FILTER TICKETS BY...
@@ -27,13 +30,32 @@
     <form id="updatedButton" class="dropdown-item bg-dark">
        <button class="bg-dark text-success">Sort By: Most Recently Updated</button>
     </form>
-    
-    
+x
 
 
   </div>
+      
+      
+      
 </div>
-
+<br>
+<br>
+<details class="bg-dark text-success">
+      <summary class="bg-dark text-success">ADVANCED FILTERS</summary>
+ 
+<form id="searchTitleButton" class="dropdown-item bg-dark">
+     <input type="text" class="bg-white text-success border border-dark" id="searchTitleInput" placeholder=" (whole) Title">
+     <button class="bg-dark text-success">Filter by title</button>
+     
+   </form> 
+   
+   OR
+<form id="searchDetailsButton" class="dropdown-item bg-dark">
+     <input type="text" class="bg-white text-success border border-dark" id="searchDetailsInput" placeholder=" (any) Details">
+     <button class="bg-dark text-success" id="searchDetailsButton">Filter by details</button>
+     
+   </form>   
+    </details>
   
 
   </header>
