@@ -55,13 +55,20 @@ console.log(response)
       welcomeDiv.innerHTML = ``
         var avatarImage = document.createElement('img')
         var nameParagraph = document.createElement('p')
+        var avatarButton = document.createElement('button')
+        avatarButton.setAttribute('class', 'border border-danger btn btn-dark text-success')
+
         avatarImage.src = `/users/${data._id}/avatar`
         nameParagraph.innerHTML = `Welcome ${data.name}`
-        welcomeDiv.append(avatarImage)
-        welcomeDiv.append(nameParagraph)
+        avatarButton.append(avatarImage)
+        avatarButton.append(nameParagraph)
+        welcomeDiv.append(avatarButton)
+avatarButton.addEventListener('click', (e)=>{
+  e.preventDefault()
+  location.assign('/profile')
+})
 
-        welcomeDiv.setAttribute('class', 'border border-danger btn btn-dark text-success')
-      })
+              })
     })
   }
   welcome()
